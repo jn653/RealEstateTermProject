@@ -13,12 +13,14 @@ namespace RealEstateTermProject
         {
             lblquestion.Visible = false;
             txtSecuityQuestionAnswer.Visible = false;
+            lblUsernameandPassword.Visible = false;
         }
 
         protected void btnContinue_Click(object sender, EventArgs e)
         {
             lblquestion.Visible = true;
             txtSecuityQuestionAnswer.Visible = true;
+            lblUsernameandPassword.Visible = true;
             lblInstructions.Text = "Answer the security question to retreive your username and password";
             lblEmail.Text = "Securtiy Question:";
             txtEmailForgotPassword.Visible = false;

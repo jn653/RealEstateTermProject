@@ -23,7 +23,7 @@
             <asp:Label ID="lblInstructions" runat="server" ForeColor="Lime" style="z-index: 1; left: 468px; top: 225px; position: absolute" Text="Enter the email address associated with your account"></asp:Label>
             <asp:Label ID="lblquestion" runat="server" ForeColor="Lime" style="z-index: 1; left: 466px; top: 353px; position: absolute" Text="(Make random generator to randomly select security question)"></asp:Label>
         <asp:TextBox ID="txtSecuityQuestionAnswer" runat="server" style="z-index: 1; left: 577px; top: 399px; position: absolute"></asp:TextBox>
-        <asp:Label ID="lblUsernameandPassword" runat="server" ForeColor="Lime" style="z-index: 1; left: 497px; top: 577px; position: absolute"></asp:Label>
+        <asp:Label ID="lblUsernameandPassword" runat="server" ForeColor="Lime" style="z-index: 1; left: 452px; top: 572px; position: absolute">(this is where the user&#39;s username and password will appear)</asp:Label>
             <asp:TextBox ID="txtEmailForgotPassword" runat="server" style="z-index: 1; left: 577px; top: 341px; position: absolute"></asp:TextBox>
         
         <asp:Label ID="lblEmail" runat="server" ForeColor="Lime" style="z-index: 1; left: 578px; top: 313px; position: absolute" Text="Email:"></asp:Label>

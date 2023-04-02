@@ -74,14 +74,14 @@
         
         
             <asp:Label ID="lblseucrityquestion3question" runat="server" ForeColor="Lime" style="z-index: 1; left: 21px; top: 474px; position: absolute" Text="What is the name of your best friend?"></asp:Label>
-            <asp:TextBox ID="txtSecurityquestion2Answer" runat="server" BorderStyle="None" ForeColor="Silver"  style="z-index: 1; left: 250px; top: 435px; position: absolute; width: 208px"></asp:TextBox>
+            <asp:TextBox ID="txtSecurityquestion2Answer" runat="server" BorderStyle="None" ForeColor="Silver"  style="z-index: 1; left: 270px; top: 433px; position: absolute; width: 208px"></asp:TextBox>
         
         
             <asp:Label ID="labelSecurityquestion2" runat="server" ForeColor="Lime" style="z-index: 1; left: 162px; top: 355px; position: absolute" Text="Security questions"></asp:Label>
         
         
             <asp:Label ID="lblseucrityquestion1question0" runat="server" ForeColor="Lime" style="z-index: 1; left: 21px; top: 388px; position: absolute" Text="What city were you born in?"></asp:Label>
-            <asp:TextBox ID="txtSecurityquestion1Answer" runat="server" BorderStyle="None" ForeColor="Silver"  style="z-index: 1; left: 211px; top: 390px; position: absolute; width: 208px"></asp:TextBox>
+            <asp:TextBox ID="txtSecurityquestion1Answer" runat="server" BorderStyle="None" ForeColor="Silver"  style="z-index: 1; left: 267px; top: 392px; position: absolute; width: 208px"></asp:TextBox>
         
         
             <asp:Label ID="lblseucrityquestion2question0" runat="server" ForeColor="Lime" style="z-index: 1; left: 22px; top: 432px; position: absolute" Text="What is your mom's middle name?"></asp:Label>
