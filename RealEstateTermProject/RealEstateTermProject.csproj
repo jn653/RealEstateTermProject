@@ -85,7 +85,9 @@
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="ForgotPasswordPage.aspx" />
+    <Content Include="js\nav.js" />
     <Content Include="LandingPage.aspx" />
+    <Content Include="Listings.aspx" />
     <Content Include="LoginPage.aspx" />
     <Content Include="pics\emailforProject-removebg-preview.png" />
     <Content Include="pics\emailforProject.png" />
@@ -100,9 +102,12 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="SignupPage.aspx" />
+    <Content Include="styles\LandingPage.css" />
+    <Content Include="styles\nav.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Connection.cs" />
     <Compile Include="ForgotPasswordPage.aspx.cs">
       <DependentUpon>ForgotPasswordPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -116,6 +121,13 @@
     </Compile>
     <Compile Include="LandingPage.aspx.designer.cs">
       <DependentUpon>LandingPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Listings.aspx.cs">
+      <DependentUpon>Listings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Listings.aspx.designer.cs">
+      <DependentUpon>Listings.aspx</DependentUpon>
     </Compile>
     <Compile Include="LoginPage.aspx.cs">
       <DependentUpon>LoginPage.aspx</DependentUpon>
