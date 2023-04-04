@@ -11,15 +11,17 @@
            background-color:#2b2e5b;
        }
         .actionBox {
+            border-style: solid;
+            border-color: inherit;
+            border-width: 10px;
             z-index: 1;
-            left: 310px;
-            top: 78px;
+            left: 795px;
+            top: 3px;
             position: absolute;
-            height: 577px;
-            width: 577px;
-            background-color: white;
-            border:solid 10px;
-        }
+            height: 663px;
+            width: 445px;
+            background-color: #2b2e5b;
+            }
     </style>
 </head>
 <body>
@@ -31,15 +33,23 @@
         
         <div class ="actionBox">
         </div>
-            <asp:Label ID="lblTitle" runat="server" Font-Bold="True" Font-Size="50pt" ForeColor="Lime" style="z-index: 1; left: 468px; top: 82px; position: absolute" Text="Willow"></asp:Label>
-            <asp:Label ID="lblInstructions" runat="server" ForeColor="Lime" style="z-index: 1; left: 377px; top: 213px; position: absolute" Text="Enter the email address associated with your account"></asp:Label>
-            <asp:Label ID="lblquestion" runat="server" ForeColor="Lime" style="z-index: 1; left: 301px; top: 351px; position: absolute" Text="(Make random generator to randomly select security question)"></asp:Label>
-        <asp:TextBox ID="txtSecuityQuestionAnswer" runat="server" style="z-index: 1; left: 511px; top: 399px; position: absolute"></asp:TextBox>
-        <asp:Label ID="lblUsernameandPassword" runat="server" ForeColor="Lime" style="z-index: 1; left: 324px; top: 569px; position: absolute">(this is where the user&#39;s username and password will appear)</asp:Label>
-            <asp:TextBox ID="txtEmailForgotPassword" runat="server" style="z-index: 1; left: 506px; top: 338px; position: absolute"></asp:TextBox>
+            <asp:Label ID="lblTitle" runat="server" Font-Bold="True" Font-Size="50pt" ForeColor="RoyalBlue" style="z-index: 1; left: 862px; top: 76px; position: absolute" Text="Willow"></asp:Label>
+            <asp:Label ID="lblInstructions" runat="server" ForeColor="Lime" style="z-index: 1; left: 855px; top: 205px; position: absolute; bottom: 449px; width: 289px;" Text="Enter the email address associated with your account"></asp:Label>
+            <asp:Label ID="lblquestion" runat="server" ForeColor="Lime" style="z-index: 1; left: 805px; top: 360px; position: absolute; width: 401px;" Text="(Make random generator to randomly select security question)"></asp:Label>
+        <asp:TextBox ID="txtSecuityQuestionAnswer" runat="server" style="z-index: 1; left: 944px; top: 401px; position: absolute"></asp:TextBox>
+        <asp:Label ID="lblUsernameandPassword" runat="server" ForeColor="Lime" style="z-index: 1; left: 806px; top: 499px; position: absolute; width: 413px;">(this is where the user&#39;s username and password will appear)</asp:Label>
+            <asp:TextBox ID="txtEmailForgotPassword" runat="server" style="z-index: 1; left: 912px; top: 316px; position: absolute"></asp:TextBox>
         
-        <asp:Label ID="lblEmail" runat="server" ForeColor="Lime" style="z-index: 1; left: 530px; top: 312px; position: absolute" Text="Email:"></asp:Label>
-        <asp:Button ID="btnContinue" runat="server" style="z-index: 1; left: 528px; top: 443px; position: absolute" Text="Continue" OnClick="btnContinue_Click" />
-    </form>
+        <asp:Label ID="lblEmail" runat="server" ForeColor="Lime" style="z-index: 1; left: 968px; top: 281px; position: absolute" Text="Email:"></asp:Label>
+        <asp:Button ID="btnContinue" runat="server" style="z-index: 1; left: 937px; top: 426px; position: absolute" Text="Continue" OnClick="btnContinue_Click" />
+      <div class ="BackgroundScreen">
+
+            <asp:Image ID="Image3" runat="server" Height="672px" ImageUrl="~/pics/loginPageHouseTermProject.jpg" Width="778px" />
+
+        </div>
+        <div class ="LoginBox">
+        
+        </div>
+        </form>
 </body>
 </html>
