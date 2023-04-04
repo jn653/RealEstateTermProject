@@ -10,7 +10,7 @@
          
            background-color:#2b2e5b;
        }
-        .divBox {
+        .actionBox {
             z-index: 1;
             left: 310px;
             top: 78px;
@@ -29,7 +29,7 @@
             <asp:HyperLink ID="hyperlinkReturntoLogin" runat="server" ForeColor="Lime" NavigateUrl="~/LoginPage.aspx" style="z-index: 1; left: 56px; top: 36px; position: absolute">Return to Log In</asp:HyperLink>
         </div>
         
-        <div class ="divBox">
+        <div class ="actionBox">
         </div>
             <asp:Label ID="lblTitle" runat="server" Font-Bold="True" Font-Size="50pt" ForeColor="Lime" style="z-index: 1; left: 468px; top: 82px; position: absolute" Text="Willow"></asp:Label>
             <asp:Label ID="lblInstructions" runat="server" ForeColor="Lime" style="z-index: 1; left: 377px; top: 213px; position: absolute" Text="Enter the email address associated with your account"></asp:Label>
