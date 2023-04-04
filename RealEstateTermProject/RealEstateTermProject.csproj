@@ -100,6 +100,8 @@
     <Content Include="ForgotPasswordPage.aspx" />
     <Content Include="js\nav.js" />
     <Content Include="LandingPage.aspx" />
+    <Content Include="LandingPageforHomeSeller.aspx" />
+    <Content Include="LandingPageforRealEstateAgent.aspx" />
     <Content Include="Listings.aspx" />
     <Content Include="LoginPage.aspx" />
     <Content Include="pics\emailforProject-removebg-preview.png" />
@@ -134,6 +136,20 @@
     </Compile>
     <Compile Include="LandingPage.aspx.designer.cs">
       <DependentUpon>LandingPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LandingPageforHomeSeller.aspx.cs">
+      <DependentUpon>LandingPageforHomeSeller.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LandingPageforHomeSeller.aspx.designer.cs">
+      <DependentUpon>LandingPageforHomeSeller.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LandingPageforRealEstateAgent.aspx.cs">
+      <DependentUpon>LandingPageforRealEstateAgent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LandingPageforRealEstateAgent.aspx.designer.cs">
+      <DependentUpon>LandingPageforRealEstateAgent.aspx</DependentUpon>
     </Compile>
     <Compile Include="Listings.aspx.cs">
       <DependentUpon>Listings.aspx</DependentUpon>

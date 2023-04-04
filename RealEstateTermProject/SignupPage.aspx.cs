@@ -11,7 +11,34 @@ namespace RealEstateTermProject
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (radiobtnHomeSeller.Checked == true)
+            {
+                Response.Redirect("LandingPageforHomeSeller.aspx");
+            }
+            else if (radiobtnRealEstateAgent.Checked == true)
+            {
+                Response.Redirect("LandingPageforRealEstateAgent.aspx");
+            }
+            else
+                Response.Redirect("LandingPage.aspx");
+        }
 
+        protected void btnSignUp_Click(object sender, EventArgs e)
+        {
+
+
+
+
+            if (radiobtnHomeSeller.Checked == true)
+            {
+                Response.Redirect("LandingPageforHomeSeller.aspx");
+            }
+            else if (radiobtnRealEstateAgent.Checked == true)
+            {
+                Response.Redirect("LandingPageforRealEstateAgent.aspx");
+            }
+            else
+                Response.Redirect("LandingPage.aspx");
         }
     }
 }

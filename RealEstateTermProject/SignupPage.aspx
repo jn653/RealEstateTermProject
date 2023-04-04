@@ -57,7 +57,7 @@
             <asp:Image ID="Image2" ImageUrl ="~/pics/loginUsernameTermProject.png"  runat="server" style="z-index: 1; left: 22px; top: 166px; position: absolute; height: 38px; width: 33px; right: 540px;" />
             <asp:Panel ID="Panel2" runat="server" BackColor="#999999" ForeColor="#999999" style="z-index: 1; left: 21px; top: 208px; position: absolute; height: 1px; width: 384px">
             </asp:Panel>
-            <asp:Button ID="btnSignUp" runat="server" BackColor="Lime" style="z-index: 1; left: 73px; top: 664px; position: absolute; width: 379px" Text="Sign Up" />
+            <asp:Button ID="btnSignUp" runat="server" BackColor="Lime" style="z-index: 1; left: 73px; top: 664px; position: absolute; width: 379px" Text="Sign Up" OnClick="btnSignUp_Click" />
             <asp:Label ID="Label1" runat="server" ForeColor="Lime" style="z-index: 1; left: 182px; top: 512px; position: absolute" Text="Account Type:"></asp:Label>
             <asp:HyperLink ID="hyperlinkLogIn" runat="server" NavigateUrl="~/LoginPage.aspx" style="z-index: 1; left: 438px; top: 108px; position: absolute" Font-Bold="True" Font-Italic="True" ForeColor="Lime">Log In</asp:HyperLink>
             <asp:Label ID="Label2" runat="server" Font-Size="Smaller" ForeColor="Lime" style="z-index: 1; left: 280px; top: 112px; position: absolute; width: 155px" Text="Already have an account?"></asp:Label>
