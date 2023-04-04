@@ -47,6 +47,10 @@ function nav() {
         {
             "href": "Listings.aspx",
             "innerHTML": "Listings"
+        },
+        {
+            "href": "LoginPage.aspx",
+            "innerHTML": "Sign Out"
         }
     ];
 
