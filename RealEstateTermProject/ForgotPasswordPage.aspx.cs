@@ -11,6 +11,8 @@ namespace RealEstateTermProject
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //the security question, the textbox for security question answer and the label for the username and password retrieved 
+            //will not be visible on page load
             lblquestion.Visible = false;
             txtSecuityQuestionAnswer.Visible = false;
             lblUsernameandPassword.Visible = false;
