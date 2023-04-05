@@ -103,7 +103,9 @@
     <Content Include="LandingPageforHomeSeller.aspx" />
     <Content Include="LandingPageforRealEstateAgent.aspx" />
     <Content Include="Listings.aspx" />
-    <Content Include="LoginPage.aspx" />
+    <Content Include="LoginPage.aspx">
+      <BrowseToURL>~/SignupPage.aspx</BrowseToURL>
+    </Content>
     <Content Include="pics\emailforProject-removebg-preview.png" />
     <Content Include="pics\emailforProject.png" />
     <Content Include="pics\leftarrowimage-removebg-preview.png" />

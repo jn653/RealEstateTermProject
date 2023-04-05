@@ -46,13 +46,13 @@
             <asp:Image ID="Image2" ImageUrl ="~/pics/loginUsernameTermProject.png"  runat="server" style="z-index: 1; left: 44px; top: 320px; position: absolute; height: 38px; width: 33px;" />
             <asp:Panel ID="Panel2" runat="server" BackColor="#999999" ForeColor="#999999" style="z-index: 1; left: 40px; top: 368px; position: absolute; height: 1px; width: 384px">
             </asp:Panel>
-              <asp:HyperLink ID="hyperlinkSignUp" runat="server"  NavigateUrl="~/SignupPage.aspx" style="z-index: 1; left: 340px; top: 221px; position: absolute" Font-Bold="True" Font-Italic="True" ForeColor="RoyalBlue">Sign Up</asp:HyperLink>
             <asp:Label ID="Label1" runat="server" Font-Size="Smaller" ForeColor="RoyalBlue" style="z-index: 1; left: 195px; top: 226px; position: absolute; width: 141px" Text="Don't have an account?"></asp:Label>
             <asp:Button ID="btnLogIn" runat="server" BackColor="RoyalBlue" style="z-index: 1; left: 45px; top: 585px; position: absolute; width: 363px" Text="Log In" />
             <asp:HyperLink ID="hyperlinkForgotPassword" runat="server" Font-Italic="True" Font-Size="Small" ForeColor="RoyalBlue" style="z-index: 1; left: 249px; top: 477px; position: absolute; width: 240px" NavigateUrl="~/ForgotPasswordPage.aspx">Forgot Username/Password?</asp:HyperLink>
             <asp:TextBox ID="txtPassword" runat="server" BorderStyle="None" ForeColor="Silver" style="z-index: 1; left: 81px; top: 431px; position: absolute; width: 323px">Password:
 </asp:TextBox>
             <asp:TextBox ID="txtUsername" runat="server" BorderStyle="None" ForeColor="Silver"  style="z-index: 1; left: 82px; top: 332px; position: absolute; width: 323px">Username:</asp:TextBox>
+            <asp:HyperLink ID="hyperlinkSignUP" runat="server" Font-Bold="True" Font-Italic="True" ForeColor="RoyalBlue" NavigateUrl="~/SignupPage.aspx" style="z-index: 1; left: 338px; top: 219px; position: absolute">SignUp</asp:HyperLink>
         </div>
         <asp:Label ID="loginlabel" runat="server" Font-Bold="True" Font-Size="40pt" ForeColor="RoyalBlue" style="z-index: 1; left: 815px; top: 49px; position: absolute; width: 500px; height: 174px;" Text="Welcome to Willow"></asp:Label>
         <asp:Label ID="lblUsername" runat="server" ForeColor="RoyalBlue" style="z-index: 1; left: 825px; top: 327px; position: absolute" Text="Username:"></asp:Label>

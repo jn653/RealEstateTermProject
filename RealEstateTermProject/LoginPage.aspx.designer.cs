@@ -78,15 +78,6 @@ namespace RealEstateTermProject
         protected global::System.Web.UI.WebControls.Panel Panel2;
 
         /// <summary>
-        /// hyperlinkSignUp control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hyperlinkSignUp;
-
-        /// <summary>
         /// Label1 control.
         /// </summary>
         /// <remarks>
@@ -130,6 +121,15 @@ namespace RealEstateTermProject
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtUsername;
+
+        /// <summary>
+        /// hyperlinkSignUP control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hyperlinkSignUP;
 
         /// <summary>
         /// loginlabel control.
