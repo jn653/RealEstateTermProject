@@ -25,6 +25,9 @@
             <homeInfoFull id="homeInfoFull" runat="server">
                 <mainImage id="mainImage" runat="server">
                 </mainImage>
+                <div id="temp" runat="server">
+
+                </div>
             </homeInfoFull>
         </homeInfo>
     </form>

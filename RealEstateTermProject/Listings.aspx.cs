@@ -53,6 +53,8 @@ namespace RealEstateTermProject
             homeAddress.InnerHtml = houseUtils.getSpecificHouseInfo(i, "Address");
             image.ImageUrl = houseUtils.getSpecificHouseInfo(i, "HouseImages");
 
+            temp.InnerHtml = "<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>jawn";
+
             mainImage.Controls.Add(image);
             mainImage.Controls.Add(homeAddress);
 
