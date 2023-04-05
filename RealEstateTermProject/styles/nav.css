@@ -11,11 +11,12 @@
     border-bottom:.15rem solid royalblue;
 }
 
-nav navTitle{
-    padding:.25rem;
-    padding-left:1rem;
-    font-weight:bolder;
-    font-size:2rem;
+nav navTitle {
+    font-family: Calibri;
+    padding: .25rem;
+    padding-left: 1rem;
+    font-weight: bolder;
+    font-size: 2rem;
 }
 
 nav linkBox{
@@ -29,9 +30,10 @@ nav linkBox{
 }
 
 nav linkBox a {
-    padding:.25rem;
+    font-family: Calibri;
+    padding: .25rem;
     text-decoration: none;
     font-weight: bolder;
     font-size: 1.5rem;
-    color:royalblue;
+    color: royalblue;
 }
