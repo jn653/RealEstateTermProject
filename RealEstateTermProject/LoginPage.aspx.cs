@@ -15,6 +15,21 @@ namespace RealEstateTermProject
          
         }
 
+        protected void btnLogIn_Click(object sender, EventArgs e)
+        {
+            
 
+            if (string.IsNullOrEmpty(txtUsername.Text) || (string.IsNullOrEmpty(txtPassword.Text)) || txtUsername.Text == "Username" && txtPassword.Text == "Password")
+            {
+                lblUsername.Text = "You must enter your username";
+                lblUsername.ForeColor = System.Drawing.Color.Red;
+
+                lblPassword.Text = "Your must ener your password";
+                lblPassword.ForeColor = System.Drawing.Color.Red;
+            }
+
+        }
+
+       
     }
 }
