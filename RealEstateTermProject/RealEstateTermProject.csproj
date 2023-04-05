@@ -98,6 +98,7 @@
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="ForgotPasswordPage.aspx" />
+    <Content Include="HousePage.aspx" />
     <Content Include="js\nav.js" />
     <Content Include="LandingPage.aspx" />
     <Content Include="LandingPageforHomeSeller.aspx" />
@@ -119,6 +120,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="SignupPage.aspx" />
+    <Content Include="styles\HousePage.css" />
     <Content Include="styles\LandingPage.css" />
     <Content Include="styles\nav.css" />
     <Content Include="Web.config" />
@@ -131,6 +133,13 @@
     </Compile>
     <Compile Include="ForgotPasswordPage.aspx.designer.cs">
       <DependentUpon>ForgotPasswordPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HousePage.aspx.cs">
+      <DependentUpon>HousePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HousePage.aspx.designer.cs">
+      <DependentUpon>HousePage.aspx</DependentUpon>
     </Compile>
     <Compile Include="LandingPage.aspx.cs">
       <DependentUpon>LandingPage.aspx</DependentUpon>

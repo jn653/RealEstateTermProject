@@ -49,6 +49,10 @@ function nav() {
             "innerHTML": "Listings"
         },
         {
+            "href": "HousePage.aspx",
+            "innerHTML": "House Page"
+        },
+        {
             "href": "LoginPage.aspx",
             "innerHTML": "Sign Out"
         }
