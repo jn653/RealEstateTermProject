@@ -19,18 +19,18 @@ namespace RealEstateTermProject
 
 
 
-
-            //    if (radiobtnHomeSeller.Checked == true)
-            //    {
-            //        Response.Redirect("LandingPageforHomeSeller.aspx");
-            //    }
-            //    else if (radiobtnRealEstateAgent.Checked == true)
-            //    {
-            //        Response.Redirect("LandingPageforRealEstateAgent.aspx");
-            //    }
-            //    else
-            //        Response.Redirect("LandingPage.aspx");
-            //}
+            // depedning on what radio button is clicked will determine what landing page loads
+            if (radiobtnHomeSeller.Checked == true)
+            {
+                Response.Redirect("LandingPageforHomeSeller.aspx");
+            }
+            else if (radiobtnRealEstateAgent.Checked == true)
+            {
+                Response.Redirect("LandingPageforRealEstateAgent.aspx");
+            }
+            else
+                Response.Redirect("LandingPage.aspx");
         }
+    }
     }
 }
