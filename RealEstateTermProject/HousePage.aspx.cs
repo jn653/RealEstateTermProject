@@ -51,20 +51,27 @@ namespace RealEstateTermProject
                 HtmlGenericControl price = new HtmlGenericControl("label");
                 HtmlGenericControl priceInfo = new HtmlGenericControl("info");
 
+                Button button = new Button();
+                
 
-                address.InnerHtml = "Address";
+                address.InnerHtml = "Address: ";
                 addressInfo.InnerHtml = ds.Tables[0].Rows[0]["Address"].ToString();
 
                 image.ImageUrl = ds.Tables[0].Rows[0]["HouseImages"].ToString();
 
-                price.InnerHtml = "Price";
-                priceInfo.InnerHtml = ds.Tables[0].Rows[0]["AskingPrice"].ToString();
+                price.InnerHtml = "Price: ";
+                priceInfo.InnerHtml = "$" + ds.Tables[0].Rows[0]["AskingPrice"].ToString();
 
+                button.CssClass = "button";
+                button.SkinID = ds.Tables[0].Rows[0]["Id"].ToString();
+                button.Text = "View Home";
+
+                address.Controls.Add(addressInfo);
                 listing.Controls.Add(address);
-                listing.Controls.Add(addressInfo);
                 listing.Controls.Add(image);
+                price.Controls.Add(priceInfo);
                 listing.Controls.Add(price);
-                listing.Controls.Add(priceInfo);
+                listing.Controls.Add(button);
 
                 return listing;
             }

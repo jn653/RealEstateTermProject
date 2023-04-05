@@ -20,6 +20,7 @@ content img{
 content welcomeText{
     position:absolute;
     top:10rem;
+    left:2rem;
     font-weight:bolder;
     font-size:3rem;
     color:white;

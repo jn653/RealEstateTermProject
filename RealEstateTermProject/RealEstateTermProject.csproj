@@ -120,7 +120,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="SignupPage.aspx" />
-    <Content Include="styles\HousePage.css" />
+    <Content Include="styles\Listings.css" />
     <Content Include="styles\LandingPage.css" />
     <Content Include="styles\nav.css" />
     <Content Include="Web.config" />
@@ -141,6 +141,7 @@
     <Compile Include="HousePage.aspx.designer.cs">
       <DependentUpon>HousePage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="HouseUtils.cs" />
     <Compile Include="LandingPage.aspx.cs">
       <DependentUpon>LandingPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
