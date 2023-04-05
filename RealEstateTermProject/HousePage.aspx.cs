@@ -43,22 +43,22 @@ namespace RealEstateTermProject
 
                 HtmlGenericControl listing = new HtmlGenericControl("listing");
 
-                Label address = new Label();
+                HtmlGenericControl address = new HtmlGenericControl("label");
                 HtmlGenericControl addressInfo = new HtmlGenericControl("info");
 
                 Image image = new Image();
 
-                Label price = new Label();
+                HtmlGenericControl price = new HtmlGenericControl("label");
                 HtmlGenericControl priceInfo = new HtmlGenericControl("info");
 
 
-                address.Text = "Address: ";
-                addressInfo.InnerHtml = ds.Tables[0].Rows[0]["Address"].ToString() + "<br>";
+                address.InnerHtml = "Address";
+                addressInfo.InnerHtml = ds.Tables[0].Rows[0]["Address"].ToString();
 
-                image.ImageUrl = ds.Tables[0].Rows[0]["Image"].ToString() + "<br>";
+                image.ImageUrl = ds.Tables[0].Rows[0]["HouseImages"].ToString();
 
-                price.Text = "Price";
-                priceInfo.InnerHtml = ds.Tables[0].Rows[0]["Price"].ToString();
+                price.InnerHtml = "Price";
+                priceInfo.InnerHtml = ds.Tables[0].Rows[0]["AskingPrice"].ToString();
 
                 listing.Controls.Add(address);
                 listing.Controls.Add(addressInfo);

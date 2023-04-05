@@ -49,22 +49,25 @@ content listingBox{
 
 listingBox listing{
     display:flex;
-    flex-direction:row;
+    flex-direction:column;
     background-color:pink;
 }
 
 listing label{
     color:royalblue;
+    font-family:Calibri;
+    font-size:1.5rem;
     font-weight:bolder;
 }
 
 listing info{
     color:dimgray;
+    font-family:Calibri;
+    font-size:1.5rem;
     font-weight:lighter;
 }
 
 listing img{
-    position:absolute;
-    height:9rem;
-    width:16rem;
+    height:18rem;
+    width:32rem;
 }
