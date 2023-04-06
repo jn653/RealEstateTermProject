@@ -178,6 +178,7 @@ namespace RealEstateTermProject
                     }
                     else
                         lblInstructions.Text = "The answer you have provided is incorrect. Return to login page and try again";
+                    lblInstructions.ForeColor = System.Drawing.Color.Red;
                 }
             }
         }
