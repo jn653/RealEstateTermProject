@@ -93,19 +93,87 @@ namespace RealEstateTermProject
                 if (txtSecuityQuestionAnswer.Text.Equals(SecurityQuestionOneAnswer.ToString()))
                 {
                     //add store procedure that returns the username and password where security question one answer is equal to the txt answer
+                    SqlCommand objCommand = new SqlCommand();
+                    objCommand.CommandType = CommandType.StoredProcedure;
+                    objCommand.CommandText = "TP_RetrieveUsernamePasswordQuestionOne";
 
-                }else if (lblquestion.Text == "What is your mom's middle name?")
+
+                    objCommand.Parameters.AddWithValue("@FirstAnswer", SecurityQuestionOneAnswer.ToString());
+
+                    SqlParameter outputParameter = new SqlParameter("@Username", SqlDbType.VarChar, 600);
+                    SqlParameter outputParameter1 = new SqlParameter("@Password", SqlDbType.VarChar, 600);
+                    outputParameter.Direction = ParameterDirection.Output;
+                    outputParameter1.Direction = ParameterDirection.Output;
+                    objCommand.Parameters.Add(outputParameter);
+                    objCommand.Parameters.Add(outputParameter1);
+
+
+                    DBConnect objDB = new DBConnect();
+                    objDB.GetDataSet(objCommand);
+
+
+                    String usernameRetrieved = objCommand.Parameters["@Username"].Value.ToString();
+                    String passwordRetrieved = objCommand.Parameters["@Password"].Value.ToString();
+                    lblUsernameandPassword.Text = "Your Username is" + " " + usernameRetrieved + " " + "your password is" + " " + passwordRetrieved;
+
+                }
+                else if (lblquestion.Text == "What is your mom's middle name?")
                 {
                     if (txtSecuityQuestionAnswer.Text.Equals(SecurityQuestionTwoAnswer.ToString()))
                     {
                         //add store procedure that returns the username and password where security question two answer is equal to the txt answer
+                        SqlCommand objCommand1 = new SqlCommand();
+                        objCommand1.CommandType = CommandType.StoredProcedure;
+                        objCommand1.CommandText = "TP_RetrieveUsernamePasswordQuestionOne";
+
+
+                        objCommand1.Parameters.AddWithValue("@SecondAnswer", SecurityQuestionTwoAnswer.ToString());
+
+                        SqlParameter outputParameter3 = new SqlParameter("@Username", SqlDbType.VarChar, 600);
+                        SqlParameter outputParameter4 = new SqlParameter("@Password", SqlDbType.VarChar, 600);
+                        outputParameter3.Direction = ParameterDirection.Output;
+                        outputParameter4.Direction = ParameterDirection.Output;
+                        objCommand1.Parameters.Add(outputParameter3);
+                        objCommand1.Parameters.Add(outputParameter4);
+
+
+                        DBConnect objDB2 = new DBConnect();
+                        objDB2.GetDataSet(objCommand1);
+
+
+                        String usernameRetrieved = objCommand1.Parameters["@Username"].Value.ToString();
+                        String passwordRetrieved = objCommand1.Parameters["@Password"].Value.ToString();
+
+                        lblUsernameandPassword.Text = "Your Username is" + " " + usernameRetrieved + " " + "your password is" + " " + passwordRetrieved;
 
                     }
                     else
                         if (txtSecuityQuestionAnswer.Text.Equals(SecurityQuestionThreeAnswer.ToString()))
                     {
                         //add store procedure that returns the username and password where security question three answer is equal to the txt answer
+                        SqlCommand objCommand3 = new SqlCommand();
+                        objCommand3.CommandType = CommandType.StoredProcedure;
+                        objCommand3.CommandText = "TP_RetrieveUsernamePasswordQuestionOne";
 
+
+                        objCommand3.Parameters.AddWithValue("@SecondAnswer", SecurityQuestionThreeAnswer.ToString());
+
+                        SqlParameter outputParameter5 = new SqlParameter("@Username", SqlDbType.VarChar, 600);
+                        SqlParameter outputParameter6 = new SqlParameter("@Password", SqlDbType.VarChar, 600);
+                        outputParameter5.Direction = ParameterDirection.Output;
+                        outputParameter6.Direction = ParameterDirection.Output;
+                        objCommand3.Parameters.Add(outputParameter5);
+                        objCommand3.Parameters.Add(outputParameter6);
+
+
+                        DBConnect objDB3 = new DBConnect();
+                        objDB3.GetDataSet(objCommand3);
+
+
+                        String usernameRetrieved = objCommand3.Parameters["@Username"].Value.ToString();
+                        String passwordRetrieved = objCommand3.Parameters["@Password"].Value.ToString();
+
+                        lblUsernameandPassword.Text = "Your Username is" + " " + usernameRetrieved + " " + "your password is" + " " + passwordRetrieved;
                     }
                     else
                         lblInstructions.Text = "The answer you have provided is incorrect. Return to login page and try again";
