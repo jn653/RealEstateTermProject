@@ -87,7 +87,7 @@ namespace RealEstateTermProject
 
 
 
-            //code to check if the answer submitted is the same as answer in database
+            //code to check if the answer submitted is the same as answer in databas
             if(lblquestion.Text == "What city were you born in?")
             {
                 if (txtSecuityQuestionAnswer.Text.Equals(SecurityQuestionOneAnswer.ToString()))
