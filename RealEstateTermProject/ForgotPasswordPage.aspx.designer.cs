@@ -42,6 +42,15 @@ namespace RealEstateTermProject
         protected global::System.Web.UI.WebControls.HyperLink hyperlinkReturntoLogin;
 
         /// <summary>
+        /// lblquestion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblquestion;
+
+        /// <summary>
         /// lblTitle control.
         /// </summary>
         /// <remarks>
@@ -76,6 +85,15 @@ namespace RealEstateTermProject
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblUsernameandPassword;
+
+        /// <summary>
+        /// submitbtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button submitbtn;
 
         /// <summary>
         /// txtEmailForgotPassword control.

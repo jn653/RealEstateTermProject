@@ -16,6 +16,7 @@ namespace RealEstateTermProject
             lblquestion.Visible = false;
             txtSecuityQuestionAnswer.Visible = false;
             lblUsernameandPassword.Visible = false;
+            submitbtn.Visible = false;
         }
 
         protected void btnContinue_Click(object sender, EventArgs e)
@@ -24,9 +25,10 @@ namespace RealEstateTermProject
             txtSecuityQuestionAnswer.Visible = true;
             lblUsernameandPassword.Visible = true;
             lblInstructions.Text = "Answer the security question to retreive your username and password";
-            lblEmail.Text = "Securtiy Question:";
+            lblEmail.Visible = false;
             txtEmailForgotPassword.Visible = false;
             btnContinue.Visible = false;
+            submitbtn.Visible = true;
 
             Random rnd = new Random();
             int num = rnd.Next(1, 4);
@@ -44,6 +46,10 @@ namespace RealEstateTermProject
                     break;
                 
             }
+
+            //code to check if the answer submitted is the same as answer in database
+            //string securityQuestionAnswer;
+            //if(txtSecuityQuestionAnswer.Text.Equals())
 
         }
     }
