@@ -26,7 +26,7 @@ namespace RealEstateTermProject
         {
             lblquestion.Visible = true;
             txtSecuityQuestionAnswer.Visible = true;
-            lblUsernameandPassword.Visible = true;
+            lblUsernameandPassword.Visible = false;
             lblInstructions.Text = "Answer the security question to retreive your username and password";
             lblEmail.Visible = false;
             txtEmailForgotPassword.Visible = false;
@@ -58,6 +58,7 @@ namespace RealEstateTermProject
 
         protected void submitbtn_Click(object sender, EventArgs e)
         {
+            lblUsernameandPassword.Visible = true;
             // checking the security question answers from database
             SqlCommand objCommand20 = new SqlCommand();
             objCommand20.CommandType = CommandType.StoredProcedure;
