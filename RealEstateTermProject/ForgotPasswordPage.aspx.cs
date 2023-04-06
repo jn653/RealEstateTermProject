@@ -27,7 +27,24 @@ namespace RealEstateTermProject
             lblEmail.Text = "Securtiy Question:";
             txtEmailForgotPassword.Visible = false;
             btnContinue.Visible = false;
-            
+
+            Random rnd = new Random();
+            int num = rnd.Next(1, 4);
+
+            switch (num)
+            {
+                case 1:
+                    lblquestion.Text = "What city were you born in?";
+                    break;
+                case 2:
+                    lblquestion.Text = "What is your mom's middle name?";
+                    break;
+                case 3:
+                    lblquestion.Text = "What is the name of your best friend?";
+                    break;
+                
+            }
+
         }
     }
 }
