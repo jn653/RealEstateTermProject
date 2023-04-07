@@ -55,42 +55,44 @@ namespace RealEstateTermProject
             else
 
                 AccountType = "Home Buyer";
-            
-//--------------------------------------------------------------------------------------------------------------------------
 
-           // this code is to add the newly crearted user to the database table UserAccount.
-           //it is commented out just so we dont have to create a new user everytime we test the sign up page
+            //--------------------------------------------------------------------------------------------------------------------------
 
-            //if (!starterUsername.Equals(txtCreateUsername.Text))
-            //{
+            // this code is to add the newly crearted user to the database table UserAccount.
+            //it is commented out just so we dont have to create a new user everytime we test the sign up page
 
-            //    SqlCommand objCommand = new SqlCommand();
-            //    objCommand.CommandType = CommandType.StoredProcedure;
-            //    objCommand.CommandText = "TP_AddUserAccount";
+            if (!starterUsername.Equals(txtCreateUsername.Text))
+            {
 
-
-            //    objCommand.Parameters.AddWithValue("@theUsername", txtCreateUsername.Text);
-            //    objCommand.Parameters.AddWithValue("@thePassword", txtCreatePassword.Text);
-            //    objCommand.Parameters.AddWithValue("@accountType", AccountType.ToString());
-            //    objCommand.Parameters.AddWithValue("@theEmail", txtEmail.Text);
-            //    objCommand.Parameters.AddWithValue("@theEmail", txtEmail.Text);
-            //    objCommand.Parameters.AddWithValue("@FirstSecurityQuestion", lblseucrityquestion1question0.Text);
-            //    objCommand.Parameters.AddWithValue("@SecondSecurityQuestion", lblseucrityquestion2question0.Text);
-            //    objCommand.Parameters.AddWithValue("@ThirdSecurityQuestion", lblseucrityquestion3question.Text);
+                SqlCommand objCommand = new SqlCommand();
+                objCommand.CommandType = CommandType.StoredProcedure;
+                objCommand.CommandText = "TP_AddUserAccount";
 
 
-
-
-
-            //    DBConnect objDB = new DBConnect();
-            //    DataSet myDataSet;
-            //    myDataSet = objDB.GetDataSet(objCommand);
+                objCommand.Parameters.AddWithValue("@theUsername", txtCreateUsername.Text);
+                objCommand.Parameters.AddWithValue("@thePassword", txtCreatePassword.Text);
+                objCommand.Parameters.AddWithValue("@accountType", AccountType.ToString());
+                objCommand.Parameters.AddWithValue("@theEmail", txtEmail.Text);
+                objCommand.Parameters.AddWithValue("@FirstSecurityQuestion", lblseucrityquestion1question0.Text);
+                objCommand.Parameters.AddWithValue("@SecondSecurityQuestion", lblseucrityquestion2question0.Text);
+                objCommand.Parameters.AddWithValue("@ThirdSecurityQuestion", lblseucrityquestion3question.Text);
+                objCommand.Parameters.AddWithValue("@FirstAnswer", txtSecurityquestion1Answer.Text);
+                objCommand.Parameters.AddWithValue("@SecondAnswer", txtSecurityquestion2Answer.Text);
+                objCommand.Parameters.AddWithValue("@ThirdAnswer", txtSecurityquestion3Answer.Text);
 
 
 
-            //}
-            //else
-            //    lblUsername.Text = "Username/Password already taken";
+
+
+                DBConnect objDB = new DBConnect();
+                DataSet myDataSet;
+                myDataSet = objDB.GetDataSet(objCommand);
+
+
+
+            }
+            else
+                lblUsername.Text = "Username/Password already taken";
 
 
             // depedning on what the account type is  will determine what landing page loads
