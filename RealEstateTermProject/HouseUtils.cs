@@ -114,6 +114,62 @@ namespace Utilities
             }
         }
 
+        public HtmlGenericControl createHomeInfo(int id)
+        {
+            try
+            {
+                DataRow dr = getAllHouseInfo(id);
+
+                HtmlGenericControl homeInfoFull = new HtmlGenericControl("homeInfoFull");
+                HtmlGenericControl mainImage = new HtmlGenericControl("mainImage");
+                HtmlGenericControl homeAddress = new HtmlGenericControl("homeAddress");
+
+                Image image = new Image();
+
+                mainImage.Controls.Add(image);
+                mainImage.Controls.Add(homeAddress);
+
+                HtmlGenericControl homeInfoContent = new HtmlGenericControl("homeInfoContent");
+
+                HtmlGenericControl propertyDetails = new HtmlGenericControl("propertyDetails");
+
+                String[] contentTitles = {
+                    "Beds",
+                    "Property Type",
+                    "Square Footage",
+                    "Amenities",
+                    "Garages",
+                    "Year Built"
+
+                };
+
+                String[] dbTitles =
+                {
+                    "NumberOfBeds",
+                    "PropertyType",
+                    "HomeSize",
+                    "Amenities",
+                    "Garage",
+                    "HouseYear"
+                };
+
+                foreach(String title in contentTitles)
+                {
+
+                }
+
+                homeInfoFull.Controls.Add(mainImage);
+
+                homeInfoFull.Controls.Add(new HtmlGenericControl("homeInfoContent"));
+
+                return homeInfoFull;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            
+        }
         public String getSpecificHouseInfo(int id, String info)
         {
             SQLcmd = new SqlCommand();
@@ -141,7 +197,7 @@ namespace Utilities
             }
         }
 
-        public DataRow getAllHouseInfo(int id, String info)
+        public DataRow getAllHouseInfo(int id)
         {
             SQLcmd = new SqlCommand();
             DataSet ds = new DataSet();

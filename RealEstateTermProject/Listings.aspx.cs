@@ -18,13 +18,14 @@ namespace RealEstateTermProject
         DBConnect utils = new DBConnect();
         HouseUtils houseUtils = new HouseUtils();
         SqlCommand SQLcmd;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            createContent();
+            createButtons();
                 
         }
 
-        private void createContent()
+        private void createButtons()
         {
             HtmlGenericControl listingBox = houseUtils.createAllListings();
 
@@ -47,16 +48,10 @@ namespace RealEstateTermProject
         {
             int i = int.Parse(id);
 
-            HtmlGenericControl homeAddress = new HtmlGenericControl("homeAddress");
-            Image image = new Image();
+            DataRow dr = houseUtils.getAllHouseInfo(i);
 
-            homeAddress.InnerHtml = houseUtils.getSpecificHouseInfo(i, "Address");
-            image.ImageUrl = houseUtils.getSpecificHouseInfo(i, "HouseImages");
-
-            temp.InnerHtml = "<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>jawn";
-
-            mainImage.Controls.Add(image);
-            mainImage.Controls.Add(homeAddress);
+            homeAddress.InnerHtml = dr["Address"].ToString();
+            image.Src = dr["HouseImages"].ToString();
 
             homeInfo.Visible = true;
         }

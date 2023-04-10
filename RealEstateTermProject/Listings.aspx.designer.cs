@@ -51,30 +51,39 @@ namespace RealEstateTermProject
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl homeInfo;
 
         /// <summary>
-        /// homeInfoFull control.
+        /// image control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl homeInfoFull;
+        protected global::System.Web.UI.HtmlControls.HtmlImage image;
 
         /// <summary>
-        /// mainImage control.
+        /// homeAddress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl mainImage;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl homeAddress;
 
         /// <summary>
-        /// temp control.
+        /// beds control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl temp;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl beds;
+
+        /// <summary>
+        /// propertyType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl propertyType;
     }
 }
