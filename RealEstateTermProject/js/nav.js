@@ -45,6 +45,10 @@ function nav() {
             "innerHTML": "Home"
         },
         {
+            "href": "LoginPage.aspx",
+            "innerHTML": "Buy"
+        },
+        {
             "href": "Listings.aspx",
             "innerHTML": "Listings"
         },
@@ -55,7 +59,9 @@ function nav() {
         {
             "href": "LoginPage.aspx",
             "innerHTML": "Sign Out"
-        }
+        },
+        {
+        
     ];
 
     for (i = 0; i < links.length; i++) {
