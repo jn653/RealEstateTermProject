@@ -159,13 +159,22 @@ namespace RealEstateTermProject
         protected global::System.Web.UI.WebControls.Button btnPutHouseForSale;
 
         /// <summary>
-        /// CheckBoxListGarage control.
+        /// checkboxYesGarage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList CheckBoxListGarage;
+        protected global::System.Web.UI.WebControls.CheckBox checkboxYesGarage;
+
+        /// <summary>
+        /// checkboxNoGarage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox checkboxNoGarage;
 
         /// <summary>
         /// txtPrice control.
