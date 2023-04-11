@@ -40,7 +40,7 @@
 
             <asp:Label ID="lblSearchByCriteria" runat="server" Text="Search for a house by One of the following criteria:" Font-Bold="True" Font-Size="X-Large" style="z-index: 1; left: 272px; top: 223px; position: absolute"></asp:Label>
         
-            <asp:Button ID="btnsubmitCriteria" runat="server" BackColor="RoyalBlue" ForeColor="White" OnClick="btnsubmitCriteria_Click" style="z-index: 1; left: 524px; top: 355px; position: absolute" Text="Submit criteria" />
+            <asp:Button ID="btnsubmitCriteria" runat="server" BackColor="RoyalBlue" ForeColor="White" OnClick="btnsubmitCriteria_Click" style="z-index: 1; left: 515px; top: 358px; position: absolute" Text="Submit criteria" />
         <asp:DropDownList ID="ddlPropertyType" runat="server" style="z-index: 1; left: 743px; top: 151px; position: absolute">
             <asp:ListItem>Single-family home</asp:ListItem>
             <asp:ListItem>Multi-family home</asp:ListItem>
