@@ -29,7 +29,7 @@ namespace RealEstateTermProject
             if (ddlCriteria.SelectedValue.Equals("State/Price/PropertyType"))
             {
                 lblSearch.Visible = true;
-                
+
                 lblState.Visible = true;
                 lblPrice.Visible = true;
                 lblPropertyType.Visible = true;
@@ -40,7 +40,8 @@ namespace RealEstateTermProject
                 lblSearchByCriteria.Visible = false;
                 ddlCriteria.Visible = false;
                 btnsubmitCriteria.Visible = false;
-            } else if(ddlCriteria.SelectedValue.Equals("State/Price/Number of bedrooms"))
+            }
+            else if (ddlCriteria.SelectedValue.Equals("State/Price/Number of bedrooms"))
             {
                 lblSearch.Visible = true;
 
@@ -49,12 +50,38 @@ namespace RealEstateTermProject
                 lblNumofBedrooms.Visible = true;
                 ddlnumofBathrooms.Visible = true;
                 ddlPrice.Visible = true;
-                
+
 
                 lblSearchByCriteria.Visible = false;
                 ddlCriteria.Visible = false;
                 btnsubmitCriteria.Visible = false;
             }
+            else if (ddlCriteria.SelectedValue.Equals("City/Price"))
+            {
+                lblSearch.Visible = true;
+                lblCity.Visible = true;
+                lblPrice.Visible = true;
+                ddlPrice.Visible = true;
+                txtCity.Visible = true;
+
+
+                lblSearchByCriteria.Visible = false;
+                ddlCriteria.Visible = false;
+                btnsubmitCriteria.Visible = false;
+            }
+            else
+                lblPrice.Visible = true;
+                ddlPrice.Visible = true;
+                lblNumofBedrooms.Visible = true;
+                lblNumofBedrooms.Text = "Number of bathrooms";
+                ddlnumofBathrooms.Visible = true;
+                lblSearch.Visible = true;
+
+
+
+                lblSearchByCriteria.Visible = false;
+                ddlCriteria.Visible = false;
+                btnsubmitCriteria.Visible = false;
         }
     }
 }
