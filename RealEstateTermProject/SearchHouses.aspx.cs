@@ -68,8 +68,12 @@ namespace RealEstateTermProject
                 lblSearchByCriteria.Visible = false;
                 ddlCriteria.Visible = false;
                 btnsubmitCriteria.Visible = false;
+                ddlnumofBathrooms.Visible = false;
+                lblNumofBedrooms.Visible = false;
             }
             else
+                if(ddlCriteria.SelectedValue.Equals("Price/Number of bathrooms"))
+            {
                 lblPrice.Visible = true;
                 ddlPrice.Visible = true;
                 lblNumofBedrooms.Visible = true;
@@ -82,6 +86,8 @@ namespace RealEstateTermProject
                 lblSearchByCriteria.Visible = false;
                 ddlCriteria.Visible = false;
                 btnsubmitCriteria.Visible = false;
+            }
+                
         }
     }
 }
