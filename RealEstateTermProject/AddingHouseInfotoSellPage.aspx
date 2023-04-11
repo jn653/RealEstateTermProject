@@ -8,6 +8,7 @@
 <head runat="server">
        
     <title></title>
+    <script src="js/navHomeSeller.js"></script>
     <style type="text/css">
         #TextArea1 {
             z-index: 1;
@@ -24,6 +25,9 @@
     </style>
 </head>
 <body>
+     <script>navHomeSeller();</script>
+   
+    
     <form id="form1" runat="server">
     
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
