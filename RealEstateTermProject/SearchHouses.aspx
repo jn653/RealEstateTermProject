@@ -17,7 +17,8 @@
 
         <p>
 
-            &nbsp;<div style="z-index: 1; left: 253px; top: 83px; position: absolute; height: 27px; width: 1464px"> 
+            <asp:Image ID="Image1" runat="server" ImageUrl="~/pics/leftarrowimage-removebg-preview.png" style="z-index: 1; left: 17px; top: 67px; position: absolute; height: 10px; width: 21px" />
+            <div style="z-index: 1; left: 253px; top: 83px; position: absolute; height: 27px; width: 1464px"> 
     
         </div>
                 
@@ -37,6 +38,8 @@
                 <asp:ListItem>State/Price/Number of bedrooms</asp:ListItem>
                 <asp:ListItem>Price/Number of bathrooms</asp:ListItem>
         </asp:DropDownList>
+
+            <asp:HyperLink ID="hyperlinkBack" runat="server" Font-Size="Small" ForeColor="RoyalBlue" NavigateUrl="~/SearchHouses.aspx" style="z-index: 1; left: 45px; top: 64px; position: absolute">Back to Search</asp:HyperLink>
 
             <asp:Label ID="lblCity" runat="server" Font-Bold="True" Font-Size="X-Large" style="z-index: 1; left: 350px; top: 106px; position: absolute" Text="City"></asp:Label>
         <asp:TextBox ID="txtCity" runat="server" style="z-index: 1; left: 339px; top: 152px; position: absolute; width: 96px"></asp:TextBox>
