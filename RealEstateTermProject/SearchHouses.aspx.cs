@@ -18,6 +18,10 @@ namespace RealEstateTermProject
             lblPrice.Visible = false;
             ddlPrice.Visible = false;
             ddlPropertyType.Visible = false;
+            lblNumofBedrooms.Visible = false;
+            ddlnumofBathrooms.Visible = false;
+            txtCity.Visible = false;
+            lblCity.Visible = false;
         }
 
         protected void btnsubmitCriteria_Click(object sender, EventArgs e)
@@ -32,6 +36,20 @@ namespace RealEstateTermProject
                 ddlPrice.Visible = true;
                 ddlPropertyType.Visible = true;
 
+
+                lblSearchByCriteria.Visible = false;
+                ddlCriteria.Visible = false;
+                btnsubmitCriteria.Visible = false;
+            } else if(ddlCriteria.SelectedValue.Equals("State/Price/Number of bedrooms"))
+            {
+                lblSearch.Visible = true;
+
+                lblState.Visible = true;
+                lblPrice.Visible = true;
+                lblNumofBedrooms.Visible = true;
+                ddlnumofBathrooms.Visible = true;
+                ddlPrice.Visible = true;
+                
 
                 lblSearchByCriteria.Visible = false;
                 ddlCriteria.Visible = false;

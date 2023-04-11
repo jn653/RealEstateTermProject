@@ -31,12 +31,16 @@
 
             <asp:Label ID="lblSearch" runat="server" Text="Search for a house by" Font-Bold="True" Font-Size="X-Large" style="z-index: 1; left: 8px; top: 141px; position: absolute"></asp:Label>
         
-            <asp:DropDownList ID="ddlCriteria" runat="server" style="z-index: 1; left: 519px; top: 288px; position: absolute; width: 171px">
+            <asp:DropDownList ID="ddlCriteria" runat="server" style="z-index: 1; left: 519px; top: 288px; position: absolute; width: 171px; right: 756px;">
                 <asp:ListItem>State/Price/PropertyType</asp:ListItem>
                 <asp:ListItem>City/Price</asp:ListItem>
                 <asp:ListItem>State/Price/Number of bedrooms</asp:ListItem>
                 <asp:ListItem>Price/Number of bathrooms</asp:ListItem>
         </asp:DropDownList>
+
+            <asp:Label ID="lblCity" runat="server" Font-Bold="True" Font-Size="X-Large" style="z-index: 1; left: 350px; top: 106px; position: absolute" Text="City"></asp:Label>
+        <asp:TextBox ID="txtCity" runat="server" style="z-index: 1; left: 339px; top: 152px; position: absolute; width: 96px"></asp:TextBox>
+        <asp:Label ID="lblNumofBedrooms" runat="server" Font-Bold="True" Font-Size="X-Large" style="z-index: 1; left: 735px; top: 104px; position: absolute" Text="Number of Bedrooms"></asp:Label>
 
             <asp:Label ID="lblSearchByCriteria" runat="server" Text="Search for a house by One of the following criteria:" Font-Bold="True" Font-Size="X-Large" style="z-index: 1; left: 272px; top: 223px; position: absolute"></asp:Label>
         
@@ -48,6 +52,12 @@
             <asp:ListItem>TownHouse</asp:ListItem>
         </asp:DropDownList>
         <asp:Label ID="lblPropertyType" runat="server" Font-Bold="True" Font-Size="X-Large" style="z-index: 1; left: 742px; top: 101px; position: absolute" Text="Property Type"></asp:Label>
+                
+        <asp:DropDownList ID="ddlnumofBathrooms" runat="server" style="z-index: 1; left: 787px; top: 151px; position: absolute">
+            <asp:ListItem>1</asp:ListItem>
+            <asp:ListItem>2</asp:ListItem>
+            <asp:ListItem>3+</asp:ListItem>
+        </asp:DropDownList>
                 
         </p>
     </form>
