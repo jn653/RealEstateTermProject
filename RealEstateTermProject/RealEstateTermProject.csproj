@@ -81,6 +81,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AddingHouseInfotoSellPage.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />
@@ -128,6 +129,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddingHouseInfotoSellPage.aspx.cs">
+      <DependentUpon>AddingHouseInfotoSellPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddingHouseInfotoSellPage.aspx.designer.cs">
+      <DependentUpon>AddingHouseInfotoSellPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Connection.cs" />
     <Compile Include="ForgotPasswordPage.aspx.cs">
       <DependentUpon>ForgotPasswordPage.aspx</DependentUpon>
