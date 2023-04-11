@@ -53,8 +53,8 @@ function nav() {
             "innerHTML": "Listings"
         },
         {
-            "href": "HousePage.aspx",
-            "innerHTML": "House Page"
+            "href": "SearchHouses.aspx",
+            "innerHTML": "Search Houses"
         },
         {
             "href": "LoginPage.aspx",

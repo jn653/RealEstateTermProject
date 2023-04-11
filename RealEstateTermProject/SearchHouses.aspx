@@ -6,11 +6,11 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <script src="js/navHomeSeller.js"></script>
+    <script src="js/nav.js"></script>
     <title></title>
 </head>
 <body>
-     <script>navHomeSeller();</script>
+     <script>nav();</script>
     <form id="form1" runat="server">
         <div>
         </div>
