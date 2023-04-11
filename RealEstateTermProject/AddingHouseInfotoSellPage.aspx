@@ -30,7 +30,7 @@
     
     <form id="form1" runat="server">
     
-        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        
 
         <asp:Label ID="lblCity" runat="server" style="z-index: 1; left: 274px; top: 155px; position: absolute" Text="City"></asp:Label>
         <asp:Label ID="lblState" runat="server" style="z-index: 1; left: 63px; top: 154px; position: absolute" Text="State"></asp:Label>
@@ -65,59 +65,13 @@
             <asp:TextBox ID="txtCity" runat="server" style="z-index: 1; left: 244px; top: 195px; position: absolute; width: 155px"></asp:TextBox>
         </p>
     <div style="z-index: 1; left: 2px; top: 127px; position: absolute; height: 27px; width: 1464px">
-        <ajaxToolkit:ComboBox ID="ComboBox1" runat="server" DropDownStyle="DropDownList" style="z-index: 1; left: 10px; top: 58px; position: absolute">
-            <asp:ListItem>Alabama</asp:ListItem>
-            <asp:ListItem>Alaska</asp:ListItem>
-            <asp:ListItem>Arizona</asp:ListItem>
-            <asp:ListItem>Arkansas</asp:ListItem>
-            <asp:ListItem>California</asp:ListItem>
-            <asp:ListItem>Colorado</asp:ListItem>
-            <asp:ListItem>Connecticut</asp:ListItem>
-            <asp:ListItem>Delaware</asp:ListItem>
-            <asp:ListItem>Florida</asp:ListItem>
-            <asp:ListItem>Georgia</asp:ListItem>
-            <asp:ListItem>Hawaii</asp:ListItem>
-            <asp:ListItem>Idaho</asp:ListItem>
-            <asp:ListItem>Illinois</asp:ListItem>
-            <asp:ListItem>Indiana</asp:ListItem>
-            <asp:ListItem>Iowa</asp:ListItem>
-            <asp:ListItem>Kansas</asp:ListItem>
-            <asp:ListItem>Kentucky</asp:ListItem>
-            <asp:ListItem>Louisiana</asp:ListItem>
-            <asp:ListItem>Maine</asp:ListItem>
-            <asp:ListItem>Maryland</asp:ListItem>
-            <asp:ListItem>Massachusetts</asp:ListItem>
-            <asp:ListItem>Michigan</asp:ListItem>
-            <asp:ListItem>Minnesota</asp:ListItem>
-            <asp:ListItem>Mississippi</asp:ListItem>
-            <asp:ListItem>Missouri</asp:ListItem>
-            <asp:ListItem>Montana</asp:ListItem>
-            <asp:ListItem>Nebraska</asp:ListItem>
-            <asp:ListItem>Nevada</asp:ListItem>
-            <asp:ListItem>New Hampshire</asp:ListItem>
-            <asp:ListItem>New Jersey</asp:ListItem>
-            <asp:ListItem>New Mexico</asp:ListItem>
-            <asp:ListItem>New York</asp:ListItem>
-            <asp:ListItem>North Carolina</asp:ListItem>
-            <asp:ListItem>North Dakota</asp:ListItem>
-            <asp:ListItem>Ohio</asp:ListItem>
-            <asp:ListItem>Oklahoma</asp:ListItem>
-            <asp:ListItem>Oregon</asp:ListItem>
-            <asp:ListItem>Pennslyvania</asp:ListItem>
-            <asp:ListItem>Rhode Island</asp:ListItem>
-            <asp:ListItem>South Carolina</asp:ListItem>
-            <asp:ListItem>South Dakota</asp:ListItem>
-            <asp:ListItem>Tennessee</asp:ListItem>
-            <asp:ListItem>Texas</asp:ListItem>
-            <asp:ListItem>Utah</asp:ListItem>
-            <asp:ListItem>Vermont</asp:ListItem>
-            <asp:ListItem>Virginia</asp:ListItem>
-            <asp:ListItem>Washington</asp:ListItem>
-            <asp:ListItem>West Virginia</asp:ListItem>
-            <asp:ListItem>Wisconsin</asp:ListItem>
-            <asp:ListItem>Wyoming</asp:ListItem>
-        </ajaxToolkit:ComboBox>
-    
+        <asp:Label ID="lblPropertyType" runat="server" style="z-index: 1; left: 10px; top: 317px; position: absolute" Text="Property Type"></asp:Label>
+        <asp:RadioButtonList ID="RadioButtonPropertyType" runat="server" style="z-index: 1; left: 10px; top: 353px; position: absolute; height: 33px; width: 303px">
+            <asp:ListItem>Single-family home</asp:ListItem>
+            <asp:ListItem>Multi-family home</asp:ListItem>
+            <asp:ListItem>Condo</asp:ListItem>
+            <asp:ListItem>TownHouse</asp:ListItem>
+        </asp:RadioButtonList>
         </div>
     
     </form>
