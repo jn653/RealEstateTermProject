@@ -125,6 +125,7 @@
     <Content Include="Scripts\bootstrap.esm.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="SearchHouses.aspx" />
     <Content Include="SellingPage.aspx" />
     <Content Include="SignupPage.aspx" />
     <Content Include="styles\Listings.css" />
@@ -193,6 +194,13 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RealEstateAgent.cs" />
+    <Compile Include="SearchHouses.aspx.cs">
+      <DependentUpon>SearchHouses.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SearchHouses.aspx.designer.cs">
+      <DependentUpon>SearchHouses.aspx</DependentUpon>
+    </Compile>
     <Compile Include="SellingPage.aspx.cs">
       <DependentUpon>SellingPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
