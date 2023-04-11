@@ -40,3 +40,9 @@ content sectionBox section {
     width: 100%;
     height: 30rem;
 }
+
+buttonGroup{
+    position:absolute;
+    top:60%;
+    
+}
