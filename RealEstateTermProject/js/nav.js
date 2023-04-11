@@ -59,9 +59,7 @@ function nav() {
         {
             "href": "LoginPage.aspx",
             "innerHTML": "Sign Out"
-        },
-        {
-        
+        }
     ];
 
     for (i = 0; i < links.length; i++) {
