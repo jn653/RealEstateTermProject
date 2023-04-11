@@ -52,7 +52,12 @@ namespace RealEstateTermProject
             profilePassword = objCommand.Parameters["@accountPassword"].Value.ToString();
             accountType = objCommand.Parameters["@accountType"].Value.ToString();
 
+
+
+
+            // this code works for validation 
             if (string.IsNullOrEmpty(txtUsername.Text) || (string.IsNullOrEmpty(txtPassword.Text)) || txtUsername.Text == "Username" && txtPassword.Text == "Password")
+
             {
                 lblUsername.Text = "You must enter your username";
                 lblUsername.ForeColor = System.Drawing.Color.Red;
@@ -60,9 +65,46 @@ namespace RealEstateTermProject
                 lblPassword.Text = "Your must ener your password";
                 lblPassword.ForeColor = System.Drawing.Color.Red;
             }
+            else
+
+
+                if (!profileUsername.Equals(txtUsername.Text) && !profilePassword.Equals(txtPassword.Text))
+            {
+                lblUsername.Text = "Invalid Username/Password";
+                lblUsername.ForeColor = System.Drawing.Color.Red;
+
+                lblPassword.Text = "Invalid Username/Password";
+                lblPassword.ForeColor = System.Drawing.Color.Red;
+            }
+            else 
+  
+            if (profileUsername.Equals(txtUsername.Text) && profilePassword.Equals(txtPassword.Text) && accountType.Equals("Home Seller") && txtUsername.Text.Length != 0 || txtPassword.Text.Length != 0)
+            {
+                Response.Redirect("LandingPageforHomeSeller.aspx");
+            }
+            else 
+            
+            if (profileUsername.Equals(txtUsername.Text) && profilePassword.Equals(txtPassword.Text) && accountType.Equals("Home Buyer") && txtUsername.Text.Length != 0 || txtPassword.Text.Length != 0)
+            {
+                Response.Redirect("LandingPage.aspx");
+            }
+            else 
+            
+            if (profileUsername.Equals(txtUsername.Text) && profilePassword.Equals(txtPassword.Text) && accountType.Equals("Real Estate Agent") && txtUsername.Text.Length != 0 || txtPassword.Text.Length != 0)
+            {
+                Response.Redirect("LandingPageforRealEstateAgent.aspx");
+            } 
+            
+            
+
+           
+              
+
+
+
 
         }
 
-       
+
     }
 }
