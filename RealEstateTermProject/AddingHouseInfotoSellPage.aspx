@@ -49,7 +49,7 @@
         <asp:Label ID="lblPrice" runat="server" style="z-index: 1; left: 731px; top: 341px; position: absolute; right: 703px" Text="Price"></asp:Label>
         <asp:Label ID="lblImages" runat="server" style="z-index: 1; left: 949px; top: 349px; position: absolute; height: 27px" Text="Images"></asp:Label>
         <asp:Label ID="lblHouseDescription" runat="server" style="z-index: 1; left: 1127px; top: 348px; position: absolute" Text="House Description"></asp:Label>
-        <asp:Button ID="btnPutHouseForSale" runat="server" BackColor="RoyalBlue" ForeColor="White" style="z-index: 1; left: 548px; top: 497px; position: absolute" Text="Put House for Sale" />
+        <asp:Button ID="btnPutHouseForSale" runat="server" BackColor="RoyalBlue" ForeColor="White" style="z-index: 1; left: 494px; top: 497px; position: absolute; height: 36px; width: 260px;" Text="Put House for Sale" />
         <asp:CheckBox ID="checkboxYesGarage" runat="server" style="z-index: 1; left: 450px; top: 382px; position: absolute" Text="Yes" />
         <asp:CheckBox ID="checkboxNoGarage" runat="server" style="z-index: 1; left: 449px; top: 407px; position: absolute" Text="No" />
         <p>

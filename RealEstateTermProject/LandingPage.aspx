@@ -10,7 +10,7 @@
     <script src="Scripts/bootstrap.bundle.min.js"></script>
     <script src="Scripts/bootstrap.min.js"></script>
     <title></title>
-
+    
 </head>
 <body>
     <script>nav()</script>
