@@ -52,6 +52,7 @@
             <asp:TextBox ID="txtPassword" runat="server" BorderStyle="None" ForeColor="Black" placeholder="Password" style="z-index: 1; left: 81px; top: 431px; position: absolute; width: 323px"></asp:TextBox>
             <asp:TextBox ID="txtUsername" runat="server" BorderStyle="None" ForeColor="Black" placeholder="Username"  style="z-index: 1; left: 82px; top: 332px; position: absolute; width: 323px"></asp:TextBox>
             <asp:HyperLink ID="hyperlinkSignUP" runat="server" Font-Bold="True" Font-Italic="True" ForeColor="RoyalBlue" NavigateUrl="~/SignupPage.aspx" style="z-index: 1; left: 338px; top: 219px; position: absolute">SignUp</asp:HyperLink>
+            <asp:CheckBox ID="checkboxCookie" runat="server" Font-Bold="True" Font-Size="X-Small" ForeColor="RoyalBlue" style="z-index: 1; left: 4px; top: 476px; position: absolute; width: 255px" Text="Save username and password for faster login?" />
         </div>
         <asp:Label ID="loginlabel" runat="server" Font-Bold="True" Font-Size="40pt" ForeColor="RoyalBlue" style="z-index: 1; left: 815px; top: 49px; position: absolute; width: 500px; height: 174px;" Text="Welcome to Willow"></asp:Label>
         <asp:Label ID="lblUsername" runat="server" ForeColor="RoyalBlue" style="z-index: 1; left: 825px; top: 327px; position: absolute" Text="Username:"></asp:Label>

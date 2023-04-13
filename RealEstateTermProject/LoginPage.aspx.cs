@@ -15,11 +15,39 @@ namespace RealEstateTermProject
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-         
+            if (!IsPostBack && Request.Cookies["Username_Cookie"] != null && Request.Cookies["Password_Cookie"] != null)
+            {
+
+                HttpCookie RequestUsernamecookie = Request.Cookies["Username_Cookie"];
+                txtUsername.Text = RequestUsernamecookie.Values["Username"].ToString();
+
+                HttpCookie RequestPasswordcookie = Request.Cookies["Password_Cookie"];
+                txtPassword.Text = RequestPasswordcookie.Values["Password"].ToString();
+
+            }
+
+
         }
 
         protected void btnLogIn_Click(object sender, EventArgs e)
         {
+
+            if (checkboxCookie.Checked == true)
+            {
+                HttpCookie UsernameCookie = new HttpCookie("Username_Cookie");
+                UsernameCookie.Values["Username"] = txtUsername.Text;
+                UsernameCookie.Expires = new DateTime(2025, 1, 1);
+
+                HttpCookie PasswordCookie = new HttpCookie("Password_Cookie");
+                PasswordCookie.Values["Password"] = txtPassword.Text;
+                PasswordCookie.Expires = new DateTime(2025, 1, 1);
+
+                Response.Cookies.Add(UsernameCookie);
+                Response.Cookies.Add(PasswordCookie);
+
+               
+            }
+
             SqlCommand objCommand = new SqlCommand();
             objCommand.CommandType = CommandType.StoredProcedure;
             objCommand.CommandText = "validateLogin";
@@ -86,12 +114,14 @@ namespace RealEstateTermProject
             
             if (profileUsername.Equals(txtUsername.Text) && profilePassword.Equals(txtPassword.Text) && accountType.Equals("Home Buyer") && txtUsername.Text.Length != 0 || txtPassword.Text.Length != 0)
             {
+              
                 Response.Redirect("LandingPage.aspx");
             }
             else 
             
             if (profileUsername.Equals(txtUsername.Text) && profilePassword.Equals(txtPassword.Text) && accountType.Equals("Real Estate Agent") && txtUsername.Text.Length != 0 || txtPassword.Text.Length != 0)
             {
+               
                 Response.Redirect("LandingPageforRealEstateAgent.aspx");
             } 
             
