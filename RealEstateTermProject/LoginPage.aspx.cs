@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Net.Mail;
+using System.Net;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -15,6 +18,8 @@ namespace RealEstateTermProject
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            btnTwoFactorAUthentification.Visible = false;
+            txtEmailSixDigit.Visible = false;
             if (!IsPostBack && Request.Cookies["Username_Cookie"] != null && Request.Cookies["Password_Cookie"] != null)
             {
 
@@ -24,6 +29,8 @@ namespace RealEstateTermProject
                 HttpCookie RequestPasswordcookie = Request.Cookies["Password_Cookie"];
                 txtPassword.Text = RequestPasswordcookie.Values["Password"].ToString();
 
+
+
             }
 
 
@@ -31,6 +38,8 @@ namespace RealEstateTermProject
 
         protected void btnLogIn_Click(object sender, EventArgs e)
         {
+            btnTwoFactorAUthentification.Visible = false;
+            txtEmailSixDigit.Visible = false;
 
             if (checkboxCookie.Checked == true)
             {
@@ -50,7 +59,7 @@ namespace RealEstateTermProject
 
             SqlCommand objCommand = new SqlCommand();
             objCommand.CommandType = CommandType.StoredProcedure;
-            objCommand.CommandText = "validateLogin";
+            objCommand.CommandText = "TP_validateLogin";
 
 
             objCommand.Parameters.AddWithValue("@theUsername", txtUsername.Text);
@@ -59,12 +68,15 @@ namespace RealEstateTermProject
             SqlParameter outputParameter = new SqlParameter("@accountUsername", SqlDbType.VarChar, 600);
             SqlParameter outputParameter2 = new SqlParameter("@accountPassword", SqlDbType.VarChar, 600);
             SqlParameter outputParameter3 = new SqlParameter("@accountType", SqlDbType.VarChar, 600);
+            SqlParameter outputParameter4 = new SqlParameter("@email", SqlDbType.VarChar, 600);
             outputParameter.Direction = ParameterDirection.Output;
             outputParameter2.Direction = ParameterDirection.Output;
             outputParameter3.Direction = ParameterDirection.Output;
+            outputParameter4.Direction = ParameterDirection.Output;
             objCommand.Parameters.Add(outputParameter);
             objCommand.Parameters.Add(outputParameter2);
             objCommand.Parameters.Add(outputParameter3);
+            objCommand.Parameters.Add(outputParameter4);
 
 
 
@@ -75,12 +87,41 @@ namespace RealEstateTermProject
             string profileUsername;
             string profilePassword;
             string accountType;
+            string email;
 
             profileUsername = objCommand.Parameters["@accountUsername"].Value.ToString();
             profilePassword = objCommand.Parameters["@accountPassword"].Value.ToString();
             accountType = objCommand.Parameters["@accountType"].Value.ToString();
+            email = objCommand.Parameters["@email"].Value.ToString();
 
+            Session["Email"] = email;
 
+            //code for sending the two factor email - have to fix it to get it to work 
+
+            //string to = email; //To address    
+            //string from = "fromaddress@gmail.com"; //From address    
+            //MailMessage message = new MailMessage(from, to);
+
+            //string mailbody = "In this article you will learn how to send a email using Asp.Net & C#";
+            //message.Subject = "Sending Email Using Asp.Net & C#";
+            //message.Body = mailbody;
+            //message.BodyEncoding = Encoding.UTF8;
+            //message.IsBodyHtml = true;
+            //SmtpClient client = new SmtpClient("smtp.gmail.com", 587); //Gmail smtp    
+            //System.Net.NetworkCredential basicCredential1 = new
+            //System.Net.NetworkCredential(email, profilePassword);
+            //client.EnableSsl = true;
+            //client.UseDefaultCredentials = false;
+            //client.Credentials = basicCredential1;
+            //try
+            //{
+            //    client.Send(message);
+            //}
+
+            //catch (Exception ex)
+            //{
+            //    throw ex;
+            //}
 
 
             // this code works for validation 
@@ -104,37 +145,40 @@ namespace RealEstateTermProject
                 lblPassword.Text = "Invalid Username/Password";
                 lblPassword.ForeColor = System.Drawing.Color.Red;
             }
-            else 
-  
+            else
+
             if (profileUsername.Equals(txtUsername.Text) && profilePassword.Equals(txtPassword.Text) && accountType.Equals("Home Seller") && txtUsername.Text.Length != 0 || txtPassword.Text.Length != 0)
             {
                 Response.Redirect("LandingPageforHomeSeller.aspx");
             }
-            else 
-            
+            else
+
             if (profileUsername.Equals(txtUsername.Text) && profilePassword.Equals(txtPassword.Text) && accountType.Equals("Home Buyer") && txtUsername.Text.Length != 0 || txtPassword.Text.Length != 0)
             {
-              
+
                 Response.Redirect("LandingPage.aspx");
             }
-            else 
-            
+            else
+
             if (profileUsername.Equals(txtUsername.Text) && profilePassword.Equals(txtPassword.Text) && accountType.Equals("Real Estate Agent") && txtUsername.Text.Length != 0 || txtPassword.Text.Length != 0)
             {
-               
-                Response.Redirect("LandingPageforRealEstateAgent.aspx");
-            } 
-            
-            
 
-           
-              
+                Response.Redirect("LandingPageforRealEstateAgent.aspx");
+            }
+
+
+
+
+
 
 
 
 
         }
 
+        protected void btnTwoFactorAUthentification_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }

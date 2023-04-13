@@ -12,7 +12,14 @@
     <title></title>
 </head>
 <body>
+    
     <form id="form1" runat="server">
+
+        <div class="SellSolobtn">
+          <asp:Button ID="btnSellonOwn" runat="server" BackColor="RoyalBlue" ForeColor="Black" OnClick="Button1_Click" Text="Sell on your own" />
+        </div>
+
+       
         
         <script>navHomeSeller()</script>
         <content>
