@@ -19,6 +19,8 @@ namespace RealEstateTermProject
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            //retrieving the username for the stored username in login and sign up page to use in other pages
+            string UserAccountName = (string)Session["Username"];
 
         }
 

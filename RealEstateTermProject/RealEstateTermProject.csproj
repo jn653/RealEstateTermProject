@@ -120,6 +120,7 @@
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="FindARealEstateAgentPage.aspx" />
     <Content Include="ForgotPasswordPage.aspx" />
+    <Content Include="HomeShowingsPage.aspx" />
     <Content Include="HousePage.aspx" />
     <Content Include="js\navHomeSeller.js" />
     <Content Include="js\nav.js" />
@@ -136,6 +137,7 @@
     <Content Include="pics\loginPageHouseTermProject.jpg" />
     <Content Include="pics\loginUsernameTermProject.png" />
     <Content Include="pics\passwordTermProject.png" />
+    <Content Include="ScheduleAVisitPage.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -179,6 +181,13 @@
     </Compile>
     <Compile Include="ForgotPasswordPage.aspx.designer.cs">
       <DependentUpon>ForgotPasswordPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HomeShowingsPage.aspx.cs">
+      <DependentUpon>HomeShowingsPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HomeShowingsPage.aspx.designer.cs">
+      <DependentUpon>HomeShowingsPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="House.cs" />
     <Compile Include="HousePage.aspx.cs">
@@ -226,6 +235,13 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RealEstateAgent.cs" />
+    <Compile Include="ScheduleAVisitPage.aspx.cs">
+      <DependentUpon>ScheduleAVisitPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ScheduleAVisitPage.aspx.designer.cs">
+      <DependentUpon>ScheduleAVisitPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="SearchHouses.aspx.cs">
       <DependentUpon>SearchHouses.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

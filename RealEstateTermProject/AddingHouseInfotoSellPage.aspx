@@ -38,7 +38,8 @@
 
         <asp:Label ID="lblAdress" runat="server" style="z-index: 1; left: 453px; top: 154px; position: absolute" Text="Address"></asp:Label>
     
-        <textarea id="TextAreaHouseDescription" cols="20" name="S1" rows="2"></textarea><asp:TextBox ID="txAddress" runat="server" style="z-index: 1; left: 429px; top: 194px; position: absolute; width: 155px;"></asp:TextBox>
+        <textarea ID="TextAreaHouseDescription" cols="20" name="S1" rows="2"></textarea>
+        <asp:TextBox ID="txtAddress" runat="server" style="z-index: 1; left: 432px; top: 196px; position: absolute"></asp:TextBox>
     
         <asp:Label ID="lblHomeSize" runat="server" style="z-index: 1; left: 635px; top: 153px; position: absolute" Text="Home Size"></asp:Label>
         <asp:Label ID="lblNumofBedrooms" runat="server" style="z-index: 1; left: 842px; top: 155px; position: absolute" Text="Number of Bedrooms"></asp:Label>
@@ -49,7 +50,9 @@
         <asp:Label ID="lblPrice" runat="server" style="z-index: 1; left: 731px; top: 341px; position: absolute; right: 703px" Text="Price"></asp:Label>
         <asp:Label ID="lblImages" runat="server" style="z-index: 1; left: 949px; top: 349px; position: absolute; height: 27px" Text="Images"></asp:Label>
         <asp:Label ID="lblHouseDescription" runat="server" style="z-index: 1; left: 1127px; top: 348px; position: absolute" Text="House Description"></asp:Label>
-        <asp:Button ID="btnPutHouseForSale" runat="server" BackColor="RoyalBlue" ForeColor="White" style="z-index: 1; left: 494px; top: 497px; position: absolute; height: 36px; width: 260px;" Text="Put House for Sale" />
+        <asp:Button ID="btnPutHouseForSale" runat="server" BackColor="RoyalBlue" ForeColor="White" style="z-index: 1; left: 668px; top: 486px; position: absolute; height: 36px; width: 260px;" Text="Put House for Sale" OnClick="btnPutHouseForSale_Click" />
+        <asp:TextBox ID="txtAmentities" runat="server" style="z-index: 1; left: 224px; top: 470px; position: absolute"></asp:TextBox>
+        <asp:Label ID="Label1" runat="server" style="z-index: 1; left: 254px; top: 443px; position: absolute" Text="Amentities"></asp:Label>
         <asp:CheckBox ID="checkboxYesGarage" runat="server" style="z-index: 1; left: 450px; top: 382px; position: absolute" Text="Yes" />
         <asp:CheckBox ID="checkboxNoGarage" runat="server" style="z-index: 1; left: 449px; top: 407px; position: absolute" Text="No" />
         <p>

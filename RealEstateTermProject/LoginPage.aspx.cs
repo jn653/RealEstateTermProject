@@ -129,46 +129,50 @@ namespace RealEstateTermProject
 
 
             //// this code works for validation 
-            //if (string.IsNullOrEmpty(txtUsername.Text) || (string.IsNullOrEmpty(txtPassword.Text)) || txtUsername.Text == "Username" && txtPassword.Text == "Password")
+            if (string.IsNullOrEmpty(txtUsername.Text) || (string.IsNullOrEmpty(txtPassword.Text)) || txtUsername.Text == "Username" && txtPassword.Text == "Password")
 
-            //{
-            //    lblUsername.Text = "You must enter your username";
-            //    lblUsername.ForeColor = System.Drawing.Color.Red;
+            {
+                lblUsername.Text = "You must enter your username";
+                lblUsername.ForeColor = System.Drawing.Color.Red;
 
-            //    lblPassword.Text = "Your must ener your password";
-            //    lblPassword.ForeColor = System.Drawing.Color.Red;
-            //}
-            //else
+                lblPassword.Text = "Your must ener your password";
+                lblPassword.ForeColor = System.Drawing.Color.Red;
+            }
+            else
 
 
-            //    if (!profileUsername.Equals(txtUsername.Text) && !profilePassword.Equals(txtPassword.Text))
-            //{
-            //    lblUsername.Text = "Invalid Username/Password";
-            //    lblUsername.ForeColor = System.Drawing.Color.Red;
+            if (!profileUsername.Equals(txtUsername.Text) && !profilePassword.Equals(txtPassword.Text))
+            {
+                lblUsername.Text = "Invalid Username/Password";
+                lblUsername.ForeColor = System.Drawing.Color.Red;
 
-            //    lblPassword.Text = "Invalid Username/Password";
-            //    lblPassword.ForeColor = System.Drawing.Color.Red;
-            //}
-            //else
+                lblPassword.Text = "Invalid Username/Password";
+                lblPassword.ForeColor = System.Drawing.Color.Red;
+            }
+            else
 
-            //if (profileUsername.Equals(txtUsername.Text) && profilePassword.Equals(txtPassword.Text) && accountType.Equals("Home Seller") && txtUsername.Text.Length != 0 || txtPassword.Text.Length != 0)
-            //{
-            //    Response.Redirect("LandingPageforHomeSeller.aspx");
-            //}
-            //else
+        if (profileUsername.Equals(txtUsername.Text) && profilePassword.Equals(txtPassword.Text) && accountType.Equals("Home Seller") && txtUsername.Text.Length != 0 || txtPassword.Text.Length != 0)
+            {
+                //storing username to use across multiple pages
+                Session["Username"] = txtUsername.Text;
+                Response.Redirect("LandingPageforHomeSeller.aspx");
+            }
+            else
 
-            //if (profileUsername.Equals(txtUsername.Text) && profilePassword.Equals(txtPassword.Text) && accountType.Equals("Home Buyer") && txtUsername.Text.Length != 0 || txtPassword.Text.Length != 0)
-            //{
+        if (profileUsername.Equals(txtUsername.Text) && profilePassword.Equals(txtPassword.Text) && accountType.Equals("Home Buyer") && txtUsername.Text.Length != 0 || txtPassword.Text.Length != 0)
+            {
+                //storing username to use across multiple pages
+                Session["Username"] = txtUsername.Text;
+                Response.Redirect("LandingPage.aspx");
+            }
+            else
 
-            //    Response.Redirect("LandingPage.aspx");
-            //}
-            //else
-
-            //if (profileUsername.Equals(txtUsername.Text) && profilePassword.Equals(txtPassword.Text) && accountType.Equals("Real Estate Agent") && txtUsername.Text.Length != 0 || txtPassword.Text.Length != 0)
-            //{
-
-            //    Response.Redirect("LandingPageforRealEstateAgent.aspx");
-            //}
+        if (profileUsername.Equals(txtUsername.Text) && profilePassword.Equals(txtPassword.Text) && accountType.Equals("Real Estate Agent") && txtUsername.Text.Length != 0 || txtPassword.Text.Length != 0)
+            {
+                //storing username to use across multiple pages
+                Session["Username"] = txtUsername.Text;
+                Response.Redirect("LandingPageforRealEstateAgent.aspx");
+            }
 
 
 

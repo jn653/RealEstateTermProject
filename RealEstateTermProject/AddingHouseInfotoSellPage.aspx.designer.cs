@@ -51,13 +51,13 @@ namespace RealEstateTermProject
         protected global::System.Web.UI.WebControls.Label lblAdress;
 
         /// <summary>
-        /// txAddress control.
+        /// txtAddress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txAddress;
+        protected global::System.Web.UI.WebControls.TextBox txtAddress;
 
         /// <summary>
         /// lblHomeSize control.
@@ -148,6 +148,24 @@ namespace RealEstateTermProject
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnPutHouseForSale;
+
+        /// <summary>
+        /// txtAmentities control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAmentities;
+
+        /// <summary>
+        /// Label1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
         /// checkboxYesGarage control.

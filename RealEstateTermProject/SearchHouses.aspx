@@ -26,9 +26,11 @@
         <asp:Label ID="lblPrice" runat="server" Font-Bold="True" Font-Size="X-Large" style="z-index: 1; left: 473px; top: 108px; position: absolute" Text="Price"></asp:Label>
         <asp:DropDownList ID="ddlPrice" runat="server" style="z-index: 1; left: 449px; top: 152px; position: absolute; right: 715px">
             <asp:ListItem>Lower than or equal to 100,000</asp:ListItem>
-            <asp:ListItem>lower than or equal to 200,000</asp:ListItem>
-            <asp:ListItem>greater than or equal to 200,000</asp:ListItem>
+            <asp:ListItem>Greater than 100,000 or equal to 200,000</asp:ListItem>
+            <asp:ListItem>Greater than 200,000</asp:ListItem>
         </asp:DropDownList>
+
+            <asp:Button ID="btnSearchHouse" runat="server" BackColor="RoyalBlue" ForeColor="White" style="z-index: 1; left: 413px; top: 262px; position: absolute" Text="Search House" />
 
             <asp:Label ID="lblSearch" runat="server" Text="Search for a house by" Font-Bold="True" Font-Size="X-Large" style="z-index: 1; left: 8px; top: 141px; position: absolute"></asp:Label>
         

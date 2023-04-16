@@ -9,8 +9,13 @@ namespace RealEstateTermProject
 {
     public partial class SearchHouses : System.Web.UI.Page
     {
+        
         protected void Page_Load(object sender, EventArgs e)
         {
+            //retrieving the username for the stored username in login and sign up page to use in other pages
+            string UserAccountName = (string)Session["Username"];
+
+
             lblSearch.Visible = false;
             
             lblState.Visible = false;
@@ -22,6 +27,7 @@ namespace RealEstateTermProject
             ddlnumofBathrooms.Visible = false;
             txtCity.Visible = false;
             lblCity.Visible = false;
+            btnSearchHouse.Visible = false;
         }
 
         protected void btnsubmitCriteria_Click(object sender, EventArgs e)
@@ -40,6 +46,7 @@ namespace RealEstateTermProject
                 lblSearchByCriteria.Visible = false;
                 ddlCriteria.Visible = false;
                 btnsubmitCriteria.Visible = false;
+                btnSearchHouse.Visible = true;
             }
             else if (ddlCriteria.SelectedValue.Equals("State/Price/Number of bedrooms"))
             {
@@ -55,6 +62,7 @@ namespace RealEstateTermProject
                 lblSearchByCriteria.Visible = false;
                 ddlCriteria.Visible = false;
                 btnsubmitCriteria.Visible = false;
+                btnSearchHouse.Visible = true;
             }
             else if (ddlCriteria.SelectedValue.Equals("City/Price"))
             {
@@ -70,6 +78,7 @@ namespace RealEstateTermProject
                 btnsubmitCriteria.Visible = false;
                 ddlnumofBathrooms.Visible = false;
                 lblNumofBedrooms.Visible = false;
+                btnSearchHouse.Visible = true;
             }
             else
                 if(ddlCriteria.SelectedValue.Equals("Price/Number of bathrooms"))
@@ -80,6 +89,7 @@ namespace RealEstateTermProject
                 lblNumofBedrooms.Text = "Number of bathrooms";
                 ddlnumofBathrooms.Visible = true;
                 lblSearch.Visible = true;
+                btnSearchHouse.Visible = true;
 
 
 

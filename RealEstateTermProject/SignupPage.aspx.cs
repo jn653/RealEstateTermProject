@@ -88,7 +88,8 @@ namespace RealEstateTermProject
                 DataSet myDataSet;
                 myDataSet = objDB.GetDataSet(objCommand);
 
-
+                //storing username to use across multiple pages
+                Session["Username"] = txtCreateUsername.Text;
 
             }
             else
@@ -98,14 +99,23 @@ namespace RealEstateTermProject
             // depedning on what the account type is  will determine what landing page loads
             if (AccountType.ToString() == "Home Seller")
             {
+                //storing username to use across multiple pages
+
+                Session["Username"] = txtCreateUsername.Text;
                 Response.Redirect("LandingPageforHomeSeller.aspx");
             }
             else if (AccountType.ToString() == "Real Estate Agent")
             {
+                //storing username to use across multiple pages
+
+                Session["Username"] = txtCreateUsername.Text;
                 Response.Redirect("LandingPageforRealEstateAgent.aspx");
             }
             else
-                Response.Redirect("LandingPage.aspx");
+                //storing username to use across multiple pages
+
+                Session["Username"] = txtCreateUsername.Text;
+            Response.Redirect("LandingPage.aspx");
         }
     }
 }
