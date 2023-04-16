@@ -52,6 +52,12 @@ namespace RealEstateTermProject
             homeAddress.InnerHtml = house.Address;
             image.Src = house.HouseImages;
 
+            beds.InnerHtml = house.NumberOfBedrooms.ToString();
+            propertyType.InnerHtml = house.PropertyType;
+            houseSize.InnerHtml = house.HomeSize.ToString();
+            amenities.InnerHtml = house.Amenities;
+            garages.InnerHtml = house.Garage;
+            houseYear.InnerHtml = house.HouseYear.ToString();
             homeInfo.Visible = true;
         }
 

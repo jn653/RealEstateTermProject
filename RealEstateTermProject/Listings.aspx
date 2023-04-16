@@ -34,14 +34,19 @@
                     </h1>
                     <contentBox>
                         <h2>Beds</h2>
-                        <h3 id="beds" runat="server">asdfs</h3>
+                        <h3 id="beds" runat="server" ></h3>
                         <h2>Property Type</h2>
                         <h3 id="propertyType" runat="server"></h3>
                         <h2>Square Footage</h2>
-
+                        <h3 id="houseSize" runat="server" ></h3>
+                    </contentBox>
+                    <contentBox>
                         <h2>Amenities</h2>
+                        <h3 id="amenities" runat="server" ></h3>
                         <h2>Garages</h2>
+                        <h3 id="garages" runat="server" ></h3>
                         <h2>Year Built</h2>
+                        <h3 id="houseYear" runat="server" ></h3>
                     </contentBox>
                 </homeinfocontent>
             </homeinfofull>

@@ -114,7 +114,7 @@ homeInfo homeInfoContent {
     width: 90%;
     height: 90%;
     left:5%;
-    background-color: red;
+    background-color: none;
 }
 
 homeInfoContent contentHeader {
@@ -133,6 +133,25 @@ homeInfoContent contentBox {
     display:flex;
     flex-direction:row;
     gap:1rem;
+}
+
+homeInfoContent h1 {
+    color: royalblue;
+    
+}
+
+homeInfoContent contentBox h2 {
+    color: royalblue;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+homeInfoContent contentBox h3{
+    color:gray;
+    justify-self:left;
+    flex-grow:3;
+    margin-top:auto;
+    margin-bottom:auto;
 }
 
 homeInfo backdrop {
