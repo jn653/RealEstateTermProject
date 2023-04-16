@@ -7,57 +7,28 @@ using System.Linq;
 using System.Web;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
+using System.Net;
+using System.IO;
+using System.Web.Script.Serialization;
 
 namespace Utilities
 {
     public class HouseUtils
     {
-        DBConnect utils = new DBConnect();
-        SqlCommand SQLcmd;
+
+        String connString = "https://localhost:44398/api/Houses"; //For when you run the api client side
         public HouseUtils() { }
-
-        public DataSet GetAllHouses()
-        {
-            SQLcmd = new SqlCommand();
-            DataSet ds = new DataSet();
-            try
-            {
-                SQLcmd.CommandType = CommandType.StoredProcedure;
-                SQLcmd.CommandText = "TP_GetAllHouses";
-
-                ds = utils.GetDataSet(SQLcmd);
-
-                return ds;
-            }
-            catch 
-            {
-                return null;
-            }
-
-        }
 
         public HtmlGenericControl createSingleListing(int id)
         {
-            SQLcmd = new SqlCommand();
-            DataSet ds = new DataSet();
+            
             try
             {
-                SQLcmd.CommandType = CommandType.StoredProcedure;
-                SQLcmd.CommandText = "TP_GetHouse";
-
-                SqlParameter sqlInput = new SqlParameter("@id", id);
-
-                sqlInput.SqlDbType = SqlDbType.Int;
-
-                sqlInput.Size = 50;
-
-                SQLcmd.Parameters.Add(sqlInput);
-
-                ds = utils.GetDataSet(SQLcmd);
+                House house = getHouse(id);
 
                 HtmlGenericControl listing = new HtmlGenericControl("listing");
 
-                listing.SkinID = ds.Tables[0].Rows[0]["Id"].ToString();
+                listing.SkinID = house.HouseID.ToString();
 
                 HtmlGenericControl address = new HtmlGenericControl("label");
                 HtmlGenericControl addressInfo = new HtmlGenericControl("info");
@@ -68,12 +39,12 @@ namespace Utilities
                 HtmlGenericControl priceInfo = new HtmlGenericControl("info");
 
                 address.InnerHtml = "Address: ";
-                addressInfo.InnerHtml = ds.Tables[0].Rows[0]["Address"].ToString();
+                addressInfo.InnerHtml = house.Address;
 
-                image.ImageUrl = ds.Tables[0].Rows[0]["HouseImages"].ToString();
+                image.ImageUrl = house.HouseImages;
 
                 price.InnerHtml = "Price: ";
-                priceInfo.InnerHtml = "$" + ds.Tables[0].Rows[0]["AskingPrice"].ToString();
+                priceInfo.InnerHtml = "$" + house.AskingPrice;
 
                 address.Controls.Add(addressInfo);
                 listing.Controls.Add(address);
@@ -91,19 +62,17 @@ namespace Utilities
 
         public HtmlGenericControl createAllListings()
         {
-            DataSet ds = new DataSet();
+            List<House> houses = new List<House>();
             try
             {
-                ds = GetAllHouses();
-                
-                DataTable dt = ds.Tables[0];
+                houses = getHouses();
 
                 HtmlGenericControl listingBox = new HtmlGenericControl("listingBox");
                 listingBox.ID = "listingBox";
 
-                for(int i = 0; i < dt.Rows.Count; i++) 
+                for(int i = 0; i < houses.Count; i++) 
                 {
-                    listingBox.Controls.Add(createSingleListing(int.Parse(dt.Rows[i]["Id"].ToString())));
+                    listingBox.Controls.Add(createSingleListing(int.Parse(houses[i].HouseID.ToString())));
                 }
 
                 return listingBox;
@@ -118,7 +87,7 @@ namespace Utilities
         {
             try
             {
-                DataRow dr = getAllHouseInfo(id);
+                List<House> houses = getHouses();
 
                 HtmlGenericControl homeInfoFull = new HtmlGenericControl("homeInfoFull");
                 HtmlGenericControl mainImage = new HtmlGenericControl("mainImage");
@@ -172,56 +141,41 @@ namespace Utilities
         }
         public String getSpecificHouseInfo(int id, String info)
         {
-            SQLcmd = new SqlCommand();
-            DataSet ds = new DataSet();
-            try
-            {
-                SQLcmd.CommandType = CommandType.StoredProcedure;
-                SQLcmd.CommandText = "TP_GetHouse";
+            House house = getHouse(id);
 
-                SqlParameter sqlInput = new SqlParameter("@id", id);
+            var property = (typeof (House)).GetProperty(info).GetValue(house, null);
 
-                sqlInput.SqlDbType = SqlDbType.Int;
-
-                sqlInput.Size = 50;
-
-                SQLcmd.Parameters.Add(sqlInput);
-
-                ds = utils.GetDataSet(SQLcmd);
-
-                return ds.Tables[0].Rows[0][info].ToString();
-            }
-            catch (Exception ex)
-            {
-                return null;
-            }
+            return property.ToString();
         }
 
-        public DataRow getAllHouseInfo(int id)
+        public House getHouse(int id)
         {
-            SQLcmd = new SqlCommand();
-            DataSet ds = new DataSet();
-            try
-            {
-                SQLcmd.CommandType = CommandType.StoredProcedure;
-                SQLcmd.CommandText = "TP_GetHouse";
+            WebRequest request = WebRequest.Create($"{connString}/{id}");
+            WebResponse response = request.GetResponse();
 
-                SqlParameter sqlInput = new SqlParameter("@id", id);
+            Stream stream = response.GetResponseStream();
+            StreamReader streamReader= new StreamReader(stream);
+            string data = streamReader.ReadToEnd();
 
-                sqlInput.SqlDbType = SqlDbType.Int;
+            JavaScriptSerializer javaScriptSerializer = new JavaScriptSerializer();
+            House house = javaScriptSerializer.Deserialize<House> (data);
 
-                sqlInput.Size = 50;
+            return house;
+        }
 
-                SQLcmd.Parameters.Add(sqlInput);
+        public List<House> getHouses()
+        {
+            WebRequest request = WebRequest.Create(connString);
+            WebResponse response = request.GetResponse();
 
-                ds = utils.GetDataSet(SQLcmd);
+            Stream stream = response.GetResponseStream();
+            StreamReader streamReader = new StreamReader(stream);
+            string data = streamReader.ReadToEnd();
 
-                return ds.Tables[0].Rows[0];
-            }
-            catch (Exception ex)
-            {
-                return null;
-            }
+            JavaScriptSerializer javaScriptSerializer = new JavaScriptSerializer();
+            List<House> houses = javaScriptSerializer.Deserialize<List<House>>(data);
+
+            return houses;
         }
     }
 }

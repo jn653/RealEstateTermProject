@@ -22,7 +22,6 @@ namespace RealEstateTermProject
         protected void Page_Load(object sender, EventArgs e)
         {
             createButtons();
-                
         }
 
         private void createButtons()
@@ -48,10 +47,10 @@ namespace RealEstateTermProject
         {
             int i = int.Parse(id);
 
-            DataRow dr = houseUtils.getAllHouseInfo(i);
+            House house = houseUtils.getHouse(int.Parse(id));
 
-            homeAddress.InnerHtml = dr["Address"].ToString();
-            image.Src = dr["HouseImages"].ToString();
+            homeAddress.InnerHtml = house.Address;
+            image.Src = house.HouseImages;
 
             homeInfo.Visible = true;
         }

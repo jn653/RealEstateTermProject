@@ -180,6 +180,7 @@
     <Compile Include="ForgotPasswordPage.aspx.designer.cs">
       <DependentUpon>ForgotPasswordPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="House.cs" />
     <Compile Include="HousePage.aspx.cs">
       <DependentUpon>HousePage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
