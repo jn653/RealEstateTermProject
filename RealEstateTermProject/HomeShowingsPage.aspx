@@ -12,7 +12,7 @@
     <form id="form1" runat="server">
         <div>
         </div>
-         <table style="z-index: 1; left: 298px; top: 186px; position: absolute; height: 340px; width: 460px; right: 232px">
+         <table style="z-index: 1; left: 361px; top: 186px; position: absolute; height: 340px; width: 460px; right: 169px">
             <tr style="color:darkorchid">
                 <th> Visitor </th>
                 <th> Date </th>
@@ -39,7 +39,7 @@
                      </ItemTemplate>
         </asp:Repeater>
         </table>
-        <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="80px" ForeColor="RoyalBlue" style="z-index: 1; left: 246px; top: 120px; position: absolute" Text="Scheduled Visits"></asp:Label>
+        <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="80px" ForeColor="RoyalBlue" style="z-index: 1; left: 359px; top: 62px; position: absolute" Text="Scheduled Visits"></asp:Label>
     </form>
 </body>
 </html>

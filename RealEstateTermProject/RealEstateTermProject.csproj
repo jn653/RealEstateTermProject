@@ -120,6 +120,7 @@
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="FindARealEstateAgentPage.aspx" />
     <Content Include="ForgotPasswordPage.aspx" />
+    <Content Include="HomeOffers.aspx" />
     <Content Include="HomeShowingsPage.aspx" />
     <Content Include="HousePage.aspx" />
     <Content Include="js\navHomeSeller.js" />
@@ -167,6 +168,7 @@
     <Compile Include="AddRealEstateInfoPage.aspx.designer.cs">
       <DependentUpon>AddRealEstateInfoPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Class1.cs" />
     <Compile Include="Connection.cs" />
     <Compile Include="FindARealEstateAgentPage.aspx.cs">
       <DependentUpon>FindARealEstateAgentPage.aspx</DependentUpon>
@@ -181,6 +183,13 @@
     </Compile>
     <Compile Include="ForgotPasswordPage.aspx.designer.cs">
       <DependentUpon>ForgotPasswordPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HomeOffers.aspx.cs">
+      <DependentUpon>HomeOffers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HomeOffers.aspx.designer.cs">
+      <DependentUpon>HomeOffers.aspx</DependentUpon>
     </Compile>
     <Compile Include="HomeShowingsPage.aspx.cs">
       <DependentUpon>HomeShowingsPage.aspx</DependentUpon>

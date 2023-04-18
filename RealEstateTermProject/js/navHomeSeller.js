@@ -53,6 +53,10 @@ function navHomeSeller() {
             "innerHTML": "View Home Showings"
         },
         {
+            "href": "HomeOffers.aspx",
+            "innerHTML": "View Home Offers"
+        },
+        {
             "href": "LoginPage.aspx",
             "innerHTML": "Sign Out"
         }
