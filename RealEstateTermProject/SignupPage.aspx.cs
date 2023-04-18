@@ -109,7 +109,7 @@ namespace RealEstateTermProject
                 //storing username to use across multiple pages
 
                 Session["Username"] = txtCreateUsername.Text;
-                Response.Redirect("LandingPageforRealEstateAgent.aspx");
+                Response.Redirect("AddRealEstateInfoPage.aspx");
             }
             else
                 //storing username to use across multiple pages
