@@ -6,13 +6,17 @@
 <head runat="server">
     <title></title>
      <script src="js/navHomeSeller.js"></script>
+      <link href="styles/LandingPage.css" rel="stylesheet" />
 </head>
 <body>
     <script>navHomeSeller()</script>
+    <content>
+            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Nnx8fGVufDB8fHx8&w=1000&q=80" />
+        </content>
     <form id="form1" runat="server">
         <div>
         </div>
-        <asp:GridView ID="gvHomeOffers" runat="server" style="z-index: 1; left: 357px; top: 251px; position: absolute; height: 133px; width: 187px">
+        <asp:GridView ID="gvHomeOffers" runat="server" style="z-index: 1; left: 385px; top: 250px; position: absolute; height: 133px; width: 187px" BackColor="White">
         </asp:GridView>
         <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="75" ForeColor="RoyalBlue" style="z-index: 1; left: 359px; top: 62px; position: absolute" Text="Home Offers"></asp:Label>
     </form>

@@ -95,6 +95,8 @@ namespace RealEstateTermProject
             email = objCommand.Parameters["@email"].Value.ToString();
 
             Session["Email"] = email;
+            //storing the account type to use across different pages 
+            Session["accountType"] = accountType;
 
             //code for sending the two factor email - have to fix it to get it to work 
 
@@ -155,6 +157,8 @@ namespace RealEstateTermProject
             {
                 //storing username to use across multiple pages
                 Session["Username"] = txtUsername.Text;
+                //storing the account type to use across different pages 
+                Session["accountType"] = accountType;
                 Response.Redirect("LandingPageforHomeSeller.aspx");
             }
             else
@@ -163,6 +167,8 @@ namespace RealEstateTermProject
             {
                 //storing username to use across multiple pages
                 Session["Username"] = txtUsername.Text;
+                //storing the account type to use across different pages 
+                Session["accountType"] = accountType;
                 Response.Redirect("LandingPage.aspx");
             }
             else
@@ -171,6 +177,8 @@ namespace RealEstateTermProject
             {
                 //storing username to use across multiple pages
                 Session["Username"] = txtUsername.Text;
+                //storing the account type to use across different pages 
+                Session["accountType"] = accountType;
                 Response.Redirect("LandingPageforRealEstateAgent.aspx");
             }
 

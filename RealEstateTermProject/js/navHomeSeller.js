@@ -49,12 +49,20 @@ function navHomeSeller() {
             "innerHTML": "Sell"
         },
         {
+            "href": "RequestedSellings.aspx",
+            "innerHTML": "Requested Sellings"
+        },
+        {
+            "href": "MyHomesPage.aspx",
+            "innerHTML": "My Homes"
+        },
+        {
             "href": "HomeShowingsPage.aspx",
-            "innerHTML": "View Home Showings"
+            "innerHTML": "Home Showings"
         },
         {
             "href": "HomeOffers.aspx",
-            "innerHTML": "View Home Offers"
+            "innerHTML": "Home Offers"
         },
         {
             "href": "LoginPage.aspx",

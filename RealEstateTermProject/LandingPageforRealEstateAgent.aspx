@@ -4,18 +4,15 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-     <script src="js/nav.js"></script>
+     <script src="js/navHomeSeller.js"></script>
     <link href="styles/LandingPage.css" rel="stylesheet" />
-    <script src="js/navHomeSeller.js"></script>
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
     <script src="Scripts/bootstrap.bundle.min.js"></script>
     <script src="Scripts/bootstrap.min.js"></script>
     <title></title>
 </head>
 <body>
-    <script>
-        navHomeSeller()
-    </script>
+     <script>navHomeSeller()</script>
     <form id="form1" runat="server">
        
         <content>
