@@ -47,7 +47,7 @@ namespace RealEstateTermProject
 
                 //adding user account to database
                 SoapUser.addUserAccount(txtCreateUsername.Text, txtCreatePassword.Text, txtEmail.Text, AccountType.ToString(), lblseucrityquestion1question0.Text,
-    lblseucrityquestion2question0.Text, lblseucrityquestion3question.Text, txtSecurityquestion1Answer.Text, txtSecurityquestion2Answer.Text, txtSecurityquestion3Answer.Text);
+                lblseucrityquestion2question0.Text, lblseucrityquestion3question.Text, txtSecurityquestion1Answer.Text, txtSecurityquestion2Answer.Text, txtSecurityquestion3Answer.Text);
 
                 //storing username to use across multiple pages
                 Session["Username"] = txtCreateUsername.Text;
