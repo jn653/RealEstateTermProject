@@ -32,7 +32,7 @@ namespace RealEstateTermProject
 
         protected void btnsubmitCriteria_Click(object sender, EventArgs e)
         {
-            if (ddlCriteria.SelectedValue.Equals("State/Price/PropertyType"))
+            if(AjaxComboCriteria.SelectedValue.Equals("State/Price/PropertyType"))
             {
                 lblSearch.Visible = true;
 
@@ -48,7 +48,7 @@ namespace RealEstateTermProject
                 btnsubmitCriteria.Visible = false;
                 btnSearchHouse.Visible = true;
             }
-            else if (ddlCriteria.SelectedValue.Equals("State/Price/Number of bedrooms"))
+            else if (AjaxComboCriteria.SelectedValue.Equals("State/Price/Number of bedrooms"))
             {
                 lblSearch.Visible = true;
 
@@ -64,7 +64,7 @@ namespace RealEstateTermProject
                 btnsubmitCriteria.Visible = false;
                 btnSearchHouse.Visible = true;
             }
-            else if (ddlCriteria.SelectedValue.Equals("City/Price"))
+            else if (AjaxComboCriteria.SelectedValue.Equals("City/Price"))
             {
                 lblSearch.Visible = true;
                 lblCity.Visible = true;
@@ -81,7 +81,7 @@ namespace RealEstateTermProject
                 btnSearchHouse.Visible = true;
             }
             else
-                if(ddlCriteria.SelectedValue.Equals("Price/Number of bathrooms"))
+                if(AjaxComboCriteria.SelectedValue.Equals("Price/Number of bathrooms"))
             {
                 lblPrice.Visible = true;
                 ddlPrice.Visible = true;

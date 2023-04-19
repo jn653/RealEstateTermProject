@@ -65,6 +65,16 @@
         </asp:DropDownList>
                 
         </p>
+        <div style="z-index: 1; left: 507px; top: 316px; position: absolute; height: 27px; width: 1464px">
+
+        <ajaxToolkit:ComboBox ID="AjaxComboCriteria" runat="server" style="z-index: 1; left: 10px; top: 172px; position: absolute">
+            <asp:ListItem>State/Price/PropertyType</asp:ListItem>
+            <asp:ListItem>City/Price</asp:ListItem>
+            <asp:ListItem>State/Price/Number of bedrooms</asp:ListItem>
+            <asp:ListItem>Price/Number of bathrooms</asp:ListItem>
+        </ajaxToolkit:ComboBox>
+
+        </div>
     </form>
 </body>
 </html>
