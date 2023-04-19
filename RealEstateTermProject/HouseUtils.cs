@@ -10,12 +10,14 @@ using System.Web.UI.WebControls;
 using System.Net;
 using System.IO;
 using System.Web.Script.Serialization;
+using System.Net.NetworkInformation;
+using System.Xml.Linq;
 
 namespace Utilities
 {
     public class HouseUtils
     {
-
+        //String connString = "https://cis-iis2.temple.edu/Spring2023/CIS3342_tuk60318/WebAPI/HouseAPI/api/Houses"; //For when you run the api server side
         String connString = "https://localhost:44398/api/Houses"; //For when you run the api client side
         public HouseUtils() { }
 
@@ -176,6 +178,36 @@ namespace Utilities
             List<House> houses = javaScriptSerializer.Deserialize<List<House>>(data);
 
             return houses;
+        }
+
+        public void putHouse(House house)
+        {
+            // Create an object of the Customer class which is avaialable through the web service reference and WSDL
+            // Serialize a Customer object into a JSON string.
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            String jsonHouse = js.Serialize(house);
+            
+                // Send the Customer object to the Web API that will be used to store a new customer record in the database.
+                // Setup an HTTP POST Web Request and get the HTTP Web Response from the server.
+                WebRequest request = WebRequest.Create(connString);
+                request.Method = "POST";
+                request.ContentLength = jsonHouse.Length;
+                request.ContentType = "application/json";
+
+                // Write the JSON data to the Web Request
+                StreamWriter writer = new StreamWriter(request.GetRequestStream());
+                writer.Write(jsonHouse);
+                writer.Flush();
+                writer.Close();
+
+                // Read the data from the Web Response, which requires working with streams.
+                WebResponse response = request.GetResponse();
+                Stream theDataStream = response.GetResponseStream();
+                StreamReader reader = new StreamReader(theDataStream);
+                String data = reader.ReadToEnd();
+                reader.Close();
+                response.Close();
+            
         }
     }
 }

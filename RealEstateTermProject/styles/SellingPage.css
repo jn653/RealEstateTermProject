@@ -1,0 +1,11 @@
+﻿sellingInfo{
+    position:absolute;
+    top:10rem;
+    left:5rem;
+    margin-right:5rem;
+}
+
+contentBox{
+    display:flex;
+    flex-direction:column;
+}
