@@ -10,8 +10,13 @@
     <title></title>
 </head>
 <body>
+    
+
+    
      <script>nav();</script>
     <form id="form1" runat="server">
+        <asp:ScriptManager ID="ToolkitScriptManager1" runat="server">
+</asp:ScriptManager>
         <div>
         </div>
 
@@ -34,13 +39,6 @@
 
             <asp:Label ID="lblSearch" runat="server" Text="Search for a house by" Font-Bold="True" Font-Size="X-Large" style="z-index: 1; left: 8px; top: 141px; position: absolute"></asp:Label>
         
-            <asp:DropDownList ID="ddlCriteria" runat="server" style="z-index: 1; left: 519px; top: 288px; position: absolute; width: 171px; right: 756px;">
-                <asp:ListItem>State/Price/PropertyType</asp:ListItem>
-                <asp:ListItem>City/Price</asp:ListItem>
-                <asp:ListItem>State/Price/Number of bedrooms</asp:ListItem>
-                <asp:ListItem>Price/Number of bathrooms</asp:ListItem>
-        </asp:DropDownList>
-
             <asp:HyperLink ID="hyperlinkBack" runat="server" Font-Size="Small" ForeColor="RoyalBlue" NavigateUrl="~/SearchHouses.aspx" style="z-index: 1; left: 45px; top: 64px; position: absolute">Back to Search</asp:HyperLink>
 
             <asp:Label ID="lblCity" runat="server" Font-Bold="True" Font-Size="X-Large" style="z-index: 1; left: 350px; top: 106px; position: absolute" Text="City"></asp:Label>
@@ -65,7 +63,7 @@
         </asp:DropDownList>
                 
         </p>
-        <div style="z-index: 1; left: 507px; top: 316px; position: absolute; height: 27px; width: 1464px">
+        <div style="z-index: 1; left: 485px; top: 139px; position: absolute; height: 27px; width: 1464px">
 
         <ajaxToolkit:ComboBox ID="AjaxComboCriteria" runat="server" style="z-index: 1; left: 10px; top: 172px; position: absolute">
             <asp:ListItem>State/Price/PropertyType</asp:ListItem>

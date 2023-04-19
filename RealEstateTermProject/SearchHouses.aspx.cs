@@ -44,7 +44,6 @@ namespace RealEstateTermProject
 
 
                 lblSearchByCriteria.Visible = false;
-                ddlCriteria.Visible = false;
                 btnsubmitCriteria.Visible = false;
                 btnSearchHouse.Visible = true;
             }
@@ -60,7 +59,6 @@ namespace RealEstateTermProject
 
 
                 lblSearchByCriteria.Visible = false;
-                ddlCriteria.Visible = false;
                 btnsubmitCriteria.Visible = false;
                 btnSearchHouse.Visible = true;
             }
@@ -74,7 +72,6 @@ namespace RealEstateTermProject
 
 
                 lblSearchByCriteria.Visible = false;
-                ddlCriteria.Visible = false;
                 btnsubmitCriteria.Visible = false;
                 ddlnumofBathrooms.Visible = false;
                 lblNumofBedrooms.Visible = false;
@@ -94,7 +91,6 @@ namespace RealEstateTermProject
 
 
                 lblSearchByCriteria.Visible = false;
-                ddlCriteria.Visible = false;
                 btnsubmitCriteria.Visible = false;
             }
                 
