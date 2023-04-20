@@ -22,6 +22,7 @@ namespace RealEstateTermProject
     {
 
         [WebMethod]
+        //making sure the username isnt already in the database when signup happens
         public string ValidateSignUp(string usernameTextBox)
         {
             string errorMessage;
@@ -46,6 +47,7 @@ namespace RealEstateTermProject
             return profileUsername;
         } 
 
+        //adding a user account to the user account database table
         public void addUserAccount(string username, string password, string email, string accountType, string firstquestion, string secondquestion, string thirdquestion, string firstanswer, string secondanswer, string thirdanswer)
         {
             SqlCommand objCommand = new SqlCommand();
@@ -70,6 +72,33 @@ namespace RealEstateTermProject
             myDataSet = objDB.GetDataSet(objCommand);
 
            
+        }
+        //getting user id by entering the stored username
+        public int GetIDByUsername(string username)
+        {
+            
+
+            SqlCommand objCommand50 = new SqlCommand();
+            objCommand50.CommandType = CommandType.StoredProcedure;
+            objCommand50.CommandText = "TP_RetrieveUserID";
+
+
+            objCommand50.Parameters.AddWithValue("@theUsername", username);
+
+
+            SqlParameter outputParameter30 = new SqlParameter("@theID", SqlDbType.Int, 600);
+            outputParameter30.Direction = ParameterDirection.Output;
+            objCommand50.Parameters.Add(outputParameter30);
+
+
+
+
+            DBConnect objDB46 = new DBConnect();
+            objDB46.GetDataSet(objCommand50);
+
+            int UserID = Convert.ToInt32(objCommand50.Parameters["@theID"].Value.ToString());
+
+            return UserID;
         }
     }
 }

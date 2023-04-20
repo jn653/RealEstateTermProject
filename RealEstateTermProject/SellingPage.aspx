@@ -49,9 +49,13 @@
                     <input id="state" runat="server"/>
                     <label for="numOfBath">Number of Bathrooms</label>
                     <input id="numOfBath" runat="server"/>
-                    <label for="city">City</label>
-                    <input id="city" runat="server"/>
+                    <label for="city">City<asp:Button ID="sell0" Text="Sell House" OnClick="Button1_Click" runat="server" />
+            </label>
+                    &nbsp;<input id="city" runat="server"/>
                 <asp:Button ID="sell" Text="Sell House" OnClick="Button1_Click" runat="server" />
+
+                <asp:Button ID="Button1" Text="Sell House" OnClick="Button1_Click" runat="server" />
+
             </sellinginfo>
 
     </form>

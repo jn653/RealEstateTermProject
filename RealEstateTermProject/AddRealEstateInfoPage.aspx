@@ -45,8 +45,8 @@
             <asp:Label ID="Label2" runat="server" ForeColor="RoyalBlue" style="z-index: 1; left: 818px; top: 338px; position: absolute" Text="Phone Number:"></asp:Label>
             <asp:Label ID="Label3" runat="server" ForeColor="RoyalBlue" style="z-index: 1; left: 835px; top: 406px; position: absolute" Text="Agent Name:"></asp:Label>
             <asp:Button ID="btnSubmitINfo" runat="server" BackColor="RoyalBlue" ForeColor="White" OnClick="Button1_Click" style="z-index: 1; left: 931px; top: 509px; position: absolute" Text="Submit Info" />
-            <asp:GridView ID="gvTest" runat="server" style="z-index: 1; left: 453px; top: 313px; position: absolute; height: 180px; width: 289px">
-            </asp:GridView>
+            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click1" style="z-index: 1; left: 788px; top: 634px; position: absolute" Text="Button" />
+            <asp:Label ID="lblDisplay" runat="server" style="z-index: 1; left: 941px; top: 607px; position: absolute" Text="Label"></asp:Label>
 
         </div>
         <div class ="LoginBox">
