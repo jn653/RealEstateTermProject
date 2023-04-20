@@ -114,12 +114,21 @@ namespace RealEstateTermProject
         protected global::System.Web.UI.WebControls.Button btnSubmitINfo;
 
         /// <summary>
-        /// gvTest control.
+        /// Button1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvTest;
+        protected global::System.Web.UI.WebControls.Button Button1;
+
+        /// <summary>
+        /// lblDisplay control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDisplay;
     }
 }

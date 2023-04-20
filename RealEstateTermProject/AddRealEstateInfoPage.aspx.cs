@@ -9,44 +9,31 @@ using System.IO;
 using Utilities;
 using System.Data.SqlClient;
 using System.Data;
+using Newtonsoft.Json;
+
 
 namespace RealEstateTermProject
 {
     public partial class AddRealEstateInfoPage : System.Web.UI.Page
     {
-       
+        SoapUserFunc soapUser = new SoapUserFunc();
        
         protected void Page_Load(object sender, EventArgs e)
         {
-            
 
+            
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+            
+
             //retrieving the username for the stored username in login and sign up page to use in other pages
             string UserAccountName = (string)Session["Username"];
 
-            SqlCommand objCommand50 = new SqlCommand();
-            objCommand50.CommandType = CommandType.StoredProcedure;
-            objCommand50.CommandText = "TP_RetrieveUserID";
-
-
-            objCommand50.Parameters.AddWithValue("@theUsername", UserAccountName);
-
-
-            SqlParameter outputParameter30 = new SqlParameter("@theID", SqlDbType.Int, 600);
-            outputParameter30.Direction = ParameterDirection.Output;
-            objCommand50.Parameters.Add(outputParameter30);
+            //storing user id
+           int UserID = soapUser.GetIDByUsername(UserAccountName);
             
-            
-
-
-            DBConnect objDB46 = new DBConnect();
-            objDB46.GetDataSet(objCommand50);
-
-            int UserID = Convert.ToInt32( objCommand50.Parameters["@theID"].Value.ToString());
-
 
             //create realestateagent object
             RealEstateAgent objRealEstate = new RealEstateAgent();
@@ -55,7 +42,7 @@ namespace RealEstateTermProject
             objRealEstate.phoneNumber = txtboxPhoneNumber.Text;
 
 
-            // Serialize the realestateagent object
+            //// Serialize the realestateagent object
             BinaryFormatter serializer = new BinaryFormatter();
             MemoryStream memStream = new MemoryStream();
             Byte[] byteArray;
@@ -63,22 +50,68 @@ namespace RealEstateTermProject
             byteArray = memStream.ToArray();
 
             //doesn't work, have to fix it
-            //DBConnect objDB = new DBConnect();
-            //SqlCommand objCommand = new SqlCommand();
-            //objCommand.CommandType = CommandType.StoredProcedure;
-            //objCommand.CommandText = "TP_RealEstateCompany";
-            //objCommand.Parameters.AddWithValue("@theRealEstateCompany", byteArray);
-            //objCommand.Parameters.AddWithValue("@theID", UserID);
 
-            
+            SqlCommand objCommand = new SqlCommand();
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "TP_AddRealEstateCompany";
+            objCommand.Parameters.AddWithValue("@theRealEstateCompany", byteArray);
+            objCommand.Parameters.AddWithValue("@theID", UserID);
 
-            Response.Redirect("LandingPageforRealEstateAgent.aspx");
-
-
+            DBConnect objDB = new DBConnect();
+            DataSet myDataSet;
+            myDataSet = objDB.GetDataSet(objCommand);
 
 
 
 
+            //Response.Redirect("LandingPageforRealEstateAgent.aspx");
+
+
+
+
+
+
+        }
+
+        protected void Button1_Click1(object sender, EventArgs e)
+        {
+
+           //the output is wrong but everything works i just have to change the output
+
+
+
+            //retrieving the username for the stored username in login and sign up page to use in other pages
+            string UserAccountName = (string)Session["Username"];
+            //storing user id
+            int UserID = soapUser.GetIDByUsername(UserAccountName);
+            String strSQL = "SELECT RealEstateCompany FROM TP_RealEstateCompany WHERE UserID ='" + UserID + "'";
+
+            DBConnect objDB = new DBConnect();
+            objDB.GetDataSet(strSQL);
+
+            Byte[] byteArray = (Byte[])objDB.GetField("RealEstateCompany", 0);
+
+
+
+            BinaryFormatter deSerializer = new BinaryFormatter();
+
+            MemoryStream memStream = new MemoryStream(byteArray);
+
+
+
+            RealEstateAgent objrealEstate = (RealEstateAgent)deSerializer.Deserialize(memStream);
+
+            lblDisplay.Text = "The following credit card information was found: </br>" +
+
+                                       "----------------------------------------------- </br>" +
+
+                                       "Card Type: " + objrealEstate.companyName + " </br>" +
+
+                                       "Card #: " + objrealEstate.agentName + " </br>" +
+
+                                       "Exp Date: " + objrealEstate.phoneNumber;
+
+                                       
         }
     }
 }
