@@ -22,7 +22,8 @@
 
 
         <script>navHomeSeller()</script>
-            <sellinginfo id="test" runat="server">
+            <sellinginfo id="sellingInfo" runat="server">
+                
                     <label for="address">Address</label>
                     <input id="address" runat="server"/>
                     <label for="propertyType">Property Type</label>
@@ -51,6 +52,8 @@
                     <input id="numOfBath" runat="server"/>
                     <label for="city">City</label>
                     <input id="city" runat="server"/>
+                <asp:FileUpload ID="FileUpload1" runat="server" />
+                <asp:Button ID="addImage" Text="Add Image" OnClick="AddFileUpload" runat="server" />
                 <asp:Button ID="sell" Text="Sell House" OnClick="Button1_Click" runat="server" />
             </sellinginfo>
 

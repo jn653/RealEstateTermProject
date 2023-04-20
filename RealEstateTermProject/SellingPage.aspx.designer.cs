@@ -33,13 +33,13 @@ namespace RealEstateTermProject
         protected global::System.Web.UI.WebControls.Button btnSellonOwn;
 
         /// <summary>
-        /// test control.
+        /// sellingInfo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl test;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl sellingInfo;
 
         /// <summary>
         /// address control.
@@ -168,6 +168,15 @@ namespace RealEstateTermProject
         protected global::System.Web.UI.HtmlControls.HtmlInputText city;
 
         /// <summary>
+        /// FileUpload1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload FileUpload1;
+
+        /// <summary>
         /// sell control.
         /// </summary>
         /// <remarks>
@@ -175,5 +184,14 @@ namespace RealEstateTermProject
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button sell;
+
+        /// <summary>
+        /// addImage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button addImage;
     }
 }
