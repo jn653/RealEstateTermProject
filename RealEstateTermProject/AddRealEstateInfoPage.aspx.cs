@@ -76,30 +76,42 @@ namespace RealEstateTermProject
         protected void Button1_Click1(object sender, EventArgs e)
         {
 
-            //have to keep working on it 
+           //the output is wrong but everything works i just have to change the output
 
 
 
-        //    //retrieving the username for the stored username in login and sign up page to use in other pages
-        //    string UserAccountName = (string)Session["Username"];
-        //    //storing user id
-        //    int UserID = soapUser.GetIDByUsername(UserAccountName);
-        //    String strSQL = "SELECT CreditCard FROM TP_RealEstateCompany WHERE UserID ='" + UserID + "'";
+            //retrieving the username for the stored username in login and sign up page to use in other pages
+            string UserAccountName = (string)Session["Username"];
+            //storing user id
+            int UserID = soapUser.GetIDByUsername(UserAccountName);
+            String strSQL = "SELECT RealEstateCompany FROM TP_RealEstateCompany WHERE UserID ='" + UserID + "'";
 
-        //    DBConnect objDB = new DBConnect();
-        //     objDB.GetDataSet(strSQL);
+            DBConnect objDB = new DBConnect();
+            objDB.GetDataSet(strSQL);
 
-        //    Byte[] byteArray = (Byte[])objDB.GetField("CreditCard", 0);
-
-
-
-        //    BinaryFormatter deSerializer = new BinaryFormatter();
-
-        //    MemoryStream memStream = new MemoryStream(byteArray);
+            Byte[] byteArray = (Byte[])objDB.GetField("RealEstateCompany", 0);
 
 
 
-        //    CreditCard objCreditCard = (CreditCard)deSerializer.Deserialize(memStream);
-        //}
+            BinaryFormatter deSerializer = new BinaryFormatter();
+
+            MemoryStream memStream = new MemoryStream(byteArray);
+
+
+
+            RealEstateAgent objrealEstate = (RealEstateAgent)deSerializer.Deserialize(memStream);
+
+            lblDisplay.Text = "The following credit card information was found: </br>" +
+
+                                       "----------------------------------------------- </br>" +
+
+                                       "Card Type: " + objrealEstate.companyName + " </br>" +
+
+                                       "Card #: " + objrealEstate.agentName + " </br>" +
+
+                                       "Exp Date: " + objrealEstate.phoneNumber;
+
+                                       
+        }
     }
 }
