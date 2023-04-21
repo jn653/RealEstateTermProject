@@ -150,6 +150,7 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="SearchHouses.aspx" />
     <Content Include="SellingPage.aspx" />
+    <Content Include="ShowRealEstatesCompany.aspx" />
     <Content Include="SignupPage.aspx" />
     <Content Include="SoapUserFunc.asmx" />
     <Content Include="styles\Listings.css" />
@@ -283,6 +284,13 @@
     </Compile>
     <Compile Include="SellingPage.aspx.designer.cs">
       <DependentUpon>SellingPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ShowRealEstatesCompany.aspx.cs">
+      <DependentUpon>ShowRealEstatesCompany.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShowRealEstatesCompany.aspx.designer.cs">
+      <DependentUpon>ShowRealEstatesCompany.aspx</DependentUpon>
     </Compile>
     <Compile Include="SignupPage.aspx.cs">
       <DependentUpon>SignupPage.aspx</DependentUpon>

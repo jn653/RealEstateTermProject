@@ -96,6 +96,15 @@ namespace RealEstateTermProject
         protected global::System.Web.UI.WebControls.HyperLink hyperlinkBack;
 
         /// <summary>
+        /// ddlStates control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlStates;
+
+        /// <summary>
         /// lblCity control.
         /// </summary>
         /// <remarks>
@@ -105,13 +114,13 @@ namespace RealEstateTermProject
         protected global::System.Web.UI.WebControls.Label lblCity;
 
         /// <summary>
-        /// txtCity control.
+        /// ddlCity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCity;
+        protected global::System.Web.UI.WebControls.DropDownList ddlCity;
 
         /// <summary>
         /// lblNumofBedrooms control.

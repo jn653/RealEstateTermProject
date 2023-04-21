@@ -41,8 +41,13 @@
         
             <asp:HyperLink ID="hyperlinkBack" runat="server" Font-Size="Small" ForeColor="RoyalBlue" NavigateUrl="~/SearchHouses.aspx" style="z-index: 1; left: 45px; top: 64px; position: absolute">Back to Search</asp:HyperLink>
 
+            <asp:DropDownList ID="ddlStates" AppendDataBoundItems="true" DataTextField="State" runat="server" style="z-index: 1; left: 290px; top: 155px; position: absolute">
+        </asp:DropDownList>
+             
+
             <asp:Label ID="lblCity" runat="server" Font-Bold="True" Font-Size="X-Large" style="z-index: 1; left: 350px; top: 106px; position: absolute" Text="City"></asp:Label>
-        <asp:TextBox ID="txtCity" runat="server" style="z-index: 1; left: 339px; top: 152px; position: absolute; width: 96px"></asp:TextBox>
+        <asp:DropDownList ID="ddlCity" runat="server"  AppendDataBoundItems="true" DataTextField="City" style="z-index: 1; left: 333px; top: 155px; position: absolute">
+        </asp:DropDownList>
         <asp:Label ID="lblNumofBedrooms" runat="server" Font-Bold="True" Font-Size="X-Large" style="z-index: 1; left: 735px; top: 104px; position: absolute" Text="Number of Bedrooms"></asp:Label>
 
             <asp:Label ID="lblSearchByCriteria" runat="server" Text="Search for a house by One of the following criteria:" Font-Bold="True" Font-Size="X-Large" style="z-index: 1; left: 272px; top: 223px; position: absolute"></asp:Label>
