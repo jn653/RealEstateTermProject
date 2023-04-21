@@ -20,13 +20,14 @@ namespace RealEstateTermProject
        
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            lblDisplay.Visible = false;
+            btnLogin.Visible = false;
             
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            
+            btnCheckInfo.Visible = false;
 
             //retrieving the username for the stored username in login and sign up page to use in other pages
             string UserAccountName = (string)Session["Username"];
@@ -75,7 +76,14 @@ namespace RealEstateTermProject
 
         protected void Button1_Click1(object sender, EventArgs e)
         {
-
+            btnLogin.Visible = true;
+            btnCheckInfo.Visible = false;
+            btnSubmitINfo.Visible = false;
+            lblDisplay.Visible = true;
+            companynamelbl.Visible = false;
+            txtboxAgentName.Visible = false;
+            txtboxCompanyName.Visible = false;
+            txtboxPhoneNumber.Visible = false;
            //the output is wrong but everything works i just have to change the output
 
 
@@ -101,17 +109,24 @@ namespace RealEstateTermProject
 
             RealEstateAgent objrealEstate = (RealEstateAgent)deSerializer.Deserialize(memStream);
 
-            lblDisplay.Text = "The following credit card information was found: </br>" +
+            lblDisplay.Text = "The following information you inputted was : </br>" +
 
                                        "----------------------------------------------- </br>" +
 
-                                       "Card Type: " + objrealEstate.companyName + " </br>" +
+                                       "Company Name: " + objrealEstate.companyName + " </br>" +
 
-                                       "Card #: " + objrealEstate.agentName + " </br>" +
+                                       "Agent Name:: " + objrealEstate.agentName + " </br>" +
 
-                                       "Exp Date: " + objrealEstate.phoneNumber;
+                                       "Company Phone Number: " + objrealEstate.phoneNumber + "</br>" +
+
+                                       "If this information is correct, you could click the login button to go to the Homepage";
 
                                        
+        }
+
+        protected void btnLogin_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("LandingPageforRealEstateAgent.aspx");
         }
     }
 }

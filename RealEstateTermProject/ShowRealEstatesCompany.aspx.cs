@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -12,8 +14,11 @@ namespace RealEstateTermProject
 {
     public partial class ShowRealEstatesCompany : System.Web.UI.Page
     {
+        //have to fix this page
         protected void Page_Load(object sender, EventArgs e)
         {
+            List<RealEstateAgent> objList = new List<RealEstateAgent>();
+           
             if (!IsPostBack)
             {
                 lblAgentName.Visible = false;
@@ -21,29 +26,45 @@ namespace RealEstateTermProject
                 lblComapnyName.Visible = false;
                 lblPhoneNumber.Visible = false;
 
-                String strSQL = "SELECT RealEstateCompany FROM TP_RealEstateCompany";
+                String strSQL = "SELECT Distinct RealEstateCompany FROM TP_RealEstateCompany";
 
                 DBConnect objDB = new DBConnect();
                 objDB.GetDataSet(strSQL);
 
-                Byte[] byteArray = (Byte[])objDB.GetField("RealEstateCompany", 0);
 
 
 
-                BinaryFormatter deSerializer = new BinaryFormatter();
-
-                MemoryStream memStream = new MemoryStream(byteArray);
-
+               
+                
 
 
-                RealEstateAgent objrealEstate = (RealEstateAgent)deSerializer.Deserialize(memStream);
 
-                for (int i = 0; i <= byteArray.Count(); i++)
-                {
-                    gvShowRealEstate.DataSource = byteArray;
-                    gvShowRealEstate.DataBind();
-                    gvShowRealEstate.Rows[0].Cells[0].Text = objrealEstate.agentName.ToString();
-                }
+
+
+
+                //for(int i = 0; i<= objList.Count; i++)
+                //{
+
+                //    gvShowRealEstate.DataSource = objList;
+                //    gvShowRealEstate.DataBind();
+
+                //    for (int row = 0; row < gvShowRealEstate.Rows.Count; row++)
+                //    {
+
+                //        gvShowRealEstate.Rows[row].Cells[0].Text = objrealEstate.agentName.ToString();
+                //        gvShowRealEstate.Rows[row].Cells[1].Text = objrealEstate.companyName.ToString();
+                //        gvShowRealEstate.Rows[row].Cells[2].Text = objrealEstate.phoneNumber.ToString();
+
+                //        gvShowRealEstate.Columns[1].Visible = false;
+                //        gvShowRealEstate.Columns[2].Visible = false;
+                //    }
+
+                //}
+
+
+
+
+
 
             }
 
@@ -66,6 +87,15 @@ namespace RealEstateTermProject
                 lblcomapnyinfo.Visible = true;
                 lblComapnyName.Visible = true;
                 lblPhoneNumber.Visible = true;
+
+            for(int row = 0; row < gvShowRealEstate.Rows.Count; row++)
+            {
+
+            }
+
+            
+
+            
            
             
         }

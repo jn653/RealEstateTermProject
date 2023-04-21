@@ -30,6 +30,7 @@
         </div>
         
         <div class ="actionBox">
+            <asp:Button ID="btnLogin" runat="server" BackColor="RoyalBlue" ForeColor="White" OnClick="btnLogin_Click" style="z-index: 1; left: 116px; top: 547px; position: absolute; width: 140px" Text="Login" />
         </div>
             <asp:Label ID="lblTitle" runat="server" Font-Bold="True" Font-Size="50pt" ForeColor="Lime" style="z-index: 1; left: 862px; top: 56px; position: absolute" Text="Willow"></asp:Label>
         <asp:Label ID="companynamelbl" runat="server" ForeColor="RoyalBlue" style="z-index: 1; left: 818px; top: 274px; position: absolute" Text="Company Name:"></asp:Label>
@@ -45,8 +46,8 @@
             <asp:Label ID="Label2" runat="server" ForeColor="RoyalBlue" style="z-index: 1; left: 818px; top: 338px; position: absolute" Text="Phone Number:"></asp:Label>
             <asp:Label ID="Label3" runat="server" ForeColor="RoyalBlue" style="z-index: 1; left: 835px; top: 406px; position: absolute" Text="Agent Name:"></asp:Label>
             <asp:Button ID="btnSubmitINfo" runat="server" BackColor="RoyalBlue" ForeColor="White" OnClick="Button1_Click" style="z-index: 1; left: 931px; top: 509px; position: absolute" Text="Submit Info" />
-            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click1" style="z-index: 1; left: 788px; top: 634px; position: absolute" Text="Button" />
-            <asp:Label ID="lblDisplay" runat="server" style="z-index: 1; left: 941px; top: 607px; position: absolute" Text="Label"></asp:Label>
+            <asp:Button ID="btnCheckInfo" runat="server" BackColor="RoyalBlue" ForeColor="White" OnClick="Button1_Click1" style="z-index: 1; left: 929px; top: 489px; position: absolute" Text="Check Info" />
+            <asp:Label ID="lblDisplay" runat="server" Font-Bold="True" Font-Size="Medium" ForeColor="RoyalBlue" style="z-index: 1; left: 837px; top: 206px; position: absolute" Text="Label"></asp:Label>
 
         </div>
         <div class ="LoginBox">
