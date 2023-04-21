@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -18,15 +19,32 @@ namespace RealEstateTermProject
         {
             //retrieving the username for the stored username in login and sign up page to use in other pages
             string UserAccountName = (string)Session["Username"];
+            for (int i = 1; i <= 20; i++)
+                upImages.FindControl($"FileUpload{i}").Visible = true;
+        }
 
+        protected void UploadFile(object sender, EventArgs e)
+        {
+            String dir = @"C:\fuck";
+            if (!Directory.Exists(dir))
+                Directory.CreateDirectory(dir);
+
+            image1.SaveAs($@"{dir}\fart.png");
         }
 
         protected void AddFileUpload(object sender, EventArgs e)
         {
-            FileUpload fl = new FileUpload();
-            fl.CssClass = "fileUpload";
+            for (int i = 1; i <= 20; i++)
+            {
+                Control c = upImages.FindControl($"FileUpload{i}");
+                if (!c.Visible)
+                {
+                    c.Visible = true;
+                    break;
+                }
+            }
 
-            sellingInfo.Controls.Add(fl);
+
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -57,7 +75,7 @@ namespace RealEstateTermProject
 
             int UserID = Convert.ToInt32(objCommand50.Parameters["@theID"].Value.ToString());
             */
-            
+
 
 
             House house = new House();
