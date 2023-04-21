@@ -59,29 +59,29 @@
             </label>
             <asp:FileUpload ID="image1" runat="server"/>
             <asp:Button ID="sell0" Text="Upload File" OnClick="UploadFile" runat="server" />
-            <asp:Button ID="addImage" Text="Add Image Button" OnClick="AddFileUpload" runat="server" />
+            
             <asp:UpdatePanel ID="upImages" CssClass="updatePanel" runat="server" UpdateMode="Conditional">
                 <ContentTemplate>
-                    <label for="FileUpload1" class="fileUpload">swag</label>
-                    <label for="FileUpload2" class="fileUpload">swag</label>
-                    <label for="FileUpload3" class="fileUpload">swag</label>
-                    <label for="FileUpload4" class="fileUpload">swag</label>
-                    <label for="FileUpload5" class="fileUpload">swag</label>
-                    <label for="FileUpload6" class="fileUpload">swag</label>
-                    <label for="FileUpload7" class="fileUpload">swag</label>
-                    <label for="FileUpload8" class="fileUpload">swag</label>
-                    <label for="FileUpload9" class="fileUpload">swag</label>
-                    <label for="FileUpload10" class="fileUpload">swag</label>
-                    <label for="FileUpload11" class="fileUpload">swag</label>
-                    <label for="FileUpload12" class="fileUpload">swag</label>
-                    <label for="FileUpload13" class="fileUpload">swag</label>
-                    <label for="FileUpload14" class="fileUpload">swag</label>
-                    <label for="FileUpload15" class="fileUpload">swag</label>
-                    <label for="FileUpload16" class="fileUpload">swag</label>
-                    <label for="FileUpload17" class="fileUpload">swag</label>
-                    <label for="FileUpload18" class="fileUpload">swag</label>
-                    <label for="FileUpload19" class="fileUpload">swag</label>
-                    <label for="FileUpload20" class="fileUpload">swag</label>
+                    <label for="FileUpload1" id="fileUploadLabel1" runat="server" class="fileUpload">Upload Image<input id="imageCaption1" runat="server"/></label>
+                    <label for="FileUpload2" id="fileUploadLabel2" runat="server" class="fileUpload">Upload Image<input id="imageCaption2" runat="server"/></label>
+                    <label for="FileUpload3" id="fileUploadLabel3" runat="server" class="fileUpload">Upload Image<input id="imageCaption3" runat="server"/></label>
+                    <label for="FileUpload4" id="fileUploadLabel4" runat="server" class="fileUpload">Upload Image<input id="imageCaption4" runat="server"/></label>
+                    <label for="FileUpload5" id="fileUploadLabel5" runat="server" class="fileUpload">Upload Image<input id="imageCaption5" runat="server"/></label>
+                    <label for="FileUpload6" id="fileUploadLabel6" runat="server" class="fileUpload">Upload Image<input id="imageCaption6" runat="server"/></label>
+                    <label for="FileUpload7" id="fileUploadLabel7" runat="server" class="fileUpload">Upload Image<input id="imageCaption7" runat="server"/></label>
+                    <label for="FileUpload8" id="fileUploadLabel8" runat="server" class="fileUpload">Upload Image<input id="imageCaption8" runat="server"/></label>
+                    <label for="FileUpload9" id="fileUploadLabel9" runat="server" class="fileUpload">Upload Image<input id="imageCaption9" runat="server"/></label>
+                    <label for="FileUpload10" id="fileUploadLabel10" runat="server" class="fileUpload">Upload Image<input id="imageCaption10" runat="server"/></label>
+                    <label for="FileUpload11" id="fileUploadLabel11" runat="server" class="fileUpload">Upload Image<input id="imageCaption11" runat="server"/></label>
+                    <label for="FileUpload12" id="fileUploadLabel12" runat="server" class="fileUpload">Upload Image<input id="imageCaption12" runat="server"/></label>
+                    <label for="FileUpload13" id="fileUploadLabel13" runat="server" class="fileUpload">Upload Image<input id="imageCaption13" runat="server"/></label>
+                    <label for="FileUpload14" id="fileUploadLabel14" runat="server" class="fileUpload">Upload Image<input id="imageCaption14" runat="server"/></label>
+                    <label for="FileUpload15" id="fileUploadLabel15" runat="server" class="fileUpload">Upload Image<input id="imageCaption15" runat="server"/></label>
+                    <label for="FileUpload16" id="fileUploadLabel16" runat="server" class="fileUpload">Upload Image<input id="imageCaption16" runat="server"/></label>
+                    <label for="FileUpload17" id="fileUploadLabel17" runat="server" class="fileUpload">Upload Image<input id="imageCaption17" runat="server"/></label>
+                    <label for="FileUpload18" id="fileUploadLabel18" runat="server" class="fileUpload">Upload Image<input id="imageCaption18" runat="server"/></label>
+                    <label for="FileUpload19" id="fileUploadLabel19" runat="server" class="fileUpload">Upload Image<input id="imageCaption19" runat="server"/></label>
+                    <label for="FileUpload20" id="fileUploadLabel20" runat="server" class="fileUpload">Upload Image<input id="imageCaption20" runat="server"/></label>
                     <asp:FileUpload ID="FileUpload1" CssClass="fileUpload" Visible="false" runat="server"/>
                     <asp:FileUpload ID="FileUpload2" CssClass="fileUpload" Visible="false" runat="server"/>
                     <asp:FileUpload ID="FileUpload3" CssClass="fileUpload" Visible="false" runat="server"/>
@@ -107,6 +107,7 @@
                     <asp:AsyncPostBackTrigger ControlID="addImage" EventName="Click" />
                 </Triggers>
             </asp:UpdatePanel>
+            <asp:Button ID="addImage" Text="Add Image Button" OnClick="AddFileUpload" runat="server" />
              <!--&nbsp;<input id="city" runat="server" />
             <asp:UpdatePanel ID="upControl" runat="server" UpdateMode="Conditional">
                 <ContentTemplate>

@@ -8,6 +8,7 @@ using System.Net;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Windows.Media;
 using Utilities;
 
 namespace RealEstateTermProject
@@ -19,17 +20,26 @@ namespace RealEstateTermProject
         {
             //retrieving the username for the stored username in login and sign up page to use in other pages
             string UserAccountName = (string)Session["Username"];
-            for (int i = 1; i <= 20; i++)
-                upImages.FindControl($"FileUpload{i}").Visible = true;
+            upImages.FindControl($"FileUpload1").Visible = true;
+            upImages.FindControl($"FileUpload2").Visible = true;
         }
 
         protected void UploadFile(object sender, EventArgs e)
         {
-            String dir = @"C:\fuck";
+            String dir = $@"C:\{address.Value}";
+
             if (!Directory.Exists(dir))
                 Directory.CreateDirectory(dir);
 
-            image1.SaveAs($@"{dir}\fart.png");
+            for (int i = 1; i <= 20; i++)
+            {
+                var control = (FileUpload)upImages.FindControl($"FileUpload{i}");
+                if (control.Visible)
+                {
+                    String caption = Page.Request.Form[$"imageCaption{i}"].ToString();
+                    control.SaveAs($@"{dir}\{caption}.png");
+                }
+            }
         }
 
         protected void AddFileUpload(object sender, EventArgs e)
@@ -37,9 +47,11 @@ namespace RealEstateTermProject
             for (int i = 1; i <= 20; i++)
             {
                 Control c = upImages.FindControl($"FileUpload{i}");
+                Control l = upImages.FindControl($"fileUploadLabel{i}");
                 if (!c.Visible)
                 {
                     c.Visible = true;
+                    l.Visible = true;
                     break;
                 }
             }
