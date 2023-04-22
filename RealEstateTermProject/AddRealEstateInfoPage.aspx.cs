@@ -22,18 +22,22 @@ namespace RealEstateTermProject
         {
             lblDisplay.Visible = false;
             btnLogin.Visible = false;
+            btnCheckInfo.Visible = false;
             
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            btnCheckInfo.Visible = false;
+            btnCheckInfo.Visible = true;
+            btnSubmitINfo.Visible = false;
 
             //retrieving the username for the stored username in login and sign up page to use in other pages
             string UserAccountName = (string)Session["Username"];
 
             //storing user id
            int UserID = soapUser.GetIDByUsername(UserAccountName);
+
+            soapUser.AddRealEstateCompany(UserAccountName, UserID, txtboxCompanyName.Text, txtboxPhoneNumber.Text, txtboxAgentName.Text);
             
 
             //create realestateagent object
@@ -84,6 +88,9 @@ namespace RealEstateTermProject
             txtboxAgentName.Visible = false;
             txtboxCompanyName.Visible = false;
             txtboxPhoneNumber.Visible = false;
+            Label1.Visible = false;
+            Label2.Visible = false;
+            Label3.Visible = false;
            //the output is wrong but everything works i just have to change the output
 
 

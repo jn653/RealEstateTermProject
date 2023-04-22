@@ -11,25 +11,19 @@
      <script>nav()</script>
     <form id="form1" runat="server">
         <div>
-            <asp:GridView ID="gvShowRealEstate" runat="server" AutoGenerateColumns="False"  style="z-index: 1; left: 157px; top: 236px; position: absolute; height: 111px; width: 289px" OnSelectedIndexChanged="gvShowRealEstate_SelectedIndexChanged">
+            <asp:GridView ID="gvShowRealEstate" runat="server"  style="z-index: 1; left: 261px; top: 354px; position: absolute; height: 111px; width: 289px" OnSelectedIndexChanged="gvShowRealEstate_SelectedIndexChanged">
                 <Columns>
-                    <asp:BoundField HeaderText="Real Estate Agent" />
-                    <asp:BoundField HeaderText="Company Name" />
-                    <asp:BoundField HeaderText="PhoneNumber" />
-                    <asp:TemplateField HeaderText="View Company Info">
+                    <asp:TemplateField HeaderText="Choose an Agent">
                         <ItemTemplate>
-                            <asp:Button ID="btnVeiw" runat="server" OnClick="ViewButton" Text="View" />
+                            <asp:CheckBox ID="checkboxChoose" runat="server" />
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
             </asp:GridView>
-            <asp:Label ID="lblcomapnyinfo" runat="server" style="z-index: 1; left: 949px; top: 90px; position: absolute" Text="Company Information"></asp:Label>
-            <asp:Label ID="lblAgentName" runat="server" style="z-index: 1; left: 939px; top: 241px; position: absolute" Text="Agent Name:"></asp:Label>
-            <asp:Label ID="lblShowAgentName" runat="server" style="z-index: 1; left: 1091px; top: 243px; position: absolute" Text="Label"></asp:Label>
-            <asp:Label ID="lblShwoCompanyName" runat="server" style="z-index: 1; left: 1132px; top: 365px; position: absolute" Text="Label"></asp:Label>
-            <asp:Label ID="lblShowPhoneNumber" runat="server" style="z-index: 1; left: 1116px; top: 464px; position: absolute" Text="Label"></asp:Label>
-            <asp:Label ID="lblComapnyName" runat="server" style="z-index: 1; left: 939px; top: 369px; position: absolute" Text="Comapny Name:"></asp:Label>
-            <asp:Label ID="lblPhoneNumber" runat="server" style="z-index: 1; left: 940px; top: 469px; position: absolute" Text="Phone Number:"></asp:Label>
+            <asp:Label ID="lblAgentChosen" runat="server" Font-Bold="True" Font-Size="Large" ForeColor="RoyalBlue" style="z-index: 1; left: 371px; top: 308px; position: absolute" Text="Label"></asp:Label>
+            <asp:Button ID="btnAccept" runat="server" BackColor="RoyalBlue" ForeColor="White" OnClick="btnAccept_Click" style="z-index: 1; left: 974px; top: 482px; position: absolute; height: 41px; width: 145px" Text="Accept" />
+            <asp:Label ID="Label1" runat="server" Font-Size="Large" ForeColor="RoyalBlue" style="z-index: 1; left: 118px; top: 231px; position: absolute" Text="Instructions: click the checkbox for the agent you want and then click the accept button to choose that agent to sell with"></asp:Label>
+            <asp:Label ID="lblTitle" runat="server" Font-Bold="True" Font-Size= "85" ForeColor="RoyalBlue" style="z-index: 1; left: 188px; top: 45px; position: absolute" Text="Find An Agent"></asp:Label>
         </div>
     </form>
 </body>

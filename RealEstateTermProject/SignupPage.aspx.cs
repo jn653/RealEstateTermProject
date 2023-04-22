@@ -12,6 +12,7 @@ namespace RealEstateTermProject
 {
     public partial class SignupPage : System.Web.UI.Page
     {
+        //making a new soap object to call soap methods
         SoapUserFunc SoapUser = new SoapUserFunc();
         protected void Page_Load(object sender, EventArgs e)
         {

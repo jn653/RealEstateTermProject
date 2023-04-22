@@ -100,5 +100,49 @@ namespace RealEstateTermProject
 
             return UserID;
         }
+
+        //adding the realestate company info after signup page
+        public void AddRealEstateCompany(string username, int userID, string companyName, string phoneNumber, string agentName)
+        {
+            SqlCommand objCommand = new SqlCommand();
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "TP_AddToRealEstateComapnyInfo";
+
+
+            objCommand.Parameters.AddWithValue("@theagentUsername", username);
+            objCommand.Parameters.AddWithValue("@theID", userID);
+            objCommand.Parameters.AddWithValue("@theCompanyName", companyName);
+            objCommand.Parameters.AddWithValue("@theAgentName", agentName);
+            objCommand.Parameters.AddWithValue("@thePhoneNumber", phoneNumber);
+            
+
+
+            DBConnect objDB = new DBConnect();
+            DataSet myDataSet;
+            myDataSet = objDB.GetDataSet(objCommand);
+
+
+        }
+
+        //adding to requested seller table from show real estate comapny
+        public void AddToRequestedSeller(string username, int userID)
+        {
+            SqlCommand objCommand = new SqlCommand();
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "TP_AddToRequestedSeller";
+
+
+            objCommand.Parameters.AddWithValue("@theagentUsername", username);
+            objCommand.Parameters.AddWithValue("@theID", userID);
+            
+
+
+
+            DBConnect objDB = new DBConnect();
+            DataSet myDataSet;
+            myDataSet = objDB.GetDataSet(objCommand);
+
+
+        }
     }
 }

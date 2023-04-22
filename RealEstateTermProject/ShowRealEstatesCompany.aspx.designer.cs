@@ -33,66 +33,39 @@ namespace RealEstateTermProject
         protected global::System.Web.UI.WebControls.GridView gvShowRealEstate;
 
         /// <summary>
-        /// lblcomapnyinfo control.
+        /// lblAgentChosen control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblcomapnyinfo;
+        protected global::System.Web.UI.WebControls.Label lblAgentChosen;
 
         /// <summary>
-        /// lblAgentName control.
+        /// btnAccept control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAgentName;
+        protected global::System.Web.UI.WebControls.Button btnAccept;
 
         /// <summary>
-        /// lblShowAgentName control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblShowAgentName;
+        protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// lblShwoCompanyName control.
+        /// lblTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblShwoCompanyName;
-
-        /// <summary>
-        /// lblShowPhoneNumber control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblShowPhoneNumber;
-
-        /// <summary>
-        /// lblComapnyName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblComapnyName;
-
-        /// <summary>
-        /// lblPhoneNumber control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPhoneNumber;
+        protected global::System.Web.UI.WebControls.Label lblTitle;
     }
 }

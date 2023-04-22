@@ -14,56 +14,25 @@ namespace RealEstateTermProject
 {
     public partial class ShowRealEstatesCompany : System.Web.UI.Page
     {
-        //have to fix this page
+        SoapUserFunc soapUser = new SoapUserFunc();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             List<RealEstateAgent> objList = new List<RealEstateAgent>();
-           
+
+            lblAgentChosen.Visible = false;
+
             if (!IsPostBack)
             {
-                lblAgentName.Visible = false;
-                lblcomapnyinfo.Visible = false;
-                lblComapnyName.Visible = false;
-                lblPhoneNumber.Visible = false;
 
-                String strSQL = "SELECT Distinct RealEstateCompany FROM TP_RealEstateCompany";
+                //putting all the data from realestateinfo table into the gridview
+                String strSQL = "SELECT * FROM TP_RealEstateInfo";
 
                 DBConnect objDB = new DBConnect();
-                objDB.GetDataSet(strSQL);
-
-
-
-
-               
                 
 
-
-
-
-
-
-                //for(int i = 0; i<= objList.Count; i++)
-                //{
-
-                //    gvShowRealEstate.DataSource = objList;
-                //    gvShowRealEstate.DataBind();
-
-                //    for (int row = 0; row < gvShowRealEstate.Rows.Count; row++)
-                //    {
-
-                //        gvShowRealEstate.Rows[row].Cells[0].Text = objrealEstate.agentName.ToString();
-                //        gvShowRealEstate.Rows[row].Cells[1].Text = objrealEstate.companyName.ToString();
-                //        gvShowRealEstate.Rows[row].Cells[2].Text = objrealEstate.phoneNumber.ToString();
-
-                //        gvShowRealEstate.Columns[1].Visible = false;
-                //        gvShowRealEstate.Columns[2].Visible = false;
-                //    }
-
-                //}
-
-
-
-
+                gvShowRealEstate.DataSource = objDB.GetDataSet(strSQL);
+                gvShowRealEstate.DataBind();
 
 
             }
@@ -80,26 +49,38 @@ namespace RealEstateTermProject
 
         }
 
-        protected void ViewButton(object sender, EventArgs e)
+        protected void btnAccept_Click(object sender, EventArgs e)
         {
-            
-                lblAgentName.Visible = true;
-                lblcomapnyinfo.Visible = true;
-                lblComapnyName.Visible = true;
-                lblPhoneNumber.Visible = true;
+            lblAgentChosen.Visible = true;
 
-            for(int row = 0; row < gvShowRealEstate.Rows.Count; row++)
+
+
+            //going through the gridview to get the checkbox if it is checked
+            for (int row = 0; row < gvShowRealEstate.Rows.Count; row++)
             {
+                CheckBox profileCheck;
+                profileCheck = (CheckBox)gvShowRealEstate.Rows[row].FindControl("checkboxChoose");
 
+                if (profileCheck.Checked)
+                {
+                    //retrieving the username for the stored username in login and sign up page to use in other pages
+                    string UserAccountName = (string)Session["Username"];
+
+                    //storing user id
+                    int UserID = soapUser.GetIDByUsername(UserAccountName);
+
+                    soapUser.AddToRequestedSeller(UserAccountName, UserID);
+                    lblAgentChosen.Text = "The Agent" + gvShowRealEstate.Rows[row].Cells[1].Text + "Has been notified of your requested to sell a house with them";
+                }
             }
+        }
+    }
+}
+       
+            
 
             
 
             
            
-            
-        }
-
-
-    }
-}
+   
