@@ -157,6 +157,7 @@
     <Content Include="styles\LandingPage.css" />
     <Content Include="styles\nav.css" />
     <Content Include="styles\SellingPage.css" />
+    <Content Include="TwoFactorEmail.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -302,6 +303,13 @@
     <Compile Include="SoapUserFunc.asmx.cs">
       <DependentUpon>SoapUserFunc.asmx</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TwoFactorEmail.aspx.cs">
+      <DependentUpon>TwoFactorEmail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TwoFactorEmail.aspx.designer.cs">
+      <DependentUpon>TwoFactorEmail.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

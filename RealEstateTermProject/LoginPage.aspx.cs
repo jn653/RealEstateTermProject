@@ -100,32 +100,7 @@ namespace RealEstateTermProject
 
             //code for sending the two factor email - have to fix it to get it to work 
 
-            //string to = email; //To address    
-            //string from = "juann1065@gmail.com"; //From address    
-            //MailMessage message = new MailMessage(from, to);
-
-            //string mailbody = "In this article you will learn how to send a email using Asp.Net & C#";
-            //message.Subject = "Sending Email Using Asp.Net & C#";
-            //message.Body = mailbody;
-            //message.BodyEncoding = Encoding.UTF8;
-            //message.IsBodyHtml = true;
-            //SmtpClient client = new SmtpClient("smtp.gmail.com", 587); //Gmail smtp    
-            //System.Net.NetworkCredential basicCredential1 = new
-            //System.Net.NetworkCredential("juann1065@gmail.com", "password");
-            //client.EnableSsl = true;
-            //client.UseDefaultCredentials = false;
-            //client.Credentials = basicCredential1;
-
-            //try
-            //{
-            //    client.Send(message);
-            //}
-
-            //catch (Exception ex)
-            //{
-            //    throw ex;
-            //}
-
+            
 
 
 
