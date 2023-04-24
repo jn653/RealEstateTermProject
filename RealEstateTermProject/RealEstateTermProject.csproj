@@ -140,6 +140,7 @@
     <Content Include="pics\loginUsernameTermProject.png" />
     <Content Include="pics\NiceDarkHouseBackground.jpg" />
     <Content Include="pics\passwordTermProject.png" />
+    <Content Include="pics\houses\SellingPageBackground.jpg" />
     <Content Include="RequestedSellings.aspx" />
     <Content Include="ScheduleAVisitPage.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -342,6 +343,9 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="pics\backgrounds\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

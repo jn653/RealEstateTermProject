@@ -33,8 +33,13 @@ namespace RealEstateTermProject
                 Control c = new Control();
                 c.ID = $"uploadImage{i}";
 
+                Image im = new Image();
+                im.ID = $"im{i}";
+                im.CssClass = "imageImg";
+
                 FileUpload fl = new FileUpload();
                 fl.ID = $"fl{i}";
+                fl.Attributes.Add("onchange", $"changeButton({i})");
 
                 TextBox tb = new TextBox();
                 tb.ID = $"tb{i}";
@@ -46,7 +51,8 @@ namespace RealEstateTermProject
                 lbl.Text = "Upload Image";
                 lbl.CssClass = "imageButton";
                 lbl.AssociatedControlID = fl.ID;
-
+                
+                c.Controls.Add(im);
                 c.Controls.Add(lbl);
                 c.Controls.Add(tb);
                 c.Controls.Add(fl);
@@ -57,7 +63,7 @@ namespace RealEstateTermProject
         }
         protected void UploadFile(object sender, EventArgs e)
         {
-            String dir = $@"C:\{address.Value}";
+            String dir = $@"pics\houses\{address.Value}";
 
             if (!Directory.Exists(dir))
                 Directory.CreateDirectory(dir);

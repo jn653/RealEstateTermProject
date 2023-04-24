@@ -14,20 +14,20 @@
     <title></title>
 </head>
 <body>
+    <script>navHomeSeller()</script>
+    <img id="backgroundImage" src="pics/houses/SellingPageBackground.jpg" />
+    <content>
 
-    <form id="form1" runat="server">
+        <form id="form1" runat="server">
 
-        <div class="SellSolobtn">
-            <!-- <asp:Button ID="btnSellonOwn" runat="server" BackColor="RoyalBlue" ForeColor="Black" OnClick="Button1_Click" Text="Sell on your own" />-->
+            <div class="SellSolobtn">
+                <!-- <asp:Button ID="btnSellonOwn" runat="server" BackColor="RoyalBlue" ForeColor="Black" OnClick="Button1_Click" Text="Sell on your own" />-->
 
-        </div>
-
-
-
-        <script>navHomeSeller()</script>
-        <sellinginfo id="sellingInfo" runat="server">
-            <asp:ScriptManager ID="ScriptManager1" runat="server">
-            </asp:ScriptManager>
+            </div>
+            
+            <sellinginfo id="sellingInfo" runat="server">
+                <asp:ScriptManager ID="ScriptManager1" runat="server">
+                </asp:ScriptManager>
                 <sellinginfobox>
                     <label for="address">Address</label>
                     <input id="address" runat="server" />
@@ -62,7 +62,7 @@
                     <label for="city">City</label>
                     <input id="city" runat="server" />
                 </sellinginfobox>
-                <sellinginfobox style="overflow:scroll; padding:0rem;">
+                <sellinginfobox style="overflow: scroll; flex-grow: 4;">
                     <asp:UpdatePanel ID="upImages" CssClass="updatePanel" runat="server" UpdateMode="Conditional">
                         <ContentTemplate>
                             <contentbox id="contentBox" runat="server">
@@ -113,8 +113,29 @@
                     </asp:UpdatePanel>
 
                 </sellinginfobox>
-        </sellinginfo>
-    </form>
+            </sellinginfo>
+        </form>
+    </content>
+    <script>
+        function changeButton(id) {
+            var lbl = document.getElementById('lbl' + id);
+            var fl = document.getElementById('fl' + id);
+            var im = document.getElementById('im' + id);
 
+            im.className = "hasContent";
+
+            var flReader = new FileReader();
+            flReader.readAsDataURL(fl.files[0]);
+            flReader.onloadend = function (event) {
+                var img = document.getElementById('im' + id);
+                img.src = event.target.result;
+            }
+            /*
+            im.src = 
+            lbl.innerHTML = fl.value.substring(fl.value.lastIndexOf('\\') + 1);*/
+            console.log(id);
+            console.log(im.src);
+        }
+    </script>
 </body>
 </html>
