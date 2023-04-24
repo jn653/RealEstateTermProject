@@ -123,6 +123,7 @@
     <Content Include="HomeOffers.aspx" />
     <Content Include="HomeShowingsPage.aspx" />
     <Content Include="HousePage.aspx" />
+    <Content Include="HouseSurveyQuestions.aspx" />
     <Content Include="js\navHomeSeller.js" />
     <Content Include="js\nav.js" />
     <Content Include="LandingPage.aspx" />
@@ -213,6 +214,13 @@
     </Compile>
     <Compile Include="HousePage.aspx.designer.cs">
       <DependentUpon>HousePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HouseSurveyQuestions.aspx.cs">
+      <DependentUpon>HouseSurveyQuestions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HouseSurveyQuestions.aspx.designer.cs">
+      <DependentUpon>HouseSurveyQuestions.aspx</DependentUpon>
     </Compile>
     <Compile Include="HouseUtils.cs" />
     <Compile Include="LandingPage.aspx.cs">
