@@ -28,7 +28,7 @@ namespace RealEstateTermProject
 
         private void createImageUploads()
         {
-            for (int i = 0; i <= 15; i++)
+            for (int i = 0; i < 15; i++)
             {
                 Control c = new Control();
                 c.ID = $"uploadImage{i}";
@@ -63,12 +63,14 @@ namespace RealEstateTermProject
         }
         public void UploadFile()
         {
-            String dir = $@"pics\houses\{address.Value}";
+            String dir = $@"*/pics/houses/{address.Value}";
 
             if (!Directory.Exists(dir))
                 Directory.CreateDirectory(dir);
 
-            for(int i = 0; i <= 15; i++)
+            System.Diagnostics.Debug.WriteLine(dir);
+
+            for(int i = 0; i < 15; i++)
             {
                 Control c = FindControl($"uploadImage{i}");
                 FileUpload fl = (FileUpload)c.FindControl($"fl{i}");
@@ -76,7 +78,7 @@ namespace RealEstateTermProject
                 TextBox tb = (TextBox)c.FindControl($"tb{i}");
                 if (c.Visible && fl.HasFile)
                 {
-                    fl.SaveAs($@"{dir}\{tb.Text}.png");
+                    fl.PostedFile.SaveAs($@"{dir}/{tb.Text}.png");
                 }
             }
 
@@ -92,16 +94,11 @@ namespace RealEstateTermProject
             }*/
         }
 
-        protected void onHasFile(object sender, EventArgs e)
-        {
-
-        }
-
         protected void AddFileUpload(object sender, EventArgs e)
         {
             DropDownList dl = (DropDownList)sender;
 
-            for (int i = 0; i <= 15; i++)
+            for (int i = 0; i < 15; i++)
             {
                 Control c = FindControl($"uploadImage{i}");
                 c.Visible = false;
@@ -115,84 +112,7 @@ namespace RealEstateTermProject
                 Control c = FindControl($"uploadImage{i}");
                 c.Visible = true;
             }
-            /*
-            List<Control> controls = new List<Control>();
-
-            DropDownList dl = (DropDownList)sender;
-
-            upImages.ContentTemplateContainer.Controls.Clear();
-
-            if (dl.SelectedValue == "0")
-                return;
-
-            for(int i = 0; i <= int.Parse(dl.SelectedValue); i++)
-            {
-                Control c = new Control();
-                c.ID = $"uploadImage{i}";
-
-                FileUpload fl = new FileUpload();
-                fl.ID = $"fl{i}";
-
-                TextBox tb = new TextBox();
-                tb.ID = $"tb{i}";
-                tb.Text = "Image Caption";
-
-                Label lbl = new Label();
-                lbl.ID = $"lbl{i}";
-                lbl.Text = "Upload Image";
-                lbl.AssociatedControlID = fl.ID;
-
-                c.Controls.Add(lbl);
-                c.Controls.Add(tb);
-                c.Controls.Add(fl);
-
-                controls.Add(c);
-                upImages.ContentTemplateContainer.Controls.Add(c);
-            }
-                
-            /*
-            for (int i = 1; i <= 1; i++)
-            {
-                //upImages.FindControl($"FileUpload{i}").Visible = true;
-                upImages.FindControl($"FileUpload1").Visible = false;
-                upImages.FindControl($"lbl{i}").Visible = false;
-            }
-
-            for (int i = 1; i <= int.Parse(dl.SelectedValue); i++)
-            {
-                //upImages.FindControl($"FileUpload{i}").Visible = true;
-                upImages.FindControl($"FileUpload1").Visible = true;
-                upImages.FindControl($"lbl{i}").Visible = true;
-            }*/
-            /*try
-            {
-                foreach (Control c in upImages.ContentTemplateContainer.Controls)
-                {
-                    if (!c.Visible)
-                    {
-
-                        c.Visible = true;
-                        return;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-
-            }*/
-            /*
-            for (int i = 1; i <= 20; i++)
-            {
-                //Control c = upImages.FindControl($"FileUpload{i}");
-                Label l = (Label)upImages.FindControl($"fileUploadLabel{i}");
-                //TextBox t = (TextBox)upImages.FindControl("puke");
-                if (!l.Visible)
-                {
-                    l.Visible = true;
-                    return;
-                }
-            }*/
-
+            
 
         }
 
@@ -226,7 +146,7 @@ namespace RealEstateTermProject
             */
 
 
-
+/*
             House house = new House();
             house.Address = address.Value;
             house.PropertyType = propertyType.Value;
@@ -252,7 +172,7 @@ namespace RealEstateTermProject
                 house.RealEstateID = (int)Session["AccountID"];*/
             UploadFile();
 
-            houseUtils.putHouse(house);
+            //houseUtils.putHouse(house);
             //Response.Redirect("AddingHouseInfotoSellPage.aspx");
         }
     }
