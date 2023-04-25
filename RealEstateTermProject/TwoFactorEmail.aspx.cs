@@ -85,7 +85,7 @@ namespace RealEstateTermProject
                 if (!txtSixDigit.Text.Equals(sixDigit))
             {
                 // lblinstructions1.Text = "The six digit you entered was incorrect.";
-                lblinstructions1.Text =  UserAccountType; ;
+                lblinstructions1.Text =  "The code you entered was incorrect"; ;
                 lblinstructions2.Text = "Go back to login page and try again";
                 lblinstructions1.ForeColor = System.Drawing.Color.Red;
                 lblinstructions2.ForeColor = System.Drawing.Color.Red;
