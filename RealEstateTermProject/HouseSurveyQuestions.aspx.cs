@@ -13,5 +13,21 @@ namespace RealEstateTermProject
         {
             lbltitle.Text = "Feedback For House With Address: ";
         }
+
+        protected void btnSubmit_Click(object sender, EventArgs e)
+        {
+            string price;
+            if (radiobtnReasonablePrice.Text.Equals("Not very reasonable"))
+            {
+                price = "Not very reasonable";
+            }
+            else
+                if (radiobtnReasonablePrice.Text.Equals("Somewhat reasonable"))
+            {
+                price = "Somwhat reasonable";
+            }
+            else
+                price = "Very reasonable";
+        }
     }
 }

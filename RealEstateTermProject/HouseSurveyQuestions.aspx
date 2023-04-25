@@ -52,7 +52,7 @@
         </asp:DropDownList>
         <asp:Label ID="lbladditionalfeedback" runat="server" style="z-index: 1; left: 774px; top: 335px; position: absolute" Text="Any additional feedback you may have:"></asp:Label>
     <p>
-        <textarea id="textAreaFeedback" runat="server" cols="20" name="S1" rows="2"></textarea><asp:Button ID="btnSubmit" runat="server" BackColor="RoyalBlue" ForeColor="White" style="z-index: 1; left: 474px; top: 555px; position: absolute; height: 44px; width: 232px" Text="Submit Feedback" />
+        <textarea id="textAreaFeedback" runat="server" cols="20" name="S1" rows="2"></textarea><asp:Button ID="btnSubmit" runat="server" BackColor="RoyalBlue" ForeColor="White" style="z-index: 1; left: 474px; top: 555px; position: absolute; height: 44px; width: 232px" Text="Submit Feedback" OnClick="btnSubmit_Click" />
         <asp:Label ID="lbltitle" runat="server" Font-Bold="True" Font-Size="30" ForeColor="RoyalBlue" style="z-index: 1; left: 118px; top: 77px; position: absolute; height: 174px; width: 655px;" Text="Label"></asp:Label>
         </p>
     </form>
