@@ -134,6 +134,7 @@
       <BrowseToURL>~/SignupPage.aspx</BrowseToURL>
     </Content>
     <Content Include="MyHomesPage.aspx" />
+    <Content Include="pics\backgrounds\SellingPageBackground.png" />
     <Content Include="pics\emailforProject-removebg-preview.png" />
     <Content Include="pics\emailforProject.png" />
     <Content Include="pics\leftarrowimage-removebg-preview.png" />
@@ -141,7 +142,6 @@
     <Content Include="pics\loginUsernameTermProject.png" />
     <Content Include="pics\NiceDarkHouseBackground.jpg" />
     <Content Include="pics\passwordTermProject.png" />
-    <Content Include="pics\houses\SellingPageBackground.jpg" />
     <Content Include="RequestedSellings.aspx" />
     <Content Include="ScheduleAVisitPage.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -353,7 +353,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="pics\backgrounds\" />
+    <Folder Include="pics\houses\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

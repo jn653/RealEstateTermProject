@@ -1,19 +1,56 @@
 ﻿
-#backgroundImage{
-    position:absolute;
-    width:100%;
-    left:0;
-    height:10rem;
-    z-index:-1;
+#uploadHouse {
+    align-self: center;
+    padding-top: .2rem;
+    color: white;
+    padding-bottom: .2rem;
+    background-color: royalblue;
+    border-radius: .3rem;
+    text-align: center;
 }
 
-content{
-    position:absolute;
-    top:10rem;
-    width:100%;
-    height:fit-content;
-    padding:1rem;
-    background-color:white;
+#uploadHouse:hover {
+    transition: .2s;
+    opacity: 70%;
+}
+
+backgroundImage {
+    z-index: -1;
+    position: absolute;
+    top: 0rem;
+    left: 0rem;
+    width: 100%;
+    height: 20rem;
+    background-color: black;
+}
+
+    backgroundImage imageTitle {
+        position: absolute;
+        top: 10rem;
+        left: 3rem;
+        font-weight: bolder;
+        font-size: 2.5rem;
+        color: white;
+        z-index: 100;
+    }
+
+    backgroundImage img {
+        position: fixed;
+        height: 20rem;
+        top: 0rem;
+        left: 0rem;
+        width: 100%;
+        opacity: 50%;
+        object-fit: cover;
+    }
+
+content {
+    position: absolute;
+    top: 20rem;
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    background-color: white;
 }
 
 sellingInfo {
@@ -21,7 +58,6 @@ sellingInfo {
     display: flex;
     width: 95%;
     flex-direction: row;
-    top: 7.5rem;
     height: 65%;
     left: 2.5%;
     padding: 1rem;
@@ -57,8 +93,8 @@ input {
 
 .hasContent {
     width: 80%;
-    height:50%;
-    object-fit:cover;
+    height: 50%;
+    object-fit: cover;
     align-self: center;
     padding: 1rem;
     border-radius: 1rem;
@@ -71,8 +107,8 @@ input {
 }
 
 .imageButton {
-    width:20%;
-    align-self:center;
+    width: 20%;
+    align-self: center;
     padding-top: .2rem;
     color: white;
     padding-bottom: .2rem;
@@ -88,9 +124,9 @@ input {
     }
 
 .imageCaption {
-    width:50%;
-    align-self:center;
-    margin-bottom:5rem;
+    width: 50%;
+    align-self: center;
+    margin-bottom: 5rem;
     border-radius: .3rem;
     border: .01rem solid gray;
     padding-top: .25em;
@@ -107,8 +143,12 @@ sellingInfoBox {
     column-gap: 1rem;
 }
 
-    sellingInfoBox input {
+    sellingInfoBox input[type=text] {
         margin-bottom: 1rem;
+        background:none;
+        border:none;
+        border-radius:0rem;
+        border-bottom:.01rem solid royalblue;
     }
 
     sellingInfoBox::-webkit-scrollbar, homeInfoFull::-webkit-scrollbar {
@@ -125,3 +165,18 @@ sellingInfoBox {
         background-color: royalblue;
         border-radius: 1rem;
     }
+
+body::-webkit-scrollbar, homeInfoFull::-webkit-scrollbar {
+    width: .5rem;
+}
+
+body::-webkit-scrollbar-track, homeInfoFull::-webkit-scrollbar-track {
+    position: absolute;
+    -webkit-box-shadow: none;
+    padding: 1rem;
+}
+
+body::-webkit-scrollbar-thumb, homeInfoFull::-webkit-scrollbar-thumb {
+    background-color: royalblue;
+    border-radius: 1rem;
+}

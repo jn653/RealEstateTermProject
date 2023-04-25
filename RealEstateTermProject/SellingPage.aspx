@@ -15,7 +15,13 @@
 </head>
 <body>
     <script>navHomeSeller()</script>
-    <img id="backgroundImage" src="pics/houses/SellingPageBackground.jpg" />
+    <backgroundImage>
+        <imageTitle>
+            Sell your home with us and join our millions of happy customers!
+        </imageTitle>
+        <img src="pics/backgrounds/SellingPageBackground.png" />
+    </backgroundImage>
+
     <content>
 
         <form id="form1" runat="server">
@@ -24,7 +30,7 @@
                 <!-- <asp:Button ID="btnSellonOwn" runat="server" BackColor="RoyalBlue" ForeColor="Black" OnClick="Button1_Click" Text="Sell on your own" />-->
 
             </div>
-            
+
             <sellinginfo id="sellingInfo" runat="server">
                 <asp:ScriptManager ID="ScriptManager1" runat="server">
                 </asp:ScriptManager>
@@ -114,6 +120,7 @@
 
                 </sellinginfobox>
             </sellinginfo>
+            <asp:Button ID="uploadHouse" runat="server"/>
         </form>
     </content>
     <script>

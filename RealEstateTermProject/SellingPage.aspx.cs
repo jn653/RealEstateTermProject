@@ -44,7 +44,7 @@ namespace RealEstateTermProject
                 TextBox tb = new TextBox();
                 tb.ID = $"tb{i}";
                 tb.CssClass = "imageCaption";
-                tb.Text = "Image Caption";
+                tb.Attributes.Add("placeholder", "Image Caption");
 
                 Label lbl = new Label();
                 lbl.ID = $"lbl{i}";
