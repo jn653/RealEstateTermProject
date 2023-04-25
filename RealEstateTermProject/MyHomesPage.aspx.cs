@@ -19,12 +19,47 @@ namespace RealEstateTermProject
 
 
             DBConnect objDB = new DBConnect();
-            String strSQL = "SELECT * FROM TP_Houses Where ID = " + UserID;
+            String strSQL = "SELECT * FROM TP_Houses Where SellerID = " + UserID;
 
 
             
             gvMyHomes.DataSource = objDB.GetDataSet(strSQL);
             gvMyHomes.DataBind();
+
+        }
+
+
+
+        protected void gvMyHomes_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "Select")
+            {
+                int rowIndex = Convert.ToInt32(e.CommandArgument);
+                GridViewRow row = gvMyHomes.Rows[rowIndex];
+                gvMyHomes.DeleteRow(rowIndex);
+
+                gvMyHomes.DataBind();
+            }
+        }
+
+
+        
+
+        protected void gvMyHomes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnLinkDelete_Click1(object sender, EventArgs e)
+        {
+            int rowInde = ((GridViewRow)(sender as Control).NamingContainer).RowIndex;
+            DBConnect objDB = new DBConnect();
+            String strSQL = "DELETE FROM TP_Houses Where ID = " + 12;
+
+
+
+            gvMyHomes.DataSource = objDB.GetDataSet(strSQL);
+            
 
         }
     }
