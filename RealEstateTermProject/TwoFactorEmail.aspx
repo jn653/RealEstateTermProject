@@ -30,7 +30,6 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:Button ID="Button1" runat="server" style="z-index: 1; left: 990px; top: 362px; position: absolute" Text="Send Code" />
             <asp:Label ID="lblinstructions1" runat="server" Font-Size="Small" ForeColor="RoyalBlue" style="z-index: 1; left: 813px; top: 168px; position: absolute; width: 589px" Text="A six digit code was sent to your email for verification."></asp:Label>
             <asp:TextBox ID="txtSixDigit" runat="server" style="z-index: 1; left: 931px; top: 284px; position: absolute"></asp:TextBox>
             <asp:Button ID="btnSubmit" runat="server" BackColor="RoyalBlue" ForeColor="White" OnClick="btnSubmit_Click" style="z-index: 1; left: 982px; top: 387px; position: absolute" Text="Submit" />

@@ -142,6 +142,7 @@ namespace RealEstateTermProject
                 Random r = new Random();
                 int randNum = r.Next(1000000);
                 string randsixdigit = randNum.ToString("D6");
+                Session["sixdigit"] = randsixdigit;
 
                 //Email objEmail = new Email();
                 //String strTO = UserEmail;
@@ -179,7 +180,7 @@ namespace RealEstateTermProject
 
                 // Response.Redirect("LandingPageforHomeSeller.aspx");
                 Response.Redirect("TwoFactorEmail.aspx");
-                Session["sixdigit"] = randsixdigit;
+                
             }
             else
 
@@ -196,6 +197,7 @@ namespace RealEstateTermProject
                 Random r = new Random();
                 int randNum = r.Next(1000000);
                 string randsixdigit = randNum.ToString("D6");
+                Session["sixdigit"] = randsixdigit;
 
                 //Email objEmail = new Email();
                 //String strTO = UserEmail;
@@ -235,7 +237,7 @@ namespace RealEstateTermProject
                 // Response.Redirect("LandingPage.aspx");
                 Response.Redirect("TwoFactorEmail.aspx");
 
-                Session["sixdigit"] = randsixdigit;
+                
             }
             else
 
@@ -251,6 +253,7 @@ namespace RealEstateTermProject
                 Random r = new Random();
                 int randNum = r.Next(1000000);
                string randsixdigit = randNum.ToString("D6");
+                Session["sixdigit"] = randsixdigit;
 
                 //Email objEmail = new Email();
                 //String strTO = UserEmail;
@@ -291,7 +294,7 @@ namespace RealEstateTermProject
                 //Response.Redirect("LandingPageforRealEstateAgent.aspx");
                 Response.Redirect("TwoFactorEmail.aspx");
 
-                Session["sixdigit"] = randsixdigit;
+                
             }
 
 
