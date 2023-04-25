@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Utilities;
 
 namespace RealEstateTermProject
 {
@@ -28,6 +31,27 @@ namespace RealEstateTermProject
             }
             else
                 price = "Very reasonable";
+
+            
+
+
+            //this code needs the house id of that they are making a survey for
+            
+            //SqlCommand objCommand = new SqlCommand();
+            //objCommand.CommandType = CommandType.StoredProcedure;
+            //objCommand.CommandText = "TP_AddHouseSurvey";
+
+
+            //objCommand.Parameters.AddWithValue("@theResonablePrice", price);
+            //// objCommand.Parameters.AddWithValue("@theHouseID	", txtPassword.Text);
+            //objCommand.Parameters.AddWithValue("@theOtherComments", textAreaFeedback.InnerText);
+            //objCommand.Parameters.AddWithValue("@theHouseRating	", ddlHouseRating.SelectedItem.Text);
+            //objCommand.Parameters.AddWithValue("@theLocationRating", ddlLocationSafe.SelectedItem.Text);
+
+
+
+            //DBConnect objDB = new DBConnect();
+            //objDB.GetDataSet(objCommand);
         }
     }
 }
