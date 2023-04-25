@@ -26,53 +26,47 @@
 
         <form id="form1" runat="server">
 
-            <div class="SellSolobtn">
-                <!-- <asp:Button ID="btnSellonOwn" runat="server" BackColor="RoyalBlue" ForeColor="Black" OnClick="Button1_Click" Text="Sell on your own" />-->
-
-            </div>
-
             <sellinginfo id="sellingInfo" runat="server">
                 <asp:ScriptManager ID="ScriptManager1" runat="server">
                 </asp:ScriptManager>
                 <sellinginfobox>
                     <label for="address">Address</label>
-                    <input id="address" runat="server" />
+                    <input id="address" runat="server" required />
                     <label for="propertyType">Property Type</label>
-                    <input id="propertyType" runat="server" />
+                    <input id="propertyType" runat="server" required />
                     <label for="homeSize">Home Size</label>
-                    <input id="homeSize" runat="server" />
+                    <input type="number" id="homeSize" runat="server" required />
                     <label for="numOfBed">Number of Bedrooms</label>
-                    <input id="numOfBed" runat="server" />
+                    <input type="number" id="numOfBed" runat="server" required />
                     <label for="amenities">Amenities</label>
-                    <input id="amenities" runat="server" />
+                    <input id="amenities" runat="server" required />
                 </sellinginfobox>
                 <sellinginfobox>
                     <label for="houseYear">House Year</label>
-                    <input id="houseYear" runat="server" />
+                    <input type="number" id="houseYear" runat="server" required />
                     <label for="garage">Garage</label>
-                    <input id="garage" runat="server" />
+                    <input type="number" id="garage" runat="server" required />
                     <label for="utilities">Utilities</label>
                     <input id="utilities" runat="server" />
                     <label for="homeDescription">Home Description</label>
-                    <input id="homeDescription" runat="server" />
+                    <input id="homeDescription" runat="server" required />
                     <label for="askingPrice">Asking Price</label>
-                    <input id="askingPrice" runat="server" />
+                    <input type="number" id="askingPrice" runat="server" required />
                 </sellinginfobox>
                 <sellinginfobox>
                     <label for="houseImages">House Images</label>
-                    <input id="houseImages" runat="server" />
+                    <input id="houseImages" runat="server" required />
                     <label for="state">State</label>
-                    <input id="state" runat="server" />
+                    <input id="state" runat="server" required />
                     <label for="numOfBath">Number of Bathrooms</label>
-                    <input id="numOfBath" runat="server" />
+                    <input type="number" id="numOfBath" runat="server" required />
                     <label for="city">City</label>
-                    <input id="city" runat="server" />
+                    <input id="city" runat="server" required />
                 </sellinginfobox>
                 <sellinginfobox style="overflow: scroll; flex-grow: 4;">
                     <asp:UpdatePanel ID="upImages" CssClass="updatePanel" runat="server" UpdateMode="Conditional">
                         <ContentTemplate>
                             <contentbox id="contentBox" runat="server">
-                                <asp:Button Text="Upload File" OnClick="UploadFile" runat="server" />
                                 <asp:Label Text="Images" runat="server"></asp:Label>
                                 <asp:DropDownList AutoPostBack="true" ID="dlImages" runat="server" OnSelectedIndexChanged="AddFileUpload">
                                     <asp:ListItem Value="0">
@@ -110,7 +104,6 @@
                                 </asp:DropDownList>
                                 <div class="break"></div>
                             </contentbox>
-                            <asp:Button OnClick="UploadFile" runat="server" />
                         </ContentTemplate>
                         <Triggers>
                             <asp:AsyncPostBackTrigger ControlID="dlImages" EventName="SelectedIndexChanged" />
@@ -120,7 +113,7 @@
 
                 </sellinginfobox>
             </sellinginfo>
-            <asp:Button ID="uploadHouse" runat="server"/>
+            <asp:Button ID="uploadHouse" Text="Upload House" OnClick="Button1_Click" runat="server"/>
         </form>
     </content>
     <script>

@@ -61,7 +61,7 @@ namespace RealEstateTermProject
                 FindControl("contentBox").Controls.Add(c);
             }
         }
-        protected void UploadFile(object sender, EventArgs e)
+        public void UploadFile()
         {
             String dir = $@"pics\houses\{address.Value}";
 
@@ -250,6 +250,7 @@ namespace RealEstateTermProject
                 house.SellerID = (int)Session["AccountID"];
             else
                 house.RealEstateID = (int)Session["AccountID"];*/
+            UploadFile();
 
             houseUtils.putHouse(house);
             //Response.Redirect("AddingHouseInfotoSellPage.aspx");

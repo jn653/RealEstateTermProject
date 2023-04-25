@@ -24,15 +24,6 @@ namespace RealEstateTermProject
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// btnSellonOwn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSellonOwn;
-
-        /// <summary>
         /// sellingInfo control.
         /// </summary>
         /// <remarks>
@@ -75,7 +66,7 @@ namespace RealEstateTermProject
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText homeSize;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl homeSize;
 
         /// <summary>
         /// numOfBed control.
@@ -84,7 +75,7 @@ namespace RealEstateTermProject
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText numOfBed;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl numOfBed;
 
         /// <summary>
         /// amenities control.
@@ -102,7 +93,7 @@ namespace RealEstateTermProject
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText houseYear;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl houseYear;
 
         /// <summary>
         /// garage control.
@@ -111,7 +102,7 @@ namespace RealEstateTermProject
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText garage;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl garage;
 
         /// <summary>
         /// utilities control.
@@ -138,7 +129,7 @@ namespace RealEstateTermProject
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText askingPrice;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl askingPrice;
 
         /// <summary>
         /// houseImages control.
@@ -165,7 +156,7 @@ namespace RealEstateTermProject
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText numOfBath;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl numOfBath;
 
         /// <summary>
         /// city control.

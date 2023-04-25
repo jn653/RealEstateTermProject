@@ -7,6 +7,7 @@
     background-color: royalblue;
     border-radius: .3rem;
     text-align: center;
+    margin-bottom:1rem;
 }
 
 #uploadHouse:hover {
@@ -143,7 +144,7 @@ sellingInfoBox {
     column-gap: 1rem;
 }
 
-    sellingInfoBox input[type=text] {
+    sellingInfoBox input[type=text], sellingInfoBox input[type=number] {
         margin-bottom: 1rem;
         background:none;
         border:none;
