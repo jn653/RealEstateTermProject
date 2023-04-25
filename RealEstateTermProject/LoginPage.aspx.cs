@@ -16,6 +16,7 @@ namespace RealEstateTermProject
 {
     public partial class LoginPage : System.Web.UI.Page
     {
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             btnTwoFactorAUthentification.Visible = false;
@@ -130,31 +131,167 @@ namespace RealEstateTermProject
 
         if (profileUsername.Equals(txtUsername.Text) && profilePassword.Equals(txtPassword.Text) && accountType.Equals("Home Seller") && txtUsername.Text.Length != 0 || txtPassword.Text.Length != 0)
             {
+                string UserEmail = (string)Session["Email"];
                 //storing username to use across multiple pages
                 Session["Username"] = txtUsername.Text;
                 //storing the account type to use across different pages 
                 Session["accountType"] = accountType;
-                Response.Redirect("LandingPageforHomeSeller.aspx");
+
+
+
+                Random r = new Random();
+                int randNum = r.Next(1000000);
+                string randsixdigit = randNum.ToString("D6");
+
+                //Email objEmail = new Email();
+                //String strTO = UserEmail;
+                //String strFROM = "tuj09076@temple.edu";
+                //String strSubject = "Two Factor Authorization";
+                //String strMessage = randsixdigit;
+
+
+
+
+                string to = UserEmail; //To address    
+                string from = "juannavarro653@gmail.com"; //From address    
+                MailMessage message = new MailMessage(from, to);
+
+                string mailbody = randsixdigit;
+                message.Subject = "Verification of Account";
+                message.Body = mailbody;
+                message.BodyEncoding = Encoding.UTF8;
+                message.IsBodyHtml = true;
+                SmtpClient client = new SmtpClient("smtp.gmail.com", 587); //Gmail smtp    
+                System.Net.NetworkCredential basicCredential1 = new
+                System.Net.NetworkCredential("TermProject12345@gmail.com", "kjbxxpfqopkwbqlf");
+                client.EnableSsl = true;
+                client.UseDefaultCredentials = false;
+                client.Credentials = basicCredential1;
+                try
+                {
+                    client.Send(message);
+                }
+
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+
+                // Response.Redirect("LandingPageforHomeSeller.aspx");
+                Response.Redirect("TwoFactorEmail.aspx");
+                Session["sixdigit"] = randsixdigit;
             }
             else
 
         if (profileUsername.Equals(txtUsername.Text) && profilePassword.Equals(txtPassword.Text) && accountType.Equals("Home Buyer") && txtUsername.Text.Length != 0 || txtPassword.Text.Length != 0)
             {
+                string UserEmail = (string)Session["Email"];
                 //storing username to use across multiple pages
                 Session["Username"] = txtUsername.Text;
                 //storing the account type to use across different pages 
                 Session["accountType"] = accountType;
-                Response.Redirect("LandingPage.aspx");
+
+
+
+                Random r = new Random();
+                int randNum = r.Next(1000000);
+                string randsixdigit = randNum.ToString("D6");
+
+                //Email objEmail = new Email();
+                //String strTO = UserEmail;
+                //String strFROM = "tuj09076@temple.edu";
+                //String strSubject = "Two Factor Authorization";
+                //String strMessage = randsixdigit;
+
+
+
+
+                string to = UserEmail; //To address    
+                string from = "juannavarro653@gmail.com"; //From address    
+                MailMessage message = new MailMessage(from, to);
+
+                string mailbody = randsixdigit;
+                message.Subject = "Verification of Account";
+                message.Body = mailbody;
+                message.BodyEncoding = Encoding.UTF8;
+                message.IsBodyHtml = true;
+                SmtpClient client = new SmtpClient("smtp.gmail.com", 587); //Gmail smtp    
+                System.Net.NetworkCredential basicCredential1 = new
+                System.Net.NetworkCredential("TermProject12345@gmail.com", "kjbxxpfqopkwbqlf");
+                client.EnableSsl = true;
+                client.UseDefaultCredentials = false;
+                client.Credentials = basicCredential1;
+                try
+                {
+                    client.Send(message);
+                }
+
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+
+
+                // Response.Redirect("LandingPage.aspx");
+                Response.Redirect("TwoFactorEmail.aspx");
+
+                Session["sixdigit"] = randsixdigit;
             }
             else
 
         if (profileUsername.Equals(txtUsername.Text) && profilePassword.Equals(txtPassword.Text) && accountType.Equals("Real Estate Agent") && txtUsername.Text.Length != 0 || txtPassword.Text.Length != 0)
             {
+                string UserEmail = (string)Session["Email"];
                 //storing username to use across multiple pages
                 Session["Username"] = txtUsername.Text;
                 //storing the account type to use across different pages 
                 Session["accountType"] = accountType;
-                Response.Redirect("LandingPageforRealEstateAgent.aspx");
+
+
+                Random r = new Random();
+                int randNum = r.Next(1000000);
+               string randsixdigit = randNum.ToString("D6");
+
+                //Email objEmail = new Email();
+                //String strTO = UserEmail;
+                //String strFROM = "tuj09076@temple.edu";
+                //String strSubject = "Two Factor Authorization";
+                //String strMessage = randsixdigit;
+
+
+
+
+                string to = UserEmail; //To address    
+                string from = "juannavarro653@gmail.com"; //From address    
+                MailMessage message = new MailMessage(from, to);
+
+                string mailbody = randsixdigit;
+                message.Subject = "Verification of Account";
+                message.Body = mailbody;
+                message.BodyEncoding = Encoding.UTF8;
+                message.IsBodyHtml = true;
+                SmtpClient client = new SmtpClient("smtp.gmail.com", 587); //Gmail smtp    
+                System.Net.NetworkCredential basicCredential1 = new
+                System.Net.NetworkCredential("TermProject12345@gmail.com", "kjbxxpfqopkwbqlf");
+                client.EnableSsl = true;
+                client.UseDefaultCredentials = false;
+                client.Credentials = basicCredential1;
+                try
+                {
+                    client.Send(message);
+                }
+
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+
+
+
+                //Response.Redirect("LandingPageforRealEstateAgent.aspx");
+                Response.Redirect("TwoFactorEmail.aspx");
+
+                Session["sixdigit"] = randsixdigit;
             }
 
 
