@@ -118,7 +118,6 @@
     </content>
     <script>
         function changeButton(id) {
-            var lbl = document.getElementById('lbl' + id);
             var fl = document.getElementById('fl' + id);
             var im = document.getElementById('im' + id);
 
@@ -134,7 +133,6 @@
             im.src = 
             lbl.innerHTML = fl.value.substring(fl.value.lastIndexOf('\\') + 1);*/
             console.log(id);
-            console.log(im.src);
         }
     </script>
 </body>

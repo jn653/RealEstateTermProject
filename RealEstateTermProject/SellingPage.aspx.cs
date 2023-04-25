@@ -20,7 +20,7 @@ namespace RealEstateTermProject
         HouseUtils houseUtils = new HouseUtils();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Page.Form.Attributes.Add("enctype", "multipart/form-data");
             //retrieving the username for the stored username in login and sign up page to use in other pages
             string UserAccountName = (string)Session["Username"];
             createImageUploads();
@@ -53,45 +53,41 @@ namespace RealEstateTermProject
                 lbl.AssociatedControlID = fl.ID;
                 
                 c.Controls.Add(im);
+                c.Controls.Add(fl);
                 c.Controls.Add(lbl);
                 c.Controls.Add(tb);
-                c.Controls.Add(fl);
                 c.Visible = false;
 
                 FindControl("contentBox").Controls.Add(c);
             }
         }
-        public void UploadFile()
+        public String UploadFile()
         {
-            String dir = $@"*/pics/houses/{address.Value}";
+            String dir = $@"{Server.MapPath("~/")}pics\houses\{address.Value}";
+
+            System.Diagnostics.Debug.WriteLine(dir);
 
             if (!Directory.Exists(dir))
                 Directory.CreateDirectory(dir);
 
-            System.Diagnostics.Debug.WriteLine(dir);
-
-            for(int i = 0; i < 15; i++)
+            for (int i = 0; i < 15; i++)
             {
-                Control c = FindControl($"uploadImage{i}");
-                FileUpload fl = (FileUpload)c.FindControl($"fl{i}");
+                var c = FindControl($"uploadImage{i}");
+                var fl = (FileUpload)FindControl($"fl{i}");
                 
-                TextBox tb = (TextBox)c.FindControl($"tb{i}");
+                TextBox tb = (TextBox)FindControl($"tb{i}");
+
+                System.Diagnostics.Debug.Write(fl.ID);
+                System.Diagnostics.Debug.Write(fl.HasFile);
+                System.Diagnostics.Debug.WriteLine(fl.FileName);
+                
                 if (c.Visible && fl.HasFile)
                 {
-                    fl.PostedFile.SaveAs($@"{dir}/{tb.Text}.png");
+                    fl.SaveAs($@"{dir}\{tb.Text}.jpeg");
                 }
             }
 
-
-            /*for (int i = 1; i <= 20; i++)
-            {
-                var control = (FileUpload)upImages.FindControl($"FileUpload{i}");
-                if (control.Visible)
-                {
-                    String caption = Page.Request.Form[$"imageCaption{i}"].ToString();
-                    control.SaveAs($@"{dir}\{caption}.png");
-                }
-            }*/
+            return dir;
         }
 
         protected void AddFileUpload(object sender, EventArgs e)
@@ -101,16 +97,22 @@ namespace RealEstateTermProject
             for (int i = 0; i < 15; i++)
             {
                 Control c = FindControl($"uploadImage{i}");
+                var fl = (FileUpload)c.FindControl($"fl{i}");
+
                 c.Visible = false;
+                fl.Visible = false;
             }
 
             if (dl.SelectedValue == "0")
                 return;
 
-            for (int i = 0; i <= int.Parse(dl.SelectedValue); i++)
+            for (int i = 0; i < int.Parse(dl.SelectedValue); i++)
             {
                 Control c = FindControl($"uploadImage{i}");
+                var fl = (FileUpload)c.FindControl($"fl{i}");
+
                 c.Visible = true;
+                fl.Visible = true;
             }
             
 
@@ -146,7 +148,7 @@ namespace RealEstateTermProject
             */
 
 
-/*
+
             House house = new House();
             house.Address = address.Value;
             house.PropertyType = propertyType.Value;
@@ -158,7 +160,7 @@ namespace RealEstateTermProject
             house.Utilities = utilities.Value;
             house.HomeDescription = homeDescription.Value;
             house.AskingPrice = int.Parse(askingPrice.Value);
-            house.HouseImages = houseImages.Value;
+            house.HouseImages = UploadFile();
             house.State = state.Value;
             house.NumberOfBathrooms = int.Parse(numOfBath.Value);
             house.City = city.Value;
@@ -170,10 +172,9 @@ namespace RealEstateTermProject
                 house.SellerID = (int)Session["AccountID"];
             else
                 house.RealEstateID = (int)Session["AccountID"];*/
-            UploadFile();
 
-            //houseUtils.putHouse(house);
-            //Response.Redirect("AddingHouseInfotoSellPage.aspx");
+            houseUtils.putHouse(house);
+            Response.Redirect("AddingHouseInfotoSellPage.aspx");
         }
     }
 }
