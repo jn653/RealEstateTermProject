@@ -53,22 +53,7 @@ namespace RealEstateTermProject
         {
             lblAgentChosen.Visible = true;
 
-            //string address = (string)Session["address"];
-            //string propertyType = (string)Session["property"];
-            //int homeSize = (int)Session["homeSize"];
-            //int bedrooms = (int)Session["Bedrooms"];
-            //string amentities = (string)Session["Amenities"];
-            //int year = (int)Session["Year"];
-            //string Garage = (string)Session["Garage"];
-            //string Utilities = (string)Session["Utils"];
-            //string description = (string)Session["Description"];
-            //double price = (double)Session["Price"];
-            //string Images = (string)Session["Images"];
-            //string state = (string)Session["State"];
-            //int bathrooms = (int)Session["Bathrooms"];
-            //string city = (string)Session["City"];
-            //int SellerId = (int)Session["SellerId"];
-
+            //retreiving the house information from selling page
             House objhouse = new House();
             objhouse = (House)Session["House"];
             
@@ -88,15 +73,16 @@ namespace RealEstateTermProject
                     string UserAccountName = (string)Session["Username"];
 
                     //storing user id
-                    //int UserID = soapUser.GetIDByUsername(UserAccountName);
-                    
+                    int UserID = soapUser.GetIDByUsername(UserAccountName);
+
                     int AgentId = Convert.ToInt32(gvShowRealEstate.Rows[row].Cells[1].Text);
 
 
 
-                    //soapUser.AddToRequestedSeller(UserAccountName, SellerId, address, amentities, state, price, city, Garage, description, homeSize, Images,
-                    //    year, bathrooms, bedrooms, propertyType, Utilities, AgentId);
-                    lblAgentChosen.Text =  objhouse.Address + objhouse.Garage + objhouse.AskingPrice + "The Agent" + " " + gvShowRealEstate.Rows[row].Cells[3].Text + " " + "Has been notified of your request to sell a house with them";
+                    //soapUser.AddToRequestedSeller(UserAccountName, objhouse.SellerID, objhouse.Address, objhouse.Amenities, objhouse.State, objhouse.AskingPrice, objhouse.City, objhouse.Garage, objhouse.HomeDescription, objhouse.HomeSize, objhouse.HouseImages,
+                    //    objhouse.HouseYear, objhouse.NumberOfBathrooms, objhouse.NumberOfBedrooms, objhouse.PropertyType, objhouse.Utilities, AgentId);
+
+                    lblAgentChosen.Text = "The Agent" + " " + gvShowRealEstate.Rows[row].Cells[3].Text + " " + "Has been notified of your request to sell a house with them";
                 }
             }
         }

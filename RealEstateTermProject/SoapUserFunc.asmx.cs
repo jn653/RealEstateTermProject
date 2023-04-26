@@ -125,7 +125,7 @@ namespace RealEstateTermProject
         }
 
         //adding to requested seller table from show real estate comapny
-        public void AddToRequestedSeller(string username, int userID, string address, string amentities, string state, int price, string city, string garage,
+        public void AddToRequestedSeller(string username, int userID, string address, string amentities, string state, decimal price, string city, string garage,
            string description, int homesize, string houseImages, int year, int bathroom, int bedroom, string proptype, string utils, int AgentId)
         {
             SqlCommand objCommand = new SqlCommand();

@@ -19,8 +19,10 @@
          <table style="z-index: 1; left: 361px; top: 186px; position: absolute; height: 340px; width: 460px; right: 169px">
             <tr style="color:darkorchid">
                 <th height="10px" style="background-color:white"> Visitor </th>
+                <th style="background-color:white"> Address </th>
                 <th style="background-color:white"> Date </th>
                 <th style="background-color:white"> Time </th>
+                
                 
             </tr>
              <asp:Repeater ID="HouseVisitsRepeater" runat="server">
@@ -29,6 +31,10 @@
                     <td height="300" width ="25px" align ="center" style="background-color:white">
                         <asp:Label ID="lblVisitorUsername" runat="server"
                             Text='<%# DataBinder.Eval(Container.DataItem, "VisitorUsername") %>'></asp:Label>
+                    </td>
+                     <td width ="25px" align ="center" style="background-color:white">
+                        <asp:Label ID="LblHouseAddress" runat="server"
+                            Text='<%# DataBinder.Eval(Container.DataItem, "HouseAddress") %>'></asp:Label>
                     </td>
                      <td width ="25px" align ="center" style="background-color:white">
                         <asp:Label ID="LblVisitingDate" runat="server"

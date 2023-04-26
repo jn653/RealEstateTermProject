@@ -17,6 +17,18 @@
         <div>
         </div>
         <asp:GridView ID="gvHomeOffers" runat="server" style="z-index: 1; left: 385px; top: 250px; position: absolute; height: 133px; width: 187px" BackColor="White">
+            <Columns>
+                <asp:TemplateField HeaderText="Accept Offer">
+                    <ItemTemplate>
+                        <asp:LinkButton ID="linkbtnAccept" runat="server" OnClick="linkbtnAccept_Click1">Accept</asp:LinkButton>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Deny Offer">
+                    <ItemTemplate>
+                        <asp:LinkButton ID="linkbtnDeny" runat="server" OnClick="linkbtnDeny_Click2">Deny</asp:LinkButton>
+                    </ItemTemplate>
+                </asp:TemplateField>
+            </Columns>
         </asp:GridView>
         <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="75" ForeColor="RoyalBlue" style="z-index: 1; left: 359px; top: 62px; position: absolute" Text="Home Offers"></asp:Label>
     </form>
