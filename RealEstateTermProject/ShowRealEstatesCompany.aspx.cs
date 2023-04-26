@@ -53,6 +53,25 @@ namespace RealEstateTermProject
         {
             lblAgentChosen.Visible = true;
 
+            //string address = (string)Session["address"];
+            //string propertyType = (string)Session["property"];
+            //int homeSize = (int)Session["homeSize"];
+            //int bedrooms = (int)Session["Bedrooms"];
+            //string amentities = (string)Session["Amenities"];
+            //int year = (int)Session["Year"];
+            //string Garage = (string)Session["Garage"];
+            //string Utilities = (string)Session["Utils"];
+            //string description = (string)Session["Description"];
+            //double price = (double)Session["Price"];
+            //string Images = (string)Session["Images"];
+            //string state = (string)Session["State"];
+            //int bathrooms = (int)Session["Bathrooms"];
+            //string city = (string)Session["City"];
+            //int SellerId = (int)Session["SellerId"];
+
+            House objhouse = new House();
+            objhouse = (House)Session["House"];
+            
 
 
             //going through the gridview to get the checkbox if it is checked
@@ -61,16 +80,23 @@ namespace RealEstateTermProject
                 CheckBox profileCheck;
                 profileCheck = (CheckBox)gvShowRealEstate.Rows[row].FindControl("checkboxChoose");
 
+
                 if (profileCheck.Checked)
                 {
+
                     //retrieving the username for the stored username in login and sign up page to use in other pages
                     string UserAccountName = (string)Session["Username"];
 
                     //storing user id
-                    int UserID = soapUser.GetIDByUsername(UserAccountName);
+                    //int UserID = soapUser.GetIDByUsername(UserAccountName);
+                    
+                    int AgentId = Convert.ToInt32(gvShowRealEstate.Rows[row].Cells[1].Text);
 
-                    soapUser.AddToRequestedSeller(UserAccountName, UserID);
-                    lblAgentChosen.Text = "The Agent" + gvShowRealEstate.Rows[row].Cells[1].Text + "Has been notified of your requested to sell a house with them";
+
+
+                    //soapUser.AddToRequestedSeller(UserAccountName, SellerId, address, amentities, state, price, city, Garage, description, homeSize, Images,
+                    //    year, bathrooms, bedrooms, propertyType, Utilities, AgentId);
+                    lblAgentChosen.Text =  objhouse.Address + objhouse.Garage + objhouse.AskingPrice + "The Agent" + " " + gvShowRealEstate.Rows[row].Cells[3].Text + " " + "Has been notified of your request to sell a house with them";
                 }
             }
         }

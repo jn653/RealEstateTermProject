@@ -16,7 +16,7 @@ namespace RealEstateTermProject
 {
     public partial class SellingPage : System.Web.UI.Page
     {
-
+        SoapUserFunc SoapUser = new SoapUserFunc();
         HouseUtils houseUtils = new HouseUtils();
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -121,13 +121,36 @@ namespace RealEstateTermProject
         protected void findRealtor_Click(object sender, EventArgs e)
         {
             House house = createHouse();
+            //Session["House"] = house.;
+            //house = (House)Session["House"];
+            //Session["address"] = house.Address;
+            //Session["property"] = house.PropertyType;
+            //Session["homeSize"] = house.HomeSize;
+            //Session["Bedrooms"] = house.NumberOfBedrooms;
+            //Session["Amenities"] = house.Amenities;
+            //Session["Year"] = house.HouseYear;
+            //Session["Garage"] = house.Garage;
+            //Session["Utils"] = house.Utilities;
+            //Session["Description"] = house.HomeDescription;
+            //Session["Price"] = house.AskingPrice;
+            //Session["Images"] = house.HouseImages;
+            //Session["State"] = house.State;
+            //Session["Bathrooms"] = house.NumberOfBathrooms;
+            //Session["City"] = house.City;
+            //Session["SellerId"] = house.SellerID;
+            //Session["RealEstateId"] = house.RealEstateID;
             Session["House"] = house;
-            house = (House)Session["House"];
+
+            Response.Redirect("ShowRealEstatesCompany.aspx");
 
         }
 
         public House createHouse()
         {
+            //retrieving the username for the stored username in login and sign up page to use in other pages
+            string UserAccountName = (string)Session["Username"];
+            int UserID = SoapUser.GetIDByUsername(UserAccountName);
+
             House house = new House();
             house.Address = address.Value;
             house.PropertyType = propertyType.Value;
@@ -143,7 +166,7 @@ namespace RealEstateTermProject
             house.State = state.Value;
             house.NumberOfBathrooms = int.Parse(numOfBath.Value);
             house.City = city.Value;
-            house.SellerID = -1;
+            house.SellerID = UserID;
             house.RealEstateID = -1;
 
             return house;

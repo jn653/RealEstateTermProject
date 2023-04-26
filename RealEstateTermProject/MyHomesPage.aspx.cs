@@ -52,7 +52,7 @@ namespace RealEstateTermProject
 
         protected void btnLinkDelete_Click1(object sender, EventArgs e)
         {
-            int rowInde = ((GridViewRow)(sender as Control).NamingContainer).RowIndex;
+            int rowIndex = ((GridViewRow)(sender as Control).NamingContainer).RowIndex;
             DBConnect objDB = new DBConnect();
             String strSQL = "DELETE FROM TP_Houses Where ID = " + 12;
 
