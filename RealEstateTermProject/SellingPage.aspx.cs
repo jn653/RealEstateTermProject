@@ -118,6 +118,37 @@ namespace RealEstateTermProject
 
         }
 
+        protected void findRealtor_Click(object sender, EventArgs e)
+        {
+            House house = createHouse();
+            Session["House"] = house;
+            house = (House)Session["House"];
+
+        }
+
+        public House createHouse()
+        {
+            House house = new House();
+            house.Address = address.Value;
+            house.PropertyType = propertyType.Value;
+            house.HomeSize = int.Parse(homeSize.Value);
+            house.NumberOfBedrooms = int.Parse(numOfBed.Value);
+            house.Amenities = amenities.Value;
+            house.HouseYear = int.Parse(houseYear.Value);
+            house.Garage = garage.Value;
+            house.Utilities = utilities.Value;
+            house.HomeDescription = homeDescription.Value;
+            house.AskingPrice = int.Parse(askingPrice.Value);
+            house.HouseImages = UploadFile();
+            house.State = state.Value;
+            house.NumberOfBathrooms = int.Parse(numOfBath.Value);
+            house.City = city.Value;
+            house.SellerID = -1;
+            house.RealEstateID = -1;
+
+            return house;
+        }
+
         protected void Button1_Click(object sender, EventArgs e)
         {
             //retrieving the username for the stored username in login and sign up page to use in other pages
@@ -149,23 +180,7 @@ namespace RealEstateTermProject
 
 
 
-            House house = new House();
-            house.Address = address.Value;
-            house.PropertyType = propertyType.Value;
-            house.HomeSize = int.Parse(homeSize.Value);
-            house.NumberOfBedrooms = int.Parse(numOfBed.Value);
-            house.Amenities = amenities.Value;
-            house.HouseYear = int.Parse(houseYear.Value);
-            house.Garage = garage.Value;
-            house.Utilities = utilities.Value;
-            house.HomeDescription = homeDescription.Value;
-            house.AskingPrice = int.Parse(askingPrice.Value);
-            house.HouseImages = UploadFile();
-            house.State = state.Value;
-            house.NumberOfBathrooms = int.Parse(numOfBath.Value);
-            house.City = city.Value;
-            house.SellerID = -1;
-            house.RealEstateID = -1;
+            House house = createHouse();
 
             /*
             if (AccountType == "Home Seller")

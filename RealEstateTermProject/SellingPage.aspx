@@ -54,8 +54,6 @@
                     <input type="number" id="askingPrice" runat="server" required />
                 </sellinginfobox>
                 <sellinginfobox>
-                    <label for="houseImages">House Images</label>
-                    <input id="houseImages" runat="server" required />
                     <label for="state">State</label>
                     <input id="state" runat="server" required />
                     <label for="numOfBath">Number of Bathrooms</label>
@@ -113,7 +111,8 @@
 
                 </sellinginfobox>
             </sellinginfo>
-            <asp:Button ID="uploadHouse" Text="Upload House" OnClick="Button1_Click" runat="server"/>
+            <asp:Button ID="uploadHouse" Text="Sell House Individually" OnClick="Button1_Click" runat="server"/>
+            <asp:Button ID="findRealtor" Text="Find a Realtor" OnClick="findRealtor_Click" runat="server"/>
         </form>
     </content>
     <script>
