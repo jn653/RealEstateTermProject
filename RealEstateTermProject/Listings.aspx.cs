@@ -78,12 +78,19 @@ namespace RealEstateTermProject
 
         protected void MakeOffer_Click(object sender, EventArgs e)
         {
-            Button button = sender as Button;
+            try
+            {
+                Button button = sender as Button;
 
-            if (houseUtils.AddHomeOffer((House)Session["House"], Session["Username"].ToString(), int.Parse(offerBox.Value)))
-                Response.Write("<script>alert('Congratulations, your request has been accepted and will be reviewed shortly! Stay posted for any updates!')</script>");
-            else
+                if (houseUtils.AddHomeOffer((House)Session["House"], Session["Username"].ToString(), int.Parse(offerBox.Value)))
+                    Response.Write("<script>alert('Congratulations, your request has been accepted and will be reviewed shortly! Stay posted for any updates!')</script>");
+                else
+                    Response.Write("<script>alert('Unfortunately, there was an issue proccessing your request. Please make sure you have entered all of the info correctly.')</script>");
+            }
+            catch (Exception ex)
+            {
                 Response.Write("<script>alert('Unfortunately, there was an issue proccessing your request. Please make sure you have entered all of the info correctly.')</script>");
+            }
         }
 
         protected void ShowScheduleVisit_Click(object sender, EventArgs e)
@@ -109,7 +116,7 @@ namespace RealEstateTermProject
                     Response.Write("<script>alert('Unfortunately, there was an issue proccessing your request. Please try again.')</script>");
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Response.Write("<script>alert('Unfortunately, there was an issue proccessing your request. Please try again.')</script>");
             }
