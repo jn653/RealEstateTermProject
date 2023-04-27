@@ -19,7 +19,7 @@ namespace RealEstateTermProject
 
             //if (AccountType.Equals("Real Estate Agent"))
             //{
-            //    lblTestingpage.Text = "Instructions: Press the SELECT button to view the information for a house and then press SELL HOUSE button to sell the house";
+            //    lblTestingpage.Text = "Instructions: Press the SELECT button to populate the textbox with the information for a house and then press SELL HOUSE button to sell the house";
             //}
             //else if (!AccountType.Equals("Real Estate Agent"))
             //{

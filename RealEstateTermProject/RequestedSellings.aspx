@@ -57,7 +57,7 @@
 
         <div>
             <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="55pt" ForeColor="RoyalBlue" style="z-index: 1; left: 277px; top: 64px; position: absolute" Text="Users requesting to sell"></asp:Label>
-            <asp:Label ID="lblTestingpage" runat="server" style="z-index: 1; left: 298px; top: 178px; position: absolute" Text="Label"></asp:Label>
+            <asp:Label ID="lblTestingpage" runat="server" style="z-index: 1; left: 298px; top: 195px; position: absolute" Text="Label"></asp:Label>
             <asp:TextBox ID="txtUtilities" runat="server" style="z-index: 1; left: 46px; top: 430px; position: absolute; width: 109px"></asp:TextBox>
             <asp:TextBox ID="txtHouseYear" runat="server" style="z-index: 1; top: 320px; position: absolute; width: 109px; left: 837px"></asp:TextBox>
             <asp:TextBox ID="txtBathrooms" runat="server" style="z-index: 1; top: 323px; position: absolute; width: 109px; left: 480px"></asp:TextBox>

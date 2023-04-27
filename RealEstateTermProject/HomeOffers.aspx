@@ -16,9 +16,15 @@
     <form id="form1" runat="server">
         <div>
         </div>
-        <asp:GridView ID="gvHomeOffers" runat="server" style="z-index: 1; left: 385px; top: 250px; position: absolute; height: 133px; width: 187px" BackColor="White">
+        <asp:GridView ID="gvHomeOffers" runat="server" style="z-index: 1; left: 344px; top: 250px; position: absolute; height: 133px; width: 187px" BackColor="White" AutoGenerateColumns="False">
             <Columns>
-                <asp:TemplateField HeaderText="Accept Offer">
+              
+                <asp:BoundField DataField="HouseImage" HeaderText="HouseImage" SortExpression="HouseImage" />
+                <asp:BoundField DataField="HouseAddress" HeaderText="HouseAddress" SortExpression="HouseAddress" />
+                <asp:BoundField DataField="UserBuying" HeaderText="UserBuying " SortExpression="UserBuying" />
+                <asp:BoundField DataField="OfferPrice" HeaderText="OfferPrice" SortExpression="OfferPrice" />
+                <asp:BoundField DataField="AskingPrice" HeaderText="AskingPrice" SortExpression="AskingPrice" />
+                  <asp:TemplateField HeaderText="Accept Offer">
                     <ItemTemplate>
                         <asp:LinkButton ID="linkbtnAccept" runat="server" OnClick="linkbtnAccept_Click1">Accept</asp:LinkButton>
                     </ItemTemplate>

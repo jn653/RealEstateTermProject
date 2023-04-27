@@ -4,11 +4,11 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <script src="js/nav.js"></script>
+    <script src="js/navHomeSeller.js"></script>
     <title></title>
 </head>
 <body>
-     <script>nav()</script>
+     <script>navHomeSeller()</script>
     <form id="form1" runat="server">
         <div>
             <asp:GridView ID="gvShowRealEstate" runat="server"  style="z-index: 1; left: 261px; top: 354px; position: absolute; height: 111px; width: 289px" OnSelectedIndexChanged="gvShowRealEstate_SelectedIndexChanged">

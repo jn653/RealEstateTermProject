@@ -35,7 +35,7 @@
             <asp:ListItem>Greater than 200,000</asp:ListItem>
         </asp:DropDownList>
 
-            <asp:Button ID="btnSearchHouse" runat="server" BackColor="RoyalBlue" ForeColor="White" style="z-index: 1; left: 413px; top: 262px; position: absolute" Text="Search House" />
+            <asp:Button ID="btnSearchHouse" runat="server" BackColor="RoyalBlue" ForeColor="White" style="z-index: 1; left: 413px; top: 262px; position: absolute" Text="Search House" OnClick="btnSearchHouse_Click" />
 
             <asp:Label ID="lblSearch" runat="server" Text="Search for a house by" Font-Bold="True" Font-Size="X-Large" style="z-index: 1; left: 8px; top: 141px; position: absolute"></asp:Label>
         
@@ -53,11 +53,8 @@
             <asp:Label ID="lblSearchByCriteria" runat="server" Text="Search for a house by One of the following criteria:" Font-Bold="True" Font-Size="X-Large" style="z-index: 1; left: 272px; top: 223px; position: absolute"></asp:Label>
         
             <asp:Button ID="btnsubmitCriteria" runat="server" BackColor="RoyalBlue" ForeColor="White" OnClick="btnsubmitCriteria_Click" style="z-index: 1; left: 515px; top: 358px; position: absolute" Text="Submit criteria" />
-        <asp:DropDownList ID="ddlPropertyType" runat="server" style="z-index: 1; left: 743px; top: 151px; position: absolute">
-            <asp:ListItem>Single-family home</asp:ListItem>
-            <asp:ListItem>Multi-family home</asp:ListItem>
-            <asp:ListItem>Condo</asp:ListItem>
-            <asp:ListItem>TownHouse</asp:ListItem>
+        <asp:DropDownList ID="ddlPropertyType"  AppendDataBoundItems="true" DataTextField="PropertyType" runat="server" style="z-index: 1; left: 743px; top: 151px; position: absolute">
+            
         </asp:DropDownList>
         <asp:Label ID="lblPropertyType" runat="server" Font-Bold="True" Font-Size="X-Large" style="z-index: 1; left: 742px; top: 101px; position: absolute" Text="Property Type"></asp:Label>
                 

@@ -10,6 +10,7 @@ namespace RealEstateTermProject
 {
     public partial class HomeOffers : System.Web.UI.Page
     {
+        SoapUserFunc SoapUser = new SoapUserFunc();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -22,9 +23,12 @@ namespace RealEstateTermProject
 
         protected void loadGridview()
         {
+            //retrieving the username for the stored username in login and sign up page to use in other pages
+            string UserAccountName = (string)Session["Username"];
+            int UserID = SoapUser.GetIDByUsername(UserAccountName);
 
             DBConnect objDB = new DBConnect();
-            String strSQL = "SELECT * FROM TP_HouseOffers";
+            String strSQL = "SELECT * FROM TP_HouseOffers Where SellerID = " + UserID + " OR RealEstateId =" + UserID;
 
 
             gvHomeOffers.DataSource = objDB.GetDataSet(strSQL);

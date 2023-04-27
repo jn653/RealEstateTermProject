@@ -16,6 +16,8 @@ namespace RealEstateTermProject
         
         protected void Page_Load(object sender, EventArgs e)
         {
+
+
             //retrieving the username for the stored username in login and sign up page to use in other pages
             string UserAccountName = (string)Session["Username"];
 
@@ -68,6 +70,15 @@ namespace RealEstateTermProject
 
                 ddlStates.DataSource = myData2;
                 ddlStates.DataBind();
+
+
+                DBConnect dbConnect2 = new DBConnect();
+                DataSet myData3 = dbConnect2.GetDataSet("Select DISTINCT PropertyType FROM TP_Houses");
+                ddlPropertyType.DataSource = myData3;
+                ddlPropertyType.DataBind();
+
+
+
             }
             else if (AjaxComboCriteria.SelectedValue.Equals("State/Price/Number of bedrooms"))
             {
@@ -143,6 +154,122 @@ namespace RealEstateTermProject
                 btnsubmitCriteria.Visible = false;
             }
                 
+        }
+
+        //--------------------------------------------------------------------------------------------------------------------------------------------------
+
+        //this is where the list of houses will be displayed once they click search house based on the filter
+        protected void btnSearchHouse_Click(object sender, EventArgs e)
+        {
+            if (AjaxComboCriteria.SelectedValue.Equals("State/Price/PropertyType"))
+            {
+                lblSearch.Visible = true;
+
+                lblState.Visible = true;
+                lblPrice.Visible = true;
+                lblPropertyType.Visible = true;
+                ddlPrice.Visible = true;
+                ddlPropertyType.Visible = true;
+                AjaxComboCriteria.Visible = false;
+                hyperlinkBack.Visible = true;
+                Image1.Visible = true;
+
+
+                lblSearchByCriteria.Visible = false;
+                btnsubmitCriteria.Visible = false;
+                btnSearchHouse.Visible = true;
+                ddlStates.Visible = true;
+
+
+                // populate the dropdown list for states witht the states in the database
+                DBConnect dbConnect = new DBConnect();
+                DataSet myData2 = dbConnect.GetDataSet("Select  DISTINCT State FROM TP_Houses");
+
+                ddlStates.DataSource = myData2;
+                ddlStates.DataBind();
+
+
+                DBConnect dbConnect2 = new DBConnect();
+                DataSet myData3 = dbConnect2.GetDataSet("Select DISTINCT PropertyType FROM TP_Houses");
+                ddlPropertyType.DataSource = myData3;
+                ddlPropertyType.DataBind();
+
+
+
+            }
+            else if (AjaxComboCriteria.SelectedValue.Equals("State/Price/Number of bedrooms"))
+            {
+                lblSearch.Visible = true;
+
+                lblState.Visible = true;
+                lblPrice.Visible = true;
+                lblNumofBedrooms.Visible = true;
+                ddlnumofBathrooms.Visible = true;
+                ddlPrice.Visible = true;
+                AjaxComboCriteria.Visible = false;
+                hyperlinkBack.Visible = true;
+                Image1.Visible = true;
+
+
+                lblSearchByCriteria.Visible = false;
+                btnsubmitCriteria.Visible = false;
+                btnSearchHouse.Visible = true;
+                ddlStates.Visible = true;
+
+
+                // populate the dropdown list for states witht the states in the database
+                DBConnect dbConnect = new DBConnect();
+                DataSet myData2 = dbConnect.GetDataSet("Select  DISTINCT State FROM TP_Houses");
+
+                ddlStates.DataSource = myData2;
+                ddlStates.DataBind();
+
+            }
+            else if (AjaxComboCriteria.SelectedValue.Equals("City/Price"))
+            {
+                lblSearch.Visible = true;
+                lblCity.Visible = true;
+                lblPrice.Visible = true;
+                ddlPrice.Visible = true;
+                ddlCity.Visible = true;
+                AjaxComboCriteria.Visible = false;
+                hyperlinkBack.Visible = true;
+                Image1.Visible = true;
+
+
+                lblSearchByCriteria.Visible = false;
+                btnsubmitCriteria.Visible = false;
+                ddlnumofBathrooms.Visible = false;
+                lblNumofBedrooms.Visible = false;
+                btnSearchHouse.Visible = true;
+
+
+                // populate the dropdown list for states witht the states in the database
+                DBConnect dbConnect = new DBConnect();
+                DataSet myData2 = dbConnect.GetDataSet("Select  DISTINCT City FROM TP_Houses");
+
+                ddlCity.DataSource = myData2;
+                ddlCity.DataBind();
+            }
+            else
+                if (AjaxComboCriteria.SelectedValue.Equals("Price/Number of bathrooms"))
+            {
+                lblPrice.Visible = true;
+                ddlPrice.Visible = true;
+                lblNumofBedrooms.Visible = true;
+                lblNumofBedrooms.Text = "Number of bathrooms";
+                ddlnumofBathrooms.Visible = true;
+                lblSearch.Visible = true;
+                btnSearchHouse.Visible = true;
+                AjaxComboCriteria.Visible = false;
+                hyperlinkBack.Visible = true;
+                Image1.Visible = true;
+
+
+
+                lblSearchByCriteria.Visible = false;
+                btnsubmitCriteria.Visible = false;
+            }
         }
     }
 }
