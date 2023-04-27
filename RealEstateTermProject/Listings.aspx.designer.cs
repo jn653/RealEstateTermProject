@@ -69,6 +69,15 @@ namespace RealEstateTermProject
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl homeAddress;
 
         /// <summary>
+        /// homeDescription control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl homeDescription;
+
+        /// <summary>
         /// beds control.
         /// </summary>
         /// <remarks>
@@ -76,6 +85,15 @@ namespace RealEstateTermProject
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl beds;
+
+        /// <summary>
+        /// bathrooms control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl bathrooms;
 
         /// <summary>
         /// propertyType control.
@@ -105,6 +123,15 @@ namespace RealEstateTermProject
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl amenities;
 
         /// <summary>
+        /// utilities control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl utilities;
+
+        /// <summary>
         /// garages control.
         /// </summary>
         /// <remarks>
@@ -121,5 +148,50 @@ namespace RealEstateTermProject
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl houseYear;
+
+        /// <summary>
+        /// askingPrice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl askingPrice;
+
+        /// <summary>
+        /// state control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl state;
+
+        /// <summary>
+        /// city control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl city;
+
+        /// <summary>
+        /// offerBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl offerBox;
+
+        /// <summary>
+        /// makeOffer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button makeOffer;
     }
 }

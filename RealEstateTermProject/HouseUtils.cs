@@ -151,6 +151,58 @@ namespace Utilities
             return property.ToString();
         }
 
+        public bool AddHomeOffer(House house, String username, decimal offer)
+        {
+            SqlCommand SQLcmd = new SqlCommand();
+            DBConnect objDB = new DBConnect();
+
+            try
+            {
+                int rowsAffected = 0;
+
+                SQLcmd.CommandType = CommandType.StoredProcedure;
+                SQLcmd.CommandText = "TP_MakeOffer";
+
+                SqlParameter inputHouseImages = new SqlParameter(@"houseImages", house.HouseImages);
+                SqlParameter inputAddress = new SqlParameter("@houseAddress", house.Address);
+                SqlParameter inputUserBuying = new SqlParameter("@userBuying", username);
+                SqlParameter inputSellerId = new SqlParameter("@sellerId", house.SellerID);
+                SqlParameter inputRealEstateId = new SqlParameter("@realEstateId", house.RealEstateID);
+                SqlParameter inputOfferPrice = new SqlParameter("@offerPrice", offer);
+                SqlParameter inputAskingPrice = new SqlParameter("@askingPrice", house.AskingPrice);
+
+                inputHouseImages.SqlDbType = SqlDbType.VarChar;
+                inputAddress.SqlDbType = SqlDbType.VarChar;
+                inputUserBuying.SqlDbType = SqlDbType.VarChar;
+                inputSellerId.SqlDbType = SqlDbType.Int;
+                inputRealEstateId.SqlDbType = SqlDbType.Int;
+                inputOfferPrice.SqlDbType = SqlDbType.Decimal;
+                inputAskingPrice.SqlDbType = SqlDbType.Decimal;
+
+                inputHouseImages.Size = 500;
+                inputAddress.Size = 500;
+                inputUserBuying.Size = 500;
+                inputSellerId.Size = 500;
+                inputRealEstateId.Size = 500;
+                inputOfferPrice.Size = 500;
+                inputAskingPrice.Size = 500;
+
+                SQLcmd.Parameters.Add(inputHouseImages);
+                SQLcmd.Parameters.Add(inputAddress);
+                SQLcmd.Parameters.Add(inputUserBuying);
+                SQLcmd.Parameters.Add(inputSellerId);
+                SQLcmd.Parameters.Add(inputRealEstateId);
+                SQLcmd.Parameters.Add(inputOfferPrice);
+                SQLcmd.Parameters.Add(inputAskingPrice);
+
+                rowsAffected = objDB.DoUpdate(SQLcmd);
+                if (rowsAffected > 0)
+                    return true;
+                return false;
+            }
+            catch (Exception ex) { return false; }
+        }
+
         public House getHouse(int id)
         {
             WebRequest request = WebRequest.Create($"{connString}/{id}");

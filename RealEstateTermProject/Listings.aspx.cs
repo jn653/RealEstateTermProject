@@ -18,9 +18,11 @@ namespace RealEstateTermProject
         DBConnect utils = new DBConnect();
         HouseUtils houseUtils = new HouseUtils();
         SqlCommand SQLcmd;
+        House localHouse = new House();
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            Session["Username"] = "testing123";
             createButtons();
         }
 
@@ -28,7 +30,7 @@ namespace RealEstateTermProject
         {
             HtmlGenericControl listingBox = houseUtils.createAllListings();
 
-            foreach(Control control in listingBox.Controls)
+            foreach (Control control in listingBox.Controls)
             {
                 Button button = new Button();
                 button.CssClass = "button";
@@ -52,13 +54,33 @@ namespace RealEstateTermProject
             homeAddress.InnerHtml = house.Address;
             image.Src = house.HouseImages;
 
+            homeDescription.InnerHtml = house.HomeDescription;
+
             beds.InnerHtml = house.NumberOfBedrooms.ToString();
+            bathrooms.InnerHtml = house.NumberOfBathrooms.ToString();
             propertyType.InnerHtml = house.PropertyType;
             houseSize.InnerHtml = house.HomeSize.ToString();
+
             amenities.InnerHtml = house.Amenities;
+            utilities.InnerHtml = house.Utilities;
             garages.InnerHtml = house.Garage;
             houseYear.InnerHtml = house.HouseYear.ToString();
+
+            askingPrice.InnerHtml = house.AskingPrice.ToString();
+            state.InnerHtml = house.State;
+            city.InnerHtml = house.City;
+
+            //scheduleVisit.SkinID = id;
+
+            Session["House"] = house;
             homeInfo.Visible = true;
+        }
+
+        protected void MakeOffer_Click(object sender, EventArgs e)
+        {
+            Button button = sender as Button;
+
+            houseUtils.AddHomeOffer((House)Session["House"], Session["Username"].ToString(), int.Parse(offerBox.Value));
         }
 
         protected void Button_Click(object sender, EventArgs e)
