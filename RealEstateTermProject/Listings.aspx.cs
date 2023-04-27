@@ -80,7 +80,46 @@ namespace RealEstateTermProject
         {
             Button button = sender as Button;
 
-            houseUtils.AddHomeOffer((House)Session["House"], Session["Username"].ToString(), int.Parse(offerBox.Value));
+            if (houseUtils.AddHomeOffer((House)Session["House"], Session["Username"].ToString(), int.Parse(offerBox.Value)))
+                Response.Write("<script>alert('Congratulations, your request has been accepted and will be reviewed shortly! Stay posted for any updates!')</script>");
+            else
+                Response.Write("<script>alert('Unfortunately, there was an issue proccessing your request. Please make sure you have entered all of the info correctly.')</script>");
+        }
+
+        protected void ShowScheduleVisit_Click(object sender, EventArgs e)
+        {
+            requestVisitContent.Visible = true;
+        }
+
+        protected void ScheduleVisit_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DateTime dt = DateTime.Parse(visitDate.Value);
+                String t = visitTime.SelectedValue;
+
+                System.Diagnostics.Debug.WriteLine(visitDate.Value);
+                if (houseUtils.ScheduleVisit((House)Session["House"], Session["Username"].ToString(), dt, t))
+                {
+                    Response.Write("<script>alert('Congratulations, your request has been accepted! Make sure to be there at least 5 minutes before the scheduled time!')</script>");
+                    requestVisitContent.Visible = false;
+                }
+                else
+                {
+                    Response.Write("<script>alert('Unfortunately, there was an issue proccessing your request. Please try again.')</script>");
+                }
+            }
+            catch(Exception ex)
+            {
+                Response.Write("<script>alert('Unfortunately, there was an issue proccessing your request. Please try again.')</script>");
+            }
+
+
+        }
+
+        protected void CancelRequest_Click(object sender, EventArgs e)
+        {
+            requestVisitContent.Visible = false;
         }
 
         protected void Button_Click(object sender, EventArgs e)

@@ -178,7 +178,6 @@
     <Compile Include="AddRealEstateInfoPage.aspx.designer.cs">
       <DependentUpon>AddRealEstateInfoPage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Class1.cs" />
     <Compile Include="Connection.cs" />
     <Compile Include="FindARealEstateAgentPage.aspx.cs">
       <DependentUpon>FindARealEstateAgentPage.aspx</DependentUpon>

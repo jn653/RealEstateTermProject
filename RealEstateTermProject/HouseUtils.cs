@@ -85,7 +85,7 @@ namespace Utilities
                 return null;
             }
         }
-
+        /*
         public HtmlGenericControl createHomeInfo(int id)
         {
             try
@@ -141,7 +141,7 @@ namespace Utilities
                 return null;
             }
             
-        }
+        }*/
         public String getSpecificHouseInfo(int id, String info)
         {
             House house = getHouse(id);
@@ -194,6 +194,54 @@ namespace Utilities
                 SQLcmd.Parameters.Add(inputRealEstateId);
                 SQLcmd.Parameters.Add(inputOfferPrice);
                 SQLcmd.Parameters.Add(inputAskingPrice);
+
+                rowsAffected = objDB.DoUpdate(SQLcmd);
+                if (rowsAffected > 0)
+                    return true;
+                return false;
+            }
+            catch (Exception ex) { return false; }
+        }
+
+        public bool ScheduleVisit(House house, String username, DateTime date, String time)
+        {
+            SqlCommand SQLcmd = new SqlCommand();
+            DBConnect objDB = new DBConnect();
+
+            try
+            {
+                int rowsAffected = 0;
+
+                SQLcmd.CommandType = CommandType.StoredProcedure;
+                SQLcmd.CommandText = "TP_ScheduleHouseVisit";
+
+                SqlParameter inputVisitDate = new SqlParameter(@"visitDate", date);
+                SqlParameter inputVisitTime = new SqlParameter("@visitTime", time);
+                SqlParameter inputVisitorUsername = new SqlParameter("@visitorUsername", username);
+                SqlParameter inputSellerId = new SqlParameter("@sellerId", house.SellerID);
+                SqlParameter inputRealEstateId = new SqlParameter("@realEstateId", house.RealEstateID);
+                SqlParameter inputHouseAddress = new SqlParameter("@houseAddress", house.Address);
+
+                inputVisitDate.SqlDbType = SqlDbType.Date;
+                inputVisitTime.SqlDbType = SqlDbType.VarChar;
+                inputVisitorUsername.SqlDbType = SqlDbType.VarChar;
+                inputSellerId.SqlDbType = SqlDbType.Int;
+                inputRealEstateId.SqlDbType = SqlDbType.Int;
+                inputHouseAddress.SqlDbType = SqlDbType.VarChar;
+
+                inputVisitDate.Size = 500;
+                inputVisitTime.Size = 500;
+                inputVisitorUsername.Size = 500;
+                inputSellerId.Size = 500;
+                inputRealEstateId.Size = 500;
+                inputHouseAddress.Size = 500;
+
+                SQLcmd.Parameters.Add(inputVisitDate);
+                SQLcmd.Parameters.Add(inputVisitTime);
+                SQLcmd.Parameters.Add(inputVisitorUsername);
+                SQLcmd.Parameters.Add(inputSellerId);
+                SQLcmd.Parameters.Add(inputRealEstateId);
+                SQLcmd.Parameters.Add(inputHouseAddress);
 
                 rowsAffected = objDB.DoUpdate(SQLcmd);
                 if (rowsAffected > 0)

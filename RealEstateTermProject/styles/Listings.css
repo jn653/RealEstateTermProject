@@ -1,161 +1,162 @@
-﻿body{
+﻿body {
     font-family: Calibri;
 }
 
-backgroundImage{
-    z-index:-1;
-    position:absolute;
-    top:0rem;
-    left:0rem;
-    width:100%;
-    height:20rem;
-    background-color:black;
-}
-
-backgroundImage imageTitle {
+backgroundImage {
+    z-index: -1;
     position: absolute;
-    top: 10rem;
-    left: 3rem;
-    font-weight: bolder;
-    font-size: 3rem;
-    color: white;
-    z-index: 100;
-}
-
-backgroundImage img {
-    position: fixed;
-    height: 20rem;
     top: 0rem;
     left: 0rem;
     width: 100%;
-    opacity: 50%;
-    object-fit: cover;
+    height: 20rem;
+    background-color: black;
 }
+
+    backgroundImage imageTitle {
+        position: absolute;
+        top: 10rem;
+        left: 3rem;
+        font-weight: bolder;
+        font-size: 3rem;
+        color: white;
+        z-index: 100;
+    }
+
+    backgroundImage img {
+        position: fixed;
+        height: 20rem;
+        top: 0rem;
+        left: 0rem;
+        width: 100%;
+        opacity: 50%;
+        object-fit: cover;
+    }
 
 content {
-    z-index:1;
-    position:absolute;
-    top:20rem;
-    left:0rem;
-    width:100%;
-    background-color:white;
+    z-index: 1;
+    position: absolute;
+    top: 20rem;
+    left: 0rem;
+    width: 100%;
+    background-color: white;
 }
 
-content listingBox{
-    position:absolute;
-    left:0rem;
-    top:0rem;
-    width:100%;
-    flex-flow:row wrap;
-    margin:auto;
-    display:flex;
-    flex-direction:row;
-    background-color:white;
+    content listingBox {
+        position: absolute;
+        left: 0rem;
+        top: 0rem;
+        width: 100%;
+        flex-flow: row wrap;
+        margin: auto;
+        display: flex;
+        flex-direction: row;
+        background-color: white;
+    }
+
+listingBox listing {
+    padding: 2rem;
+    gap: 1rem;
+    display: flex;
+    flex-direction: column;
 }
 
-listingBox listing{
-    padding:2rem;
-    gap:1rem;
-    display:flex;
-    flex-direction:column;
+listing label {
+    color: royalblue;
+    font-family: Calibri;
+    font-size: 1.5rem;
+    font-weight: bolder;
 }
 
-listing label{
-    color:royalblue;
-    font-family:Calibri;
-    font-size:1.5rem;
-    font-weight:bolder;
+listing info {
+    color: dimgray;
+    font-family: Calibri;
+    font-size: 1.5rem;
+    font-weight: lighter;
 }
 
-listing info{
-    color:dimgray;
-    font-family:Calibri;
-    font-size:1.5rem;
-    font-weight:lighter;
+listing img {
+    height: 10.8rem;
+    width: 19.2rem;
+    border: 1px solid gray;
+    border-radius: .2rem;
 }
 
-listing img{
-    height:10.8rem;
-    width:19.2rem;
-    border:1px solid gray;
-    border-radius:.2rem;
+listing .button {
+    margin-left: auto;
+    margin-right: auto;
+    height: fit-content;
+    width: fit-content;
+    font-size: 1.2rem;
+    padding: 1.5rem;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    color: white;
+    font-weight: bolder;
+    border: none;
+    border-radius: .2rem;
+    background-color: royalblue;
 }
 
-listing .button{
-    margin-left:auto;
-    margin-right:auto;
-    height:fit-content;
-    width:fit-content;
-    font-size:1.2rem;
-    padding:1.5rem;
-    padding-top:.5rem;
-    padding-bottom:.5rem;
-    color:white;
-    font-weight:bolder;
-    border:none;
-    border-radius:.2rem;
-    background-color:royalblue;
+
+input[type=submit]:hover {
+    cursor: pointer;
+    transition: .2s;
+    opacity: 70%;
 }
 
 homeInfo {
-    z-index:101;
-    position:fixed;
-    top:0rem;
-    left:0rem;
-    width:100%;
-    height:100%;
+    z-index: 101;
+    position: fixed;
+    top: 0rem;
+    left: 0rem;
+    width: 100%;
+    height: 100%;
 }
 
-homeInfo homeInfoContent {
-    position: absolute;
-    display:flex;
-    flex-direction:column;
-    top: 95%;
-    width: 90%;
-    height: 90%;
-    left:5%;
-    background-color: none;
-}
+    homeInfo homeInfoContent {
+        position: absolute;
+        display: flex;
+        flex-wrap:wrap;
+        flex-direction: row;
+        top: 95%;
+        width: 90%;
+        height: 90%;
+        left: 5%;
+        background-color: none;
+    }
 
 homeInfoContent contentHeader {
-    color:royalblue;
-    font-weight:bolder;
-    font-size:2rem;
+    color: royalblue;
+    font-weight: bolder;
+    font-size: 2rem;
 }
 
 homeInfoContent contentHeader2 {
-    color:royalblue;
-    font-weight:bold;
-    font-size:1.75rem;
+    color: royalblue;
+    font-weight: bold;
+    font-size: 1.75rem;
 }
 
 homeInfoContent contentBox {
-    display:flex;
-    flex-direction:row;
-    gap:1rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow:4;
 }
 
 homeInfoContent h1 {
     color: royalblue;
-    
 }
 
 homeInfoContent contentBox h2 {
     color: royalblue;
-    margin-top: auto;
-    margin-bottom: auto;
 }
 
-homeInfoContent contentBox h3{
-    color:gray;
-    justify-self:left;
-    flex-grow:3;
-    margin-top:auto;
-    margin-bottom:auto;
+homeInfoContent contentBox h3 {
+    color: gray;
 }
 
-homeInfo backdrop {
-    z-index:102;
+backdrop {
+    z-index: 102;
     position: fixed;
     top: 0rem;
     left: 0rem;
@@ -180,7 +181,7 @@ homeInfo homeInfoFull {
     overflow-x: hidden;
     overflow-y: auto;
     text-align: justify;
-    color:black;
+    color: black;
 }
 
 homeInfoFull mainImage {
@@ -188,15 +189,15 @@ homeInfoFull mainImage {
     left: 0rem;
     top: 0rem;
     width: 100%;
-    height:90%;
-    background-color:black;
-    overflow:hidden;
+    height: 90%;
+    background-color: black;
+    overflow: hidden;
 }
 
 mainImage img {
     position: absolute;
-    opacity:70%;
-    aspect-ratio:16/9;
+    opacity: 70%;
+    aspect-ratio: 16/9;
     width: 100%;
 }
 
@@ -205,9 +206,69 @@ mainImage homeAddress {
     font-family: Calibri;
     color: white;
     font-size: 7rem;
+    font-weight: bolder;
+    top: 77%;
+    left: 3%;
+}
+
+requestVisit {
+    position: fixed;
+    z-index: 200;
+    left: 0rem;
+    width: 100%;
+    height: 100%;
+}
+
+requestVisitContent {
+    position: fixed;
+    z-index: 201;
+    top: 50%;
+    left: 50%;
+    margin: auto;
+    transform: translate(-50%, -50%);
+    height: 10rem;
+    width: 25rem;
+    border-radius: 1rem;
+    background-color: white;
+    box-shadow: 1rem, 1rem inset;
+}
+
+    requestVisitContent contentBox2 {
+        position: absolute;
+        top: 2rem;
+        left: 1.5rem;
+        gap: 1rem;
+        display: flex;
+        flex-direction: row;
+    }
+
+
+homeInfoFull input[type=submit], requestVisit input[type=submit] {
+    border:none;
+    width: fit-content;
+    align-self: center;
+    padding:1rem;
+    padding-top: .5rem;
+    color: white;
+    padding-bottom: .5rem;
+    background-color: royalblue;
+    border-radius: .3rem;
+    text-align: center;
     font-weight:bolder;
-    top:77%;
-    left:3%;
+}
+
+requestVisit buttonBox{
+    display:flex;
+    left:4rem;
+    flex-direction:row;
+    gap:1rem;
+    position:absolute;
+    top:5rem;
+}
+
+contentBox2 label {
+    color: royalblue;
+    font-weight: bolder;
 }
 
 body::-webkit-scrollbar, homeInfoFull::-webkit-scrollbar {
