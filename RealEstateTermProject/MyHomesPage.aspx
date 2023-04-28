@@ -12,7 +12,8 @@
         <asp:GridView ID="gvMyHomes" runat="server" style="z-index: 1; left: 30px; top: 391px; position: absolute; height: 180px; width: 289px" AutoGenerateColumns="False" OnRowDeletingCommand ="gvMyHomes_RowCommand" OnSelectedIndexChanged="gvMyHomes_SelectedIndexChanged" >
             <Columns>
                 <asp:BoundField DataField="Id" HeaderText="ID" SortExpression="Address" />
-                <asp:BoundField DataField="HouseImages" HeaderText="Images" SortExpression="HouseImages" />
+                <asp:ImageField DataImageUrlField="HouseImages" HeaderText="HouseImages" ControlStyle-Height ="60px" >
+                </asp:ImageField>
                 <asp:BoundField DataField="Address" HeaderText="Address" SortExpression="Address" />
                 <asp:TemplateField HeaderText ="Delete House">
                     <ItemTemplate>
@@ -27,6 +28,7 @@
                         <asp:LinkButton ID="linkbtnView" runat="server" OnClick="linkbtnView_Click2">View</asp:LinkButton>
                     </ItemTemplate>
                 </asp:TemplateField>
+                
             </Columns>
         </asp:GridView>
         <asp:GridView ID="gvHouseFeedback" runat="server" style="z-index: 1; left: 587px; top: 392px; position: absolute; height: 180px; width: 289px">

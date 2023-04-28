@@ -50,6 +50,7 @@ namespace RealEstateTermProject
 
             gvMyHomes.DataSource = objDB.GetDataSet(strSQL);
             gvMyHomes.DataBind();
+            
         }
 
 

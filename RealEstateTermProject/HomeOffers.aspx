@@ -19,7 +19,8 @@
         <asp:GridView ID="gvHomeOffers" runat="server" style="z-index: 1; left: 344px; top: 250px; position: absolute; height: 133px; width: 187px" BackColor="White" AutoGenerateColumns="False">
             <Columns>
               
-                <asp:BoundField DataField="HouseImage" HeaderText="HouseImage" SortExpression="HouseImage" />
+                <asp:ImageField DataImageUrlField="HouseImage" HeaderText="HouseImage" ControlStyle-Height ="60px" >
+                </asp:ImageField>
                 <asp:BoundField DataField="HouseAddress" HeaderText="HouseAddress" SortExpression="HouseAddress" />
                 <asp:BoundField DataField="UserBuying" HeaderText="UserBuying " SortExpression="UserBuying" />
                 <asp:BoundField DataField="OfferPrice" HeaderText="OfferPrice" SortExpression="OfferPrice" />
