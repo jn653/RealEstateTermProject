@@ -18,8 +18,8 @@ namespace Utilities
 {
     public class HouseUtils
     {
-        String connString = "https://cis-iis2.temple.edu/Spring2023/CIS3342_tuk60318/WebAPI/api/Houses"; //For when you run the api server side
-        //String connString = "https://localhost:44398/api/Houses"; //For when you run the api client side
+        //String connString = "https://cis-iis2.temple.edu/Spring2023/CIS3342_tuk60318/WebAPI/api/Houses"; //For when you run the api server side
+        String connString = "https://localhost:44398/api/Houses"; //For when you run the api client side
         public HouseUtils() { }
 
         public HtmlGenericControl createSingleListing(int id)
@@ -63,13 +63,10 @@ namespace Utilities
             }
         }
 
-        public HtmlGenericControl createAllListings()
+        public HtmlGenericControl createAllListings(List<House> houses)
         {
-            List<House> houses = new List<House>();
             try
             {
-                houses = getHouses();
-
                 HtmlGenericControl listingBox = new HtmlGenericControl("listingBox");
                 listingBox.ID = "listingBox";
 
@@ -269,6 +266,66 @@ namespace Utilities
         public List<House> getHouses()
         {
             WebRequest request = WebRequest.Create(connString);
+            WebResponse response = request.GetResponse();
+
+            Stream stream = response.GetResponseStream();
+            StreamReader streamReader = new StreamReader(stream);
+            string data = streamReader.ReadToEnd();
+
+            JavaScriptSerializer javaScriptSerializer = new JavaScriptSerializer();
+            List<House> houses = javaScriptSerializer.Deserialize<List<House>>(data);
+
+            return houses;
+        }
+
+        public List<House> getHousesStatePricePropertyType(String state, float minPrice, float maxPrice, String propType)
+        {
+            WebRequest request = WebRequest.Create($"{connString}/State/{state}/MinPrice/{minPrice}/MaxPrice/{maxPrice}/PropertyType/{propType}");
+            WebResponse response = request.GetResponse();
+
+            Stream stream = response.GetResponseStream();
+            StreamReader streamReader = new StreamReader(stream);
+            string data = streamReader.ReadToEnd();
+
+            JavaScriptSerializer javaScriptSerializer = new JavaScriptSerializer();
+            List<House> houses = javaScriptSerializer.Deserialize<List<House>>(data);
+
+            return houses;
+        }
+
+        public List<House> getHousesCityPrice(String city, float minPrice, float maxPrice)
+        {
+            WebRequest request = WebRequest.Create($"{connString}/City/{city}/MinPrice/{minPrice}/MaxPrice/{maxPrice}");
+            WebResponse response = request.GetResponse();
+
+            Stream stream = response.GetResponseStream();
+            StreamReader streamReader = new StreamReader(stream);
+            string data = streamReader.ReadToEnd();
+
+            JavaScriptSerializer javaScriptSerializer = new JavaScriptSerializer();
+            List<House> houses = javaScriptSerializer.Deserialize<List<House>>(data);
+
+            return houses;
+        }
+
+        public List<House> getHousesStatePriceNumOfBed(String state, float minPrice, float maxPrice, int numOfBed)
+        {
+            WebRequest request = WebRequest.Create($"{connString}/State/{state}/MinPrice/{minPrice}/MaxPrice/{maxPrice}/NumOfBed/{numOfBed}");
+            WebResponse response = request.GetResponse();
+
+            Stream stream = response.GetResponseStream();
+            StreamReader streamReader = new StreamReader(stream);
+            string data = streamReader.ReadToEnd();
+
+            JavaScriptSerializer javaScriptSerializer = new JavaScriptSerializer();
+            List<House> houses = javaScriptSerializer.Deserialize<List<House>>(data);
+
+            return houses;
+        }
+
+        public List<House> getHousesPriceNumOfBath(float minPrice, float maxPrice, int numOfBath)
+        {
+            WebRequest request = WebRequest.Create($"{connString}/MinPrice/{minPrice}/MaxPrice/{maxPrice}/NumOfBath/{numOfBath}");
             WebResponse response = request.GetResponse();
 
             Stream stream = response.GetResponseStream();

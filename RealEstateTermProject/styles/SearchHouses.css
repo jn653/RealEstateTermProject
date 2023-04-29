@@ -1,0 +1,74 @@
+﻿body {
+}
+
+content {
+    z-index: 1;
+    position: absolute;
+    top: 20rem;
+    left: 0rem;
+    width: 100%;
+    background-color: white;
+}
+
+    content listingBox {
+        position: absolute;
+        left: 0rem;
+        top: 0rem;
+        width: 100%;
+        flex-flow: row wrap;
+        margin: auto;
+        display: flex;
+        flex-direction: row;
+        background-color: white;
+    }
+
+listingBox listing {
+    padding: 2rem;
+    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+listing label {
+    color: royalblue;
+    font-family: Calibri;
+    font-size: 1.5rem;
+    font-weight: bolder;
+}
+
+listing info {
+    color: dimgray;
+    font-family: Calibri;
+    font-size: 1.5rem;
+    font-weight: lighter;
+}
+
+listing img {
+    height: 10.8rem;
+    width: 19.2rem;
+    border: 1px solid gray;
+    border-radius: .2rem;
+}
+
+listing .button {
+    margin-left: auto;
+    margin-right: auto;
+    height: fit-content;
+    width: fit-content;
+    font-size: 1.2rem;
+    padding: 1.5rem;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    color: white;
+    font-weight: bolder;
+    border: none;
+    border-radius: .2rem;
+    background-color: royalblue;
+}
+
+
+input[type=submit]:hover {
+    cursor: pointer;
+    transition: .2s;
+    opacity: 70%;
+}

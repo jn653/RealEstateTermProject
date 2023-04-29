@@ -22,13 +22,12 @@ namespace RealEstateTermProject
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["Username"] = "testing123";
-            createButtons();
+            createButtons(houseUtils.getHouses());
         }
 
-        private void createButtons()
+        private void createButtons(List<House> houses)
         {
-            HtmlGenericControl listingBox = houseUtils.createAllListings();
+            HtmlGenericControl listingBox = houseUtils.createAllListings(houses);
 
             foreach (Control control in listingBox.Controls)
             {
