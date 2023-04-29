@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using Utilities;
 
@@ -13,7 +14,8 @@ namespace RealEstateTermProject
 {
     public partial class SearchHouses : System.Web.UI.Page
     {
-        
+        HouseUtils houseUtils = new HouseUtils();
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -37,8 +39,6 @@ namespace RealEstateTermProject
             hyperlinkBack.Visible = false;
             Image1.Visible = false;
             ddlStates.Visible = false;
-
-
             
         }
 
@@ -180,6 +180,30 @@ namespace RealEstateTermProject
                 btnSearchHouse.Visible = true;
                 ddlStates.Visible = true;
 
+                float minPrice = 0;
+                float maxPrice = 0;
+
+                switch (ddlPrice.SelectedIndex)
+                {
+                    case 0:
+                        minPrice = 0;
+                        maxPrice = 100000;
+                        break;
+                    case 1:
+                        minPrice = 100000;
+                        maxPrice = 200000;
+                        break;
+                    case 2:
+                        minPrice = 200000;
+                        maxPrice = float.MaxValue;
+                        break;
+                }
+
+                List<House> houses = houseUtils.getHousesStatePricePropertyType(ddlStates.SelectedValue, minPrice, maxPrice, ddlPropertyType.SelectedValue);
+
+                HtmlGenericControl listingBox = houseUtils.createAllListings(houses);
+
+                content.Controls.Add(listingBox);
 
                 // populate the dropdown list for states witht the states in the database
                 DBConnect dbConnect = new DBConnect();
@@ -216,6 +240,30 @@ namespace RealEstateTermProject
                 btnSearchHouse.Visible = true;
                 ddlStates.Visible = true;
 
+                float minPrice = 0;
+                float maxPrice = 0;
+
+                switch (ddlPrice.SelectedIndex)
+                {
+                    case 0:
+                        minPrice = 0;
+                        maxPrice = 100000;
+                        break;
+                    case 1:
+                        minPrice = 100000;
+                        maxPrice = 200000;
+                        break;
+                    case 2:
+                        minPrice = 200000;
+                        maxPrice = float.MaxValue;
+                        break;
+                }
+
+                List<House> houses = houseUtils.getHousesStatePriceNumOfBed(ddlStates.SelectedValue, minPrice, maxPrice, int.Parse(ddlnumofBathrooms.SelectedValue));
+
+                HtmlGenericControl listingBox = houseUtils.createAllListings(houses);
+
+                content.Controls.Add(listingBox);
 
                 // populate the dropdown list for states witht the states in the database
                 DBConnect dbConnect = new DBConnect();
@@ -244,6 +292,30 @@ namespace RealEstateTermProject
                 btnSearchHouse.Visible = true;
 
 
+                float minPrice = 0;
+                float maxPrice = 0;
+
+                switch (ddlPrice.SelectedIndex)
+                {
+                    case 0:
+                        minPrice = 0;
+                        maxPrice = 100000;
+                        break;
+                    case 1:
+                        minPrice = 100000;
+                        maxPrice = 200000;
+                        break;
+                    case 2:
+                        minPrice = 200000;
+                        maxPrice = float.MaxValue;
+                        break;
+                }
+
+                List<House> houses = houseUtils.getHousesCityPrice(ddlCity.SelectedValue, minPrice, maxPrice);
+
+                HtmlGenericControl listingBox = houseUtils.createAllListings(houses);
+
+                content.Controls.Add(listingBox);
                 // populate the dropdown list for states witht the states in the database
                 DBConnect dbConnect = new DBConnect();
                 DataSet myData2 = dbConnect.GetDataSet("Select  DISTINCT City FROM TP_Houses");
@@ -265,7 +337,30 @@ namespace RealEstateTermProject
                 hyperlinkBack.Visible = true;
                 Image1.Visible = true;
 
+                float minPrice = 0;
+                float maxPrice = 0;
 
+                switch (ddlPrice.SelectedIndex)
+                {
+                    case 0:
+                        minPrice = 0;
+                        maxPrice = 100000;
+                        break;
+                    case 1:
+                        minPrice = 100000;
+                        maxPrice = 200000;
+                        break;
+                    case 2:
+                        minPrice = 200000;
+                        maxPrice = float.MaxValue;
+                        break;
+                }
+
+                List<House> houses = houseUtils.getHousesPriceNumOfBath(minPrice, maxPrice, int.Parse(ddlnumofBathrooms.SelectedValue));
+
+                HtmlGenericControl listingBox = houseUtils.createAllListings(houses);
+
+                content.Controls.Add(listingBox);
 
                 lblSearchByCriteria.Visible = false;
                 btnsubmitCriteria.Visible = false;

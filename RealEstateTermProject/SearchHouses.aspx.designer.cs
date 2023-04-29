@@ -33,6 +33,15 @@ namespace RealEstateTermProject
         protected global::System.Web.UI.ScriptManager ToolkitScriptManager1;
 
         /// <summary>
+        /// content control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl content;
+
+        /// <summary>
         /// Image1 control.
         /// </summary>
         /// <remarks>
@@ -58,15 +67,6 @@ namespace RealEstateTermProject
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblPrice;
-
-        /// <summary>
-        /// ddlPrice control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlPrice;
 
         /// <summary>
         /// btnSearchHouse control.
@@ -175,6 +175,15 @@ namespace RealEstateTermProject
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlnumofBathrooms;
+
+        /// <summary>
+        /// ddlPrice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlPrice;
 
         /// <summary>
         /// AjaxComboCriteria control.
