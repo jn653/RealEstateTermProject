@@ -56,7 +56,7 @@ namespace RealEstateTermProject
 
                 SoapUser.UpdateHouseStatus(houseStatus, houseId);
 
-                String strSQL = "DELETE FROM TP_HouseOffers Where ID = " + houseId;
+                String strSQL = "DELETE FROM TP_HouseOffers Where HouseId = " + houseId;
                 gvHomeOffers.DataSource = objDB.GetDataSet(strSQL);
 
                 loadGridview();
@@ -81,7 +81,7 @@ namespace RealEstateTermProject
                 string UserOffering = gvHomeOffers.Rows[rowIndex].Cells[3].Text;
 
 
-                String strSQL = "DELETE FROM TP_HouseOffers Where ID = " + houseId;
+                String strSQL = "DELETE FROM TP_HouseOffers Where HouseId = " + houseId;
                 gvHomeOffers.DataSource = objDB.GetDataSet(strSQL);
 
                 loadGridview();

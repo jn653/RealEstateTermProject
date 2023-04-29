@@ -15,7 +15,7 @@
         </content>
     <form id="form1" runat="server">
         <div>
-            <asp:Label ID="lblConfirm" runat="server" style="z-index: 1; left: 454px; top: 287px; position: absolute" Text="Label"></asp:Label>
+            <asp:Label ID="lblConfirm" runat="server" style="z-index: 1; left: 454px; top: 287px; position: absolute" Text="Label" Font-Bold="True" Font-Size="X-Large"></asp:Label>
         </div>
         <asp:GridView ID="gvHomeOffers" runat="server" style="z-index: 1; left: 325px; top: 361px; position: absolute; height: 133px; width: 187px" BackColor="White" AutoGenerateColumns="False">
             <Columns>

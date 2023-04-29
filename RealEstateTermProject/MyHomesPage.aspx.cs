@@ -150,7 +150,7 @@ namespace RealEstateTermProject
                int HouseId = Convert.ToInt32(row.Cells[0].Text);
 
                 House brandNew = new House();
-               brandNew = UtilsHouse.getHouse(HouseId);
+                brandNew = UtilsHouse.getHouse(HouseId);
 
 
                 txtProperty.Visible = true;
