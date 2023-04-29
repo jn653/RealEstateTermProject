@@ -15,10 +15,12 @@
         </content>
     <form id="form1" runat="server">
         <div>
+            <asp:Label ID="lblConfirm" runat="server" style="z-index: 1; left: 454px; top: 287px; position: absolute" Text="Label"></asp:Label>
         </div>
-        <asp:GridView ID="gvHomeOffers" runat="server" style="z-index: 1; left: 344px; top: 250px; position: absolute; height: 133px; width: 187px" BackColor="White" AutoGenerateColumns="False">
+        <asp:GridView ID="gvHomeOffers" runat="server" style="z-index: 1; left: 325px; top: 361px; position: absolute; height: 133px; width: 187px" BackColor="White" AutoGenerateColumns="False">
             <Columns>
               
+                 <asp:BoundField DataField="HouseId" HeaderText="HouseId" SortExpression="HouseAddress" />
                 <asp:ImageField DataImageUrlField="HouseImage" HeaderText="HouseImage" ControlStyle-Height ="60px" >
                 </asp:ImageField>
                 <asp:BoundField DataField="HouseAddress" HeaderText="HouseAddress" SortExpression="HouseAddress" />

@@ -11,12 +11,13 @@ namespace RealEstateTermProject
     public partial class HomeOffers : System.Web.UI.Page
     {
         SoapUserFunc SoapUser = new SoapUserFunc();
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
 
             {
-
+                lblConfirm.Visible = false;
                 loadGridview();
             }
         }
@@ -33,6 +34,7 @@ namespace RealEstateTermProject
 
             gvHomeOffers.DataSource = objDB.GetDataSet(strSQL);
             gvHomeOffers.DataBind();
+            lblConfirm.Visible = false;
         }
 
 
@@ -46,13 +48,21 @@ namespace RealEstateTermProject
                 DBConnect objDB = new DBConnect();
 
 
+                
+                string UserOffering = gvHomeOffers.Rows[rowIndex].Cells[3].Text;
+                int houseId = Convert.ToInt32(gvHomeOffers.Rows[rowIndex].Cells[0].Text);
 
+                string houseStatus = "Sold to " + UserOffering;
 
-                // String strSQL = "DELETE FROM TP_Houses Where ID = " + houseId;
-                // gvHomeOffers.DataSource = objDB.GetDataSet(strSQL);
+                SoapUser.UpdateHouseStatus(houseStatus, houseId);
+
+                String strSQL = "DELETE FROM TP_HouseOffers Where ID = " + houseId;
+                gvHomeOffers.DataSource = objDB.GetDataSet(strSQL);
 
                 loadGridview();
-
+                lblConfirm.Visible = true;
+                lblConfirm.Text = "You have accepted the offer from " + UserOffering + " .";
+                lblConfirm.ForeColor = System.Drawing.Color.Green;
 
             }
         }
@@ -66,13 +76,19 @@ namespace RealEstateTermProject
                 int rowIndex = ((GridViewRow)(sender as Control).NamingContainer).RowIndex;
                 DBConnect objDB = new DBConnect();
 
-                
+                int houseId = Convert.ToInt32(gvHomeOffers.Rows[rowIndex].Cells[0].Text);
+
+                string UserOffering = gvHomeOffers.Rows[rowIndex].Cells[3].Text;
 
 
-               // String strSQL = "DELETE FROM TP_Houses Where ID = " + houseId;
-               // gvHomeOffers.DataSource = objDB.GetDataSet(strSQL);
+                String strSQL = "DELETE FROM TP_HouseOffers Where ID = " + houseId;
+                gvHomeOffers.DataSource = objDB.GetDataSet(strSQL);
 
                 loadGridview();
+                lblConfirm.Visible = true;
+                lblConfirm.Text = "You have Denied the offer from " + UserOffering + " .";
+                lblConfirm.ForeColor = System.Drawing.Color.Green;
+
 
 
             }

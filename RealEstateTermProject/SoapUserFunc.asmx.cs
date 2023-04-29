@@ -161,5 +161,64 @@ namespace RealEstateTermProject
 
 
         }
+
+
+        public void UpdateHouse(string address, string amentities, string state, decimal price, string city, string garage,
+         string description, int homesize, string houseImages, int year, int bathroom, int bedroom, string proptype, string utils, int HouseId)
+        {
+            SqlCommand objCommand = new SqlCommand();
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "TP_UpdateHouses";
+
+
+            
+            objCommand.Parameters.AddWithValue("@theAddress", address);
+            objCommand.Parameters.AddWithValue("@theAmentities", amentities);
+            objCommand.Parameters.AddWithValue("@theState", state);
+            objCommand.Parameters.AddWithValue("@thePrice", price);
+            objCommand.Parameters.AddWithValue("@theCity", city);
+            objCommand.Parameters.AddWithValue("@theGarage", garage);
+            objCommand.Parameters.AddWithValue("@theHomeDescription", description);
+            objCommand.Parameters.AddWithValue("@theHomeSize", homesize);
+            objCommand.Parameters.AddWithValue("@theHouseImages", houseImages);
+            objCommand.Parameters.AddWithValue("@theHouseYear", year);
+            objCommand.Parameters.AddWithValue("@theNumOfBathroom", bathroom);
+            objCommand.Parameters.AddWithValue("@theNumOfBedrooms", bedroom);
+            objCommand.Parameters.AddWithValue("@thePropertyType", proptype);
+            objCommand.Parameters.AddWithValue("@theUtilities", utils);
+            objCommand.Parameters.AddWithValue("@theHouseID", HouseId);
+
+
+
+
+
+            DBConnect objDB = new DBConnect();
+            DataSet myDataSet;
+            myDataSet = objDB.GetDataSet(objCommand);
+
+
+        }
+
+        public void UpdateHouseStatus(string status, int HouseId)
+        {
+            SqlCommand objCommand = new SqlCommand();
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "TP_UpdateHouseStatus";
+
+
+
+            objCommand.Parameters.AddWithValue("@theHouseStatus", status);
+            objCommand.Parameters.AddWithValue("@theHouseID", HouseId);
+
+
+
+
+
+            DBConnect objDB = new DBConnect();
+            DataSet myDataSet;
+            myDataSet = objDB.GetDataSet(objCommand);
+
+
+        }
     }
 }
