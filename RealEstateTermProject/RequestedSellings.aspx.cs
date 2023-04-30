@@ -58,6 +58,7 @@ namespace RealEstateTermProject
                 btnSellhouse.Visible = false;
                 lblHouseDescription.Visible = false;
                 txtHomeSize.Visible = false;
+                lblHouseDescription0.Visible = false;
 
             }
 
