@@ -9,6 +9,16 @@
     <script src="js/nav.js"></script>
     <link href="styles/SearchHouses.css" rel="stylesheet" />
     <title></title>
+    <style type="text/css">
+        #form1 {
+            z-index: 1;
+            left: 5px;
+            top: 12px;
+            position: absolute;
+            height: 233px;
+            width: 1425px;
+        }
+    </style>
 </head>
 <body>
 
@@ -54,7 +64,7 @@
             </asp:DropDownList>
             <asp:Label ID="lblPropertyType" runat="server" Font-Bold="True" Font-Size="X-Large" Style="z-index: 1; left: 742px; top: 101px; position: absolute" Text="Property Type"></asp:Label>
 
-            <asp:DropDownList ID="ddlnumofBathrooms" runat="server" Style="z-index: 1; left: 849px; top: 301px; position: absolute">
+            <asp:DropDownList ID="ddlnumofBathrooms" runat="server" Style="z-index: 1; left: 851px; top: 162px; position: absolute">
                 <asp:ListItem>1</asp:ListItem>
                 <asp:ListItem>2</asp:ListItem>
                 <asp:ListItem>3+</asp:ListItem>
@@ -64,18 +74,22 @@
         <div style="z-index: 1; left: 493px; top: 206px; position: absolute; height: 27px; width: 1464px">
 
         </div>
-            <asp:DropDownList ID="ddlPrice" runat="server" Style="z-index: 1; left: 385px; top: 68px; position: absolute; height: 20px;">
+            <asp:DropDownList ID="ddlPrice" runat="server" Style="z-index: 1; left: 445px; top: 158px; position: absolute; height: 20px;">
                 <asp:ListItem>Lower than or equal to 100,000</asp:ListItem>
                 <asp:ListItem>Greater than 100,000 or equal to 200,000</asp:ListItem>
                 <asp:ListItem>Greater than 200,000</asp:ListItem>
             </asp:DropDownList>
 
-            <ajaxToolkit:ComboBox ID="AjaxComboCriteria" runat="server" Style="z-index: 1; left: 10px; top: 172px; position: absolute">
+        <div style="z-index: 1; left: 496px; top: 302px; position: absolute; height: 27px; width: 1425px">
+
+            <ajaxToolkit:ComboBox ID="AjaxComboCriteria" runat="server">
                 <asp:ListItem>State/Price/PropertyType</asp:ListItem>
                 <asp:ListItem>City/Price</asp:ListItem>
                 <asp:ListItem>State/Price/Number of bedrooms</asp:ListItem>
                 <asp:ListItem>Price/Number of bathrooms</asp:ListItem>
             </ajaxToolkit:ComboBox>
+
+        </div>
 
     </form>
 </body>

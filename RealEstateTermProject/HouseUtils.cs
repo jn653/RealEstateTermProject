@@ -12,7 +12,7 @@ namespace Utilities
 {
     public class HouseUtils
     {
-        //String connString = "https://cis-iis2.temple.edu/Spring2023/CIS3342_tuk60318/WebAPI/api/Houses"; //For when you run the api server side
+       // String connString = "https://cis-iis2.temple.edu/Spring2023/CIS3342_tuk60318/WebAPI/api/Houses"; //For when you run the api server side
         String connString = "https://localhost:44398/api/Houses"; //For when you run the api client side
         public HouseUtils() { }
 
