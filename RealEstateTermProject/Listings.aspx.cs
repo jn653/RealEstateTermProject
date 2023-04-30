@@ -49,9 +49,10 @@ namespace RealEstateTermProject
             int i = int.Parse(id);
 
             House house = houseUtils.getHouse(int.Parse(id));
+            List<Image> images = houseUtils.GetImages(house);
 
             homeAddress.InnerHtml = house.Address;
-            image.Src = house.HouseImages;
+            image.Src = images[0].ImageUrl;
 
             homeDescription.InnerHtml = house.HomeDescription;
             houseSize.InnerHtml = house.HomeSize.ToString();
@@ -70,10 +71,12 @@ namespace RealEstateTermProject
             city.InnerHtml = house.City;
 
             comments.Controls.Clear();
+            homeSizes.Controls.Clear();
 
             List<Comment> lComments = houseUtils.getCommentsForHouse(house.Address);
+            List<Room> rooms = house.Rooms;
 
-            foreach(Comment comment in lComments)
+            foreach (Comment comment in lComments)
             {
                 HtmlGenericControl username = new HtmlGenericControl("h2");
                 HtmlGenericControl content = new HtmlGenericControl("h3");
@@ -83,6 +86,23 @@ namespace RealEstateTermProject
 
                 comments.Controls.Add(username);
                 comments.Controls.Add(content);
+            }
+
+            foreach(Room room in rooms)
+            {
+                HtmlGenericControl desc = new HtmlGenericControl("h2");
+                HtmlGenericControl lw = new HtmlGenericControl("h3");
+
+                desc.InnerText = room.RoomDescription;
+                lw.InnerText = $"{room.RoomSizeL}x{room.RoomSizeW}";
+
+                homeSizes.Controls.Add(desc);
+                homeSizes.Controls.Add(lw);
+            }
+
+            foreach(Image image in images)
+            {
+                imageBox.Controls.Add(image);
             }
 
             Session["House"] = house;

@@ -1,18 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Data.SqlTypes;
 using System.Data;
-using System.Linq;
-using System.Web;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using System.Net;
 using System.IO;
 using System.Web.Script.Serialization;
-using System.Net.NetworkInformation;
-using System.Xml.Linq;
-using System.Reflection.Emit;
 
 namespace Utilities
 {
@@ -44,7 +38,9 @@ namespace Utilities
                 address.InnerHtml = "Address: ";
                 addressInfo.InnerHtml = house.Address;
 
-                image.ImageUrl = house.HouseImages;
+                List<Image> images = GetImages(house);
+
+                image.ImageUrl = images[0].ImageUrl;
 
                 price.InnerHtml = "Price: ";
                 priceInfo.InnerHtml = "$" + house.AskingPrice;
@@ -354,7 +350,22 @@ namespace Utilities
             String data = reader.ReadToEnd();
             reader.Close();
             response.Close();
+        }
 
+        public List<Image> GetImages(House house)
+        {
+            List<Image> images = new List<Image>();
+            String dir = house.HouseImages;
+            String[] i = Directory.GetFiles(dir);
+
+            foreach(String src in i)
+            {
+                Image image = new Image();
+                image.ImageUrl = $"{src.Substring(src.IndexOf("pics"))}";
+                images.Add(image);
+            }
+
+            return images;
         }
     }
 }

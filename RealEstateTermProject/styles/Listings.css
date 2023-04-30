@@ -140,18 +140,19 @@ homeInfoContent contentHeader2 {
 homeInfoContent contentBox {
     display: flex;
     flex-direction: column;
-    flex-grow: 4;
+    flex-basis:20%;
+    margin:1rem;
 }
 
-homeInfoContent h1 {
+homeInfoContent h1, contentbox3 h1 {
     color: royalblue;
 }
 
-homeInfoContent contentBox h2 {
+homeInfoContent contentBox h2, contentbox3 h2 {
     color: royalblue;
 }
 
-homeInfoContent contentBox h3 {
+homeInfoContent contentBox h3, contentbox3 h3 {
     color: gray;
 }
 
@@ -278,26 +279,59 @@ commentBox {
     flex-direction: column;
 }
 
+images{
+    height:75%;
+    overflow:scroll;
+}
+
+imageBox {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    row-gap: 1rem;
+    gap: 1rem;
+}
+
+imageBox img{
+    flex-basis:45%;
+    width:10rem;
+    height:10rem;
+}
+
 #userComment {
     margin-bottom: 1rem;
     background: none;
     border: none;
     border-radius: 0rem;
+    max-width:90%;
+    text-align:center;
     border-bottom: .01rem solid royalblue;
 }
 
+contentBox3 {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 4;
+    margin-bottom: 5rem;
+    padding: 2rem;
+    flex-basis: 25%;
+    max-width:50%;
+    background-color:whitesmoke;
+    border-radius:1rem;
+}
 
-body::-webkit-scrollbar, homeInfoFull::-webkit-scrollbar, commentBox::-webkit-scrollbar {
+
+body::-webkit-scrollbar, homeInfoFull::-webkit-scrollbar, commentBox::-webkit-scrollbar, images::-webkit-scrollbar {
     width: .5rem;
 }
 
-body::-webkit-scrollbar-track, homeInfoFull::-webkit-scrollbar-track, commentBox::-webkit-scrollbar-track {
+body::-webkit-scrollbar-track, homeInfoFull::-webkit-scrollbar-track, commentBox::-webkit-scrollbar-track, images::-webkit-scrollbar-track {
     position: absolute;
     -webkit-box-shadow: none;
     padding: 1rem;
 }
 
-body::-webkit-scrollbar-thumb, homeInfoFull::-webkit-scrollbar-thumb, commentBox::-webkit-scrollbar-thumb {
+body::-webkit-scrollbar-thumb, homeInfoFull::-webkit-scrollbar-thumb, commentBox::-webkit-scrollbar-thumb, images::-webkit-scrollbar-thumb {
     background-color: royalblue;
     border-radius: 1rem;
 }

@@ -29,7 +29,7 @@
                     </homeaddress>
                 </mainimage>
                 <homeinfocontent>
-                    <contentbox style="flex-basis: 100%; flex-direction: column; border-bottom:.1rem solid royalblue">
+                    <contentbox style="flex-basis: 100%; flex-direction: column; border-bottom: .1rem solid royalblue">
                         <h2>Home Description</h2>
                         <h3 id="homeDescription" runat="server"></h3>
                     </contentbox>
@@ -61,19 +61,27 @@
                         <h2>City</h2>
                         <h3 id="city" runat="server"></h3>
                     </contentbox>
-                    <contentbox style="flex-direction:column; margin-bottom:5rem; padding-left:2rem;" runat="server" >
-                        <h1 style="align-self:center" >Comments</h1>
+                    <contentbox3 runat="server">
+                        <h1 style="align-self: center">Comments</h1>
                         <input id="userComment" placeholder="Write your own comment here!" runat="server" />
-                        <asp:Button Text="Upload Comment" OnClick="UploadComment_Click" runat="server"/>
-                        <commentBox id="comments" runat="server" >
-                        </commentBox>
-                    </contentbox>
-                    <contentbox style="flex-basis:100%" runat="server" >
-                        <h1 style="align-self:center">Home Layout</h1>
-                        <commentBox id="homeSizes" runat="server" >
-                        </commentBox>
-                    </contentbox>
-                    <contentbox style="flex-basis: 100%; flex-direction:row;">
+                        <asp:Button Text="Upload Comment" OnClick="UploadComment_Click" runat="server" />
+                        <commentbox id="comments" runat="server">
+                        </commentbox>
+                    </contentbox3>
+                    <contentbox3 runat="server">
+                        <h1 style="align-self: center">Home Layout</h1>
+                        <commentbox id="homeSizes" runat="server">
+                        </commentbox>
+                    </contentbox3>
+                    <contentbox3 style="margin-left: 1rem;" runat="server">
+                        <h1 style="align-self: center">Images</h1>
+                        <images>
+                            <imagebox id="imageBox" runat="server">
+                            </imagebox>
+                        </images>
+
+                    </contentbox3>
+                    <contentbox style="flex-direction: row;">
                         <input id="offerBox" type="number" placeholder="Offer" runat="server" />
                         <asp:Button ID="makeOffer" Text="Make Offer" OnClick="MakeOffer_Click" runat="server" />
                         <asp:Button ID="requestVisit" Text="Request Visit" OnClick="ShowScheduleVisit_Click" runat="server" />
