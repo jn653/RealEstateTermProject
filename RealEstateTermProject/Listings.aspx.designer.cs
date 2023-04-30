@@ -177,6 +177,33 @@ namespace RealEstateTermProject
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl city;
 
         /// <summary>
+        /// userComment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText userComment;
+
+        /// <summary>
+        /// comments control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl comments;
+
+        /// <summary>
+        /// homeSizes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl homeSizes;
+
+        /// <summary>
         /// offerBox control.
         /// </summary>
         /// <remarks>

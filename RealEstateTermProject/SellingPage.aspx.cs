@@ -53,11 +53,14 @@ namespace RealEstateTermProject
                 lbl.CssClass = "imageButton";
                 lbl.AssociatedControlID = fl.ID;
 
+                Label b = new Label();
+                b.CssClass = "break";
+
                 c.Controls.Add(im);
                 c.Controls.Add(fl);
                 c.Controls.Add(lbl);
                 c.Controls.Add(tb);
-                c.Visible = false;
+                c.Controls.Add(b);
 
                 FindControl("contentBox").Controls.Add(c);
             }
@@ -137,7 +140,7 @@ namespace RealEstateTermProject
 
             House house = new House();
             house.Address = address.Value;
-            house.PropertyType = propertyType.Value;
+            house.PropertyType = propertyType.SelectedValue;
             house.Rooms = GrabRoomSizes();
             house.NumberOfBedrooms = int.Parse(numOfBed.Value);
             house.Amenities = amenities.Value;

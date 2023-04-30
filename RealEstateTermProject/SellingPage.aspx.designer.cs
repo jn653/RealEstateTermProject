@@ -57,16 +57,7 @@ namespace RealEstateTermProject
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText propertyType;
-
-        /// <summary>
-        /// homeSize control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl homeSize;
+        protected global::System.Web.UI.WebControls.DropDownList propertyType;
 
         /// <summary>
         /// numOfBed control.
@@ -481,15 +472,6 @@ namespace RealEstateTermProject
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl contentBox;
-
-        /// <summary>
-        /// dlImages control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dlImages;
 
         /// <summary>
         /// uploadHouse control.

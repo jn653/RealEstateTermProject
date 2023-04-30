@@ -116,7 +116,7 @@ homeInfo {
     homeInfo homeInfoContent {
         position: absolute;
         display: flex;
-        flex-wrap:wrap;
+        flex-wrap: wrap;
         flex-direction: row;
         top: 95%;
         width: 90%;
@@ -140,7 +140,7 @@ homeInfoContent contentHeader2 {
 homeInfoContent contentBox {
     display: flex;
     flex-direction: column;
-    flex-grow:4;
+    flex-grow: 4;
 }
 
 homeInfoContent h1 {
@@ -244,26 +244,26 @@ requestVisitContent {
 
 
 homeInfoFull input[type=submit], requestVisit input[type=submit] {
-    border:none;
+    border: none;
     width: fit-content;
     align-self: center;
-    padding:1rem;
+    padding: 1rem;
     padding-top: .5rem;
     color: white;
     padding-bottom: .5rem;
     background-color: royalblue;
     border-radius: .3rem;
     text-align: center;
-    font-weight:bolder;
+    font-weight: bolder;
 }
 
-requestVisit buttonBox{
-    display:flex;
-    left:4rem;
-    flex-direction:row;
-    gap:1rem;
-    position:absolute;
-    top:5rem;
+requestVisit buttonBox {
+    display: flex;
+    left: 4rem;
+    flex-direction: row;
+    gap: 1rem;
+    position: absolute;
+    top: 5rem;
 }
 
 contentBox2 label {
@@ -271,17 +271,33 @@ contentBox2 label {
     font-weight: bolder;
 }
 
-body::-webkit-scrollbar, homeInfoFull::-webkit-scrollbar {
+commentBox {
+    display: flex;
+    height: 75%;
+    overflow: scroll;
+    flex-direction: column;
+}
+
+#userComment {
+    margin-bottom: 1rem;
+    background: none;
+    border: none;
+    border-radius: 0rem;
+    border-bottom: .01rem solid royalblue;
+}
+
+
+body::-webkit-scrollbar, homeInfoFull::-webkit-scrollbar, commentBox::-webkit-scrollbar {
     width: .5rem;
 }
 
-body::-webkit-scrollbar-track, homeInfoFull::-webkit-scrollbar-track {
+body::-webkit-scrollbar-track, homeInfoFull::-webkit-scrollbar-track, commentBox::-webkit-scrollbar-track {
     position: absolute;
     -webkit-box-shadow: none;
     padding: 1rem;
 }
 
-body::-webkit-scrollbar-thumb, homeInfoFull::-webkit-scrollbar-thumb {
+body::-webkit-scrollbar-thumb, homeInfoFull::-webkit-scrollbar-thumb, commentBox::-webkit-scrollbar-thumb {
     background-color: royalblue;
     border-radius: 1rem;
 }

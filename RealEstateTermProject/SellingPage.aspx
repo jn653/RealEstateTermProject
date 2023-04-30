@@ -33,17 +33,20 @@
                     <label for="address">Address</label>
                     <input id="address" runat="server" required />
                     <label for="propertyType">Property Type</label>
-                    <input id="propertyType" runat="server" required />
-                    <label for="homeSize">Home Size</label>
-                    <input type="number" id="homeSize" runat="server" required />
+                    <asp:DropDownList ID="propertyType" style="margin-bottom:1rem; margin-top:1rem;" runat="server">
+                        <asp:ListItem>Single-Family</asp:ListItem>
+                        <asp:ListItem>Multi-Family</asp:ListItem>
+                        <asp:ListItem>Townhouse</asp:ListItem>
+                        <asp:ListItem>Condo</asp:ListItem>
+                    </asp:DropDownList>
                     <label for="numOfBed">Number of Bedrooms</label>
                     <input type="number" id="numOfBed" runat="server" required />
                     <label for="amenities">Amenities</label>
                     <input id="amenities" runat="server" required />
-                </sellinginfobox>
-                <sellinginfobox>
                     <label for="houseYear">House Year</label>
                     <input type="number" id="houseYear" runat="server" required />
+                </sellinginfobox>
+                <sellinginfobox>
                     <label for="garage">Garage</label>
                     <input type="number" id="garage" runat="server" required />
                     <label for="utilities">Utilities</label>
@@ -52,10 +55,10 @@
                     <input id="homeDescription" runat="server" required />
                     <label for="askingPrice">Asking Price</label>
                     <input type="number" id="askingPrice" runat="server" required />
-                </sellinginfobox>
-                <sellinginfobox>
                     <label for="state">State</label>
                     <input id="state" runat="server" required />
+                </sellinginfobox>
+                <sellinginfobox>
                     <label for="numOfBath">Number of Bathrooms</label>
                     <input type="number" id="numOfBath" runat="server" required />
                     <label for="city">City</label>
@@ -255,50 +258,13 @@
 
                 </sellinginfobox>
                 <sellinginfobox style="overflow: scroll; flex-grow: 4;">
-                    <asp:UpdatePanel ID="upImages" CssClass="updatePanel" runat="server" UpdateMode="Conditional">
+                    <asp:UpdatePanel ID="upImages" CssClass="updatePanel" runat="server">
                         <ContentTemplate>
                             <contentbox id="contentBox" runat="server">
                                 <asp:Label Text="Images" runat="server"></asp:Label>
-                                <asp:DropDownList AutoPostBack="true" ID="dlImages" runat="server" OnSelectedIndexChanged="AddFileUpload">
-                                    <asp:ListItem Value="0">
-                                    </asp:ListItem>
-                                    <asp:ListItem Value="1">
-                                    </asp:ListItem>
-                                    <asp:ListItem Value="2">
-                                    </asp:ListItem>
-                                    <asp:ListItem Value="3">
-                                    </asp:ListItem>
-                                    <asp:ListItem Value="4">
-                                    </asp:ListItem>
-                                    <asp:ListItem Value="5">
-                                    </asp:ListItem>
-                                    <asp:ListItem Value="6">
-                                    </asp:ListItem>
-                                    <asp:ListItem Value="7">
-                                    </asp:ListItem>
-                                    <asp:ListItem Value="8">
-                                    </asp:ListItem>
-                                    <asp:ListItem Value="9">
-                                    </asp:ListItem>
-                                    <asp:ListItem Value="10">
-                                    </asp:ListItem>
-                                    <asp:ListItem Value="11">
-                                    </asp:ListItem>
-                                    <asp:ListItem Value="12">
-                                    </asp:ListItem>
-                                    <asp:ListItem Value="13">
-                                    </asp:ListItem>
-                                    <asp:ListItem Value="14">
-                                    </asp:ListItem>
-                                    <asp:ListItem Value="15">
-                                    </asp:ListItem>
-                                </asp:DropDownList>
                                 <div class="break"></div>
                             </contentbox>
                         </ContentTemplate>
-                        <Triggers>
-                            <asp:AsyncPostBackTrigger ControlID="dlImages" EventName="SelectedIndexChanged" />
-                        </Triggers>
 
                     </asp:UpdatePanel>
 

@@ -56,4 +56,11 @@ namespace Utilities
         public int RoomSizeL { get; set; }
         public int RoomSizeW { get; set; }
     }
+
+    public class Comment
+    {
+        public String Address { get; set; }
+        public String Username { get; set; }
+        public String Content { get; set; }
+    }
 }

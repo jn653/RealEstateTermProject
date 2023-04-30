@@ -82,63 +82,7 @@ namespace Utilities
                 return null;
             }
         }
-        /*
-        public HtmlGenericControl createHomeInfo(int id)
-        {
-            try
-            {
-                List<House> houses = getHouses();
 
-                HtmlGenericControl homeInfoFull = new HtmlGenericControl("homeInfoFull");
-                HtmlGenericControl mainImage = new HtmlGenericControl("mainImage");
-                HtmlGenericControl homeAddress = new HtmlGenericControl("homeAddress");
-
-                Image image = new Image();
-
-                mainImage.Controls.Add(image);
-                mainImage.Controls.Add(homeAddress);
-
-                HtmlGenericControl homeInfoContent = new HtmlGenericControl("homeInfoContent");
-
-                HtmlGenericControl propertyDetails = new HtmlGenericControl("propertyDetails");
-
-                String[] contentTitles = {
-                    "Beds",
-                    "Property Type",
-                    "Square Footage",
-                    "Amenities",
-                    "Garages",
-                    "Year Built"
-
-                };
-
-                String[] dbTitles =
-                {
-                    "NumberOfBeds",
-                    "PropertyType",
-                    "HomeSize",
-                    "Amenities",
-                    "Garage",
-                    "HouseYear"
-                };
-
-                foreach(String title in contentTitles)
-                {
-
-                }
-
-                homeInfoFull.Controls.Add(mainImage);
-
-                homeInfoFull.Controls.Add(new HtmlGenericControl("homeInfoContent"));
-
-                return homeInfoFull;
-            }
-            catch (Exception ex)
-            {
-                return null;
-            }
-            
-        }*/
         public String getSpecificHouseInfo(int id, String info)
         {
             House house = getHouse(id);
@@ -366,6 +310,51 @@ namespace Utilities
                 reader.Close();
                 response.Close();
             
+        }
+
+        public List<Comment> getCommentsForHouse(String address)
+        {
+            WebRequest request = WebRequest.Create($"{connString}/comments/{address}");
+            WebResponse response = request.GetResponse();
+
+            Stream stream = response.GetResponseStream();
+            StreamReader streamReader = new StreamReader(stream);
+            string data = streamReader.ReadToEnd();
+
+            JavaScriptSerializer javaScriptSerializer = new JavaScriptSerializer();
+            List<Comment> comments = javaScriptSerializer.Deserialize<List<Comment>>(data);
+
+            return comments;
+        }
+
+        public void putComment(Comment comment)
+        {
+            // Create an object of the Customer class which is avaialable through the web service reference and WSDL
+            // Serialize a Customer object into a JSON string.
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            String jsonHouse = js.Serialize(comment);
+
+            // Send the Customer object to the Web API that will be used to store a new customer record in the database.
+            // Setup an HTTP POST Web Request and get the HTTP Web Response from the server.
+            WebRequest request = WebRequest.Create($"{connString}/PostComment");
+            request.Method = "POST";
+            request.ContentLength = jsonHouse.Length;
+            request.ContentType = "application/json";
+
+            // Write the JSON data to the Web Request
+            StreamWriter writer = new StreamWriter(request.GetRequestStream());
+            writer.Write(jsonHouse);
+            writer.Flush();
+            writer.Close();
+
+            // Read the data from the Web Response, which requires working with streams.
+            WebResponse response = request.GetResponse();
+            Stream theDataStream = response.GetResponseStream();
+            StreamReader reader = new StreamReader(theDataStream);
+            String data = reader.ReadToEnd();
+            reader.Close();
+            response.Close();
+
         }
     }
 }

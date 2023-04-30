@@ -54,6 +54,7 @@ namespace RealEstateTermProject
             image.Src = house.HouseImages;
 
             homeDescription.InnerHtml = house.HomeDescription;
+            houseSize.InnerHtml = house.HomeSize.ToString();
 
             beds.InnerHtml = house.NumberOfBedrooms.ToString();
             bathrooms.InnerHtml = house.NumberOfBathrooms.ToString();
@@ -68,7 +69,21 @@ namespace RealEstateTermProject
             state.InnerHtml = house.State;
             city.InnerHtml = house.City;
 
-            //scheduleVisit.SkinID = id;
+            comments.Controls.Clear();
+
+            List<Comment> lComments = houseUtils.getCommentsForHouse(house.Address);
+
+            foreach(Comment comment in lComments)
+            {
+                HtmlGenericControl username = new HtmlGenericControl("h2");
+                HtmlGenericControl content = new HtmlGenericControl("h3");
+
+                username.InnerText = comment.Username;
+                content.InnerText = comment.Content;
+
+                comments.Controls.Add(username);
+                comments.Controls.Add(content);
+            }
 
             Session["House"] = house;
             homeInfo.Visible = true;
@@ -118,8 +133,34 @@ namespace RealEstateTermProject
             {
                 Response.Write("<script>alert('Unfortunately, there was an issue proccessing your request. Please try again.')</script>");
             }
+        }
 
+        protected void UploadComment_Click(object sender, EventArgs e)
+        {
+            House house = (House)Session["House"];
+            Comment comment = new Comment();
 
+            comment.Address = house.Address;
+            comment.Username = Session["Username"].ToString();
+            comment.Content = userComment.Value;
+
+            houseUtils.putComment(comment);
+
+            comments.Controls.Clear();
+
+            List<Comment> lComments = houseUtils.getCommentsForHouse(house.Address);
+
+            foreach (Comment c in lComments)
+            {
+                HtmlGenericControl username = new HtmlGenericControl("h2");
+                HtmlGenericControl content = new HtmlGenericControl("h3");
+
+                username.InnerText = c.Username;
+                content.InnerText = c.Content;
+
+                comments.Controls.Add(username);
+                comments.Controls.Add(content);
+            }
         }
 
         protected void CancelRequest_Click(object sender, EventArgs e)
