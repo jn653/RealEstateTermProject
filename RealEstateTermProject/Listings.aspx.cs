@@ -58,7 +58,6 @@ namespace RealEstateTermProject
             beds.InnerHtml = house.NumberOfBedrooms.ToString();
             bathrooms.InnerHtml = house.NumberOfBathrooms.ToString();
             propertyType.InnerHtml = house.PropertyType;
-            houseSize.InnerHtml = house.HomeSize.ToString();
 
             amenities.InnerHtml = house.Amenities;
             utilities.InnerHtml = house.Utilities;

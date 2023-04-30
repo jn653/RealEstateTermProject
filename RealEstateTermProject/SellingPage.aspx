@@ -15,12 +15,12 @@
 </head>
 <body>
     <script>navHomeSeller()</script>
-    <backgroundImage>
-        <imageTitle>
+    <backgroundimage>
+        <imagetitle>
             Sell your home with us and join our millions of happy customers!
-        </imageTitle>
+        </imagetitle>
         <img src="pics/backgrounds/SellingPageBackground.png" />
-    </backgroundImage>
+    </backgroundimage>
 
     <content>
 
@@ -60,6 +60,199 @@
                     <input type="number" id="numOfBath" runat="server" required />
                     <label for="city">City</label>
                     <input id="city" runat="server" required />
+                </sellinginfobox>
+                <sellinginfobox style="overflow: scroll;">
+                    <contentbox2 id="contentBox2" runat="server">
+                        <asp:Label Text="Room Sizes" runat="server"></asp:Label>
+                        <div class="break"></div>
+                        <sizes id="s0">
+                            <sizesbox>
+                                <input id="l0" type="number" class="length" placeholder="Length" runat="server" />
+                                <input id="w0" type="number" class="width" placeholder="Width" runat="server" />
+                            </sizesbox>
+                            <label>
+                                Room Description
+                                <asp:DropDownList ID="sddl0" runat="server">
+                                <asp:ListItem Value="Bedroom"></asp:ListItem>
+                                <asp:ListItem>Living Room</asp:ListItem>
+                                <asp:ListItem>Bathroom</asp:ListItem>
+                                <asp:ListItem>Basement</asp:ListItem>
+                                <asp:ListItem>Attic</asp:ListItem>
+                            </asp:DropDownList>
+                            </label>
+                        </sizes>
+                        <div class="break"></div>
+                        <sizes id="s1">
+                            <sizesbox>
+                                <input id="l1" type="number" class="length" placeholder="Length" runat="server" />
+                                <input id="w1" type="number" class="width" placeholder="Width" runat="server" />
+                            </sizesbox>
+                            <label>
+                                Room Description
+                                <asp:DropDownList ID="sddl1" runat="server">
+                                <asp:ListItem Value="Bedroom"></asp:ListItem>
+                                <asp:ListItem>Living Room</asp:ListItem>
+                                <asp:ListItem>Bathroom</asp:ListItem>
+                                <asp:ListItem>Basement</asp:ListItem>
+                                <asp:ListItem>Attic</asp:ListItem>
+                            </asp:DropDownList>
+                            </label>
+                        </sizes>
+                        <div class="break"></div>
+                        <sizes id="s2">
+                            <sizesbox>
+                                <input id="l2" type="number" class="length" placeholder="Length" runat="server" />
+                                <input id="w2" type="number" class="width" placeholder="Width" runat="server" />
+                            </sizesbox>
+                            <label>
+                                Room Description
+                                <asp:DropDownList ID="sddl2" runat="server">
+                                <asp:ListItem Value="Bedroom"></asp:ListItem>
+                                <asp:ListItem>Living Room</asp:ListItem>
+                                <asp:ListItem>Bathroom</asp:ListItem>
+                                <asp:ListItem>Basement</asp:ListItem>
+                                <asp:ListItem>Attic</asp:ListItem>
+                            </asp:DropDownList>
+                            </label>
+                        </sizes>
+                        <div class="break"></div>
+                        <sizes id="s3">
+                            <sizesbox>
+                                <input id="l3" type="number" class="length" placeholder="Length" runat="server" />
+                                <input id="w3" type="number" class="width" placeholder="Width" runat="server" />
+                            </sizesbox>
+                            <label>
+                                Room Description
+                                <asp:DropDownList ID="sddl3" runat="server">
+                                <asp:ListItem Value="Bedroom"></asp:ListItem>
+                                <asp:ListItem>Living Room</asp:ListItem>
+                                <asp:ListItem>Bathroom</asp:ListItem>
+                                <asp:ListItem>Basement</asp:ListItem>
+                                <asp:ListItem>Attic</asp:ListItem>
+                            </asp:DropDownList>
+                            </label>
+                        </sizes>
+                        <div class="break"></div>
+                        <sizes id="s4">
+                            <sizesbox>
+                                <input id="l4" type="number" class="length" placeholder="Length" runat="server" />
+                                <input id="w4" type="number" class="width" placeholder="Width" runat="server" />
+                            </sizesbox>
+                            <label>
+                                Room Description
+                                <asp:DropDownList ID="sddl4" runat="server">
+                                <asp:ListItem Value="Bedroom"></asp:ListItem>
+                                <asp:ListItem>Living Room</asp:ListItem>
+                                <asp:ListItem>Bathroom</asp:ListItem>
+                                <asp:ListItem>Basement</asp:ListItem>
+                                <asp:ListItem>Attic</asp:ListItem>
+                            </asp:DropDownList>
+                            </label>
+                        </sizes>
+                        <div class="break"></div>
+                        <sizes id="s5">
+                            <sizesbox>
+                                <input id="l5" type="number" class="length" placeholder="Length" runat="server" />
+                                <input id="w5" type="number" class="width" placeholder="Width" runat="server" />
+                            </sizesbox>
+                            <label>
+                                Room Description
+                                <asp:DropDownList ID="sddl5" runat="server">
+                                <asp:ListItem Value="Bedroom"></asp:ListItem>
+                                <asp:ListItem>Living Room</asp:ListItem>
+                                <asp:ListItem>Bathroom</asp:ListItem>
+                                <asp:ListItem>Basement</asp:ListItem>
+                                <asp:ListItem>Attic</asp:ListItem>
+                            </asp:DropDownList>
+                            </label>
+                        </sizes>
+                        <div class="break"></div>
+                        <sizes id="s6">
+                            <sizesbox>
+                                <input id="l6" type="number" class="length" placeholder="Length" runat="server" />
+                                <input id="w6" type="number" class="width" placeholder="Width" runat="server" />
+                            </sizesbox>
+                            <label>
+                                Room Description
+                                <asp:DropDownList ID="sddl6" runat="server">
+                                <asp:ListItem Value="Bedroom"></asp:ListItem>
+                                <asp:ListItem>Living Room</asp:ListItem>
+                                <asp:ListItem>Bathroom</asp:ListItem>
+                                <asp:ListItem>Basement</asp:ListItem>
+                                <asp:ListItem>Attic</asp:ListItem>
+                            </asp:DropDownList>
+                            </label>
+                        </sizes>
+                        <div class="break"></div>
+                        <sizes id="s7">
+                            <sizesbox>
+                                <input id="l7" type="number" class="length" placeholder="Length" runat="server" />
+                                <input id="w7" type="number" class="width" placeholder="Width" runat="server" />
+                            </sizesbox>
+                            <label>
+                                Room Description
+                                <asp:DropDownList ID="sddl7" runat="server">
+                                <asp:ListItem Value="Bedroom"></asp:ListItem>
+                                <asp:ListItem>Living Room</asp:ListItem>
+                                <asp:ListItem>Bathroom</asp:ListItem>
+                                <asp:ListItem>Basement</asp:ListItem>
+                                <asp:ListItem>Attic</asp:ListItem>
+                            </asp:DropDownList>
+                            </label>
+                        </sizes>
+                        <div class="break"></div>
+                        <sizes id="s8">
+                            <sizesbox>
+                                <input id="l8" type="number" class="length" placeholder="Length" runat="server" />
+                                <input id="w8" type="number" class="width" placeholder="Width" runat="server" />
+                            </sizesbox>
+                            <label>
+                                Room Description
+                                <asp:DropDownList ID="sddl8" runat="server">
+                                <asp:ListItem Value="Bedroom"></asp:ListItem>
+                                <asp:ListItem>Living Room</asp:ListItem>
+                                <asp:ListItem>Bathroom</asp:ListItem>
+                                <asp:ListItem>Basement</asp:ListItem>
+                                <asp:ListItem>Attic</asp:ListItem>
+                            </asp:DropDownList>
+                            </label>
+                        </sizes>
+                        <div class="break"></div>
+                        <sizes id="s9">
+                            <sizesbox>
+                                <input id="l9" type="number" class="length" placeholder="Length" runat="server" />
+                                <input id="w9" type="number" class="width" placeholder="Width" runat="server" />
+                            </sizesbox>
+                            <label>
+                                Room Description
+                                <asp:DropDownList ID="sddl9" runat="server">
+                                <asp:ListItem Value="Bedroom"></asp:ListItem>
+                                <asp:ListItem>Living Room</asp:ListItem>
+                                <asp:ListItem>Bathroom</asp:ListItem>
+                                <asp:ListItem>Basement</asp:ListItem>
+                                <asp:ListItem>Attic</asp:ListItem>
+                            </asp:DropDownList>
+                            </label>
+                        </sizes>
+                        <div class="break"></div>
+                        <sizes id="s10">
+                            <sizesbox>
+                                <input id="l10" type="number" class="length" placeholder="Length" runat="server" />
+                                <input id="w10" type="number" class="width" placeholder="Width" runat="server" />
+                            </sizesbox>
+                            <label>
+                                Room Description
+                                <asp:DropDownList ID="sddl10" runat="server">
+                                <asp:ListItem Value="Bedroom"></asp:ListItem>
+                                <asp:ListItem>Living Room</asp:ListItem>
+                                <asp:ListItem>Bathroom</asp:ListItem>
+                                <asp:ListItem>Basement</asp:ListItem>
+                                <asp:ListItem>Attic</asp:ListItem>
+                            </asp:DropDownList>
+                            </label>
+                        </sizes>
+                    </contentbox2>
+
                 </sellinginfobox>
                 <sellinginfobox style="overflow: scroll; flex-grow: 4;">
                     <asp:UpdatePanel ID="upImages" CssClass="updatePanel" runat="server" UpdateMode="Conditional">
@@ -111,8 +304,8 @@
 
                 </sellinginfobox>
             </sellinginfo>
-            <asp:Button ID="uploadHouse" Text="Sell House Individually" OnClick="Button1_Click" runat="server"/>
-            <asp:Button ID="findRealtor" Text="Find a Realtor" OnClick="findRealtor_Click" runat="server"/>
+            <asp:Button ID="uploadHouse" Text="Sell House Individually" OnClick="Button1_Click" runat="server" />
+            <asp:Button ID="findRealtor" Text="Find a Realtor" OnClick="findRealtor_Click" runat="server" />
         </form>
     </content>
     <script>

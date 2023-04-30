@@ -39,8 +39,7 @@
         <div class ="LoginBox">
         
             <asp:Image ID="Image1" ImageUrl ="~/pics/passwordTermProject.png"  runat="server" style="z-index: 1; left: 44px; top: 423px; position: absolute; height: 38px; width: 33px; bottom: 143px;" />
-            <asp:Panel ID="Panel1" runat="server" BackColor="#999999" ForeColor="#999999" style="z-index: 1; left: 41px; top: 465px; position: absolute; height: 1px; width: 384px">
-            </asp:Panel>
+            
         <asp:Label ID="lblPassword" runat="server" ForeColor="RoyalBlue" style="z-index: 1; left: 46px; top: 388px; position: absolute" Text="Password:"></asp:Label>
         
             <asp:Image ID="Image2" ImageUrl ="~/pics/loginUsernameTermProject.png"  runat="server" style="z-index: 1; left: 44px; top: 320px; position: absolute; height: 38px; width: 33px;" />

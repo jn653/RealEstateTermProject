@@ -196,7 +196,7 @@ namespace RealEstateTermProject
                 txtAddress.Text = brandNew.Address;
                 txtState.Text = brandNew.State;
                 txtUtilities.Text = brandNew.Utilities;
-                txtHomeSize.Text = brandNew.HomeSize.ToString();
+                //txtHomeSize.Text = brandNew.HomeSize.ToString();
                 lblConfim.Visible = false;
 
             }

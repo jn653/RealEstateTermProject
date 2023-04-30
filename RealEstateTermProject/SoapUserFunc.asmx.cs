@@ -126,7 +126,7 @@ namespace RealEstateTermProject
 
         //adding to requested seller table from show real estate comapny
         public void AddToRequestedSeller(string username, int userID, string address, string amentities, string state, decimal price, string city, string garage,
-           string description, int homesize, string houseImages, int year, int bathroom, int bedroom, string proptype, string utils, int AgentId)
+           string description, List<Room> rooms, string houseImages, int year, int bathroom, int bedroom, string proptype, string utils, int AgentId)
         {
             SqlCommand objCommand = new SqlCommand();
             objCommand.CommandType = CommandType.StoredProcedure;
@@ -142,7 +142,7 @@ namespace RealEstateTermProject
             objCommand.Parameters.AddWithValue("@theCiy", city);
             objCommand.Parameters.AddWithValue("@theGarage", garage);
             objCommand.Parameters.AddWithValue("@theHomeDescription", description);
-            objCommand.Parameters.AddWithValue("@theHomeSize", homesize);
+            objCommand.Parameters.AddWithValue("@theHomeSize", rooms);
             objCommand.Parameters.AddWithValue("@theHouseImages", houseImages);
             objCommand.Parameters.AddWithValue("@theHouseYear", year);
             objCommand.Parameters.AddWithValue("@theNumOfBathroom", bathroom);

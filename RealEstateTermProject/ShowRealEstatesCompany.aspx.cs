@@ -79,7 +79,7 @@ namespace RealEstateTermProject
 
 
 
-                    soapUser.AddToRequestedSeller(UserAccountName, objhouse.SellerID, objhouse.Address, objhouse.Amenities, objhouse.State, objhouse.AskingPrice, objhouse.City, objhouse.Garage, objhouse.HomeDescription, objhouse.HomeSize, objhouse.HouseImages,
+                    soapUser.AddToRequestedSeller(UserAccountName, objhouse.SellerID, objhouse.Address, objhouse.Amenities, objhouse.State, objhouse.AskingPrice, objhouse.City, objhouse.Garage, objhouse.HomeDescription, objhouse.Rooms, objhouse.HouseImages,
                         objhouse.HouseYear, objhouse.NumberOfBathrooms, objhouse.NumberOfBedrooms, objhouse.PropertyType, objhouse.Utilities, AgentId);
 
                     lblAgentChosen.Text = "The Agent" + " " + gvShowRealEstate.Rows[row].Cells[3].Text + " " + "Has been notified of your request to sell a house with them";

@@ -21,6 +21,7 @@ namespace RealEstateTermProject
         protected void Page_Load(object sender, EventArgs e)
         {
             Page.Form.Attributes.Add("enctype", "multipart/form-data");
+            
             //retrieving the username for the stored username in login and sign up page to use in other pages
             string UserAccountName = (string)Session["Username"];
             createImageUploads();
@@ -51,7 +52,7 @@ namespace RealEstateTermProject
                 lbl.Text = "Upload Image";
                 lbl.CssClass = "imageButton";
                 lbl.AssociatedControlID = fl.ID;
-                
+
                 c.Controls.Add(im);
                 c.Controls.Add(fl);
                 c.Controls.Add(lbl);
@@ -74,13 +75,13 @@ namespace RealEstateTermProject
             {
                 var c = FindControl($"uploadImage{i}");
                 var fl = (FileUpload)FindControl($"fl{i}");
-                
+
                 TextBox tb = (TextBox)FindControl($"tb{i}");
 
                 System.Diagnostics.Debug.Write(fl.ID);
                 System.Diagnostics.Debug.Write(fl.HasFile);
                 System.Diagnostics.Debug.WriteLine(fl.FileName);
-                
+
                 if (c.Visible && fl.HasFile)
                 {
                     fl.SaveAs($@"{dir}\{tb.Text}.jpeg");
@@ -114,14 +115,14 @@ namespace RealEstateTermProject
                 c.Visible = true;
                 fl.Visible = true;
             }
-            
+
 
         }
 
         protected void findRealtor_Click(object sender, EventArgs e)
         {
             House house = createHouse();
-           
+
             Session["House"] = house;
 
             Response.Redirect("ShowRealEstatesCompany.aspx");
@@ -137,7 +138,7 @@ namespace RealEstateTermProject
             House house = new House();
             house.Address = address.Value;
             house.PropertyType = propertyType.Value;
-            house.HomeSize = int.Parse(homeSize.Value);
+            house.Rooms = GrabRoomSizes();
             house.NumberOfBedrooms = int.Parse(numOfBed.Value);
             house.Amenities = amenities.Value;
             house.HouseYear = int.Parse(houseYear.Value);
@@ -162,40 +163,37 @@ namespace RealEstateTermProject
             //retrieving the account type from the stored session
             string AccountType = (string)Session["accountType"];
 
-            /*// stored procedure to get the user ID
-            SqlCommand objCommand50 = new SqlCommand();
-            objCommand50.CommandType = CommandType.StoredProcedure;
-            objCommand50.CommandText = "TP_RetrieveUserID";
-
-
-            objCommand50.Parameters.AddWithValue("@theUsername", UserAccountName);
-
-
-            SqlParameter outputParameter30 = new SqlParameter("@theID", SqlDbType.Int, 600);
-            outputParameter30.Direction = ParameterDirection.Output;
-            objCommand50.Parameters.Add(outputParameter30);
-
-
-
-
-            DBConnect objDB46 = new DBConnect();
-            objDB46.GetDataSet(objCommand50);
-
-            int UserID = Convert.ToInt32(objCommand50.Parameters["@theID"].Value.ToString());
-            */
-
-
-
             House house = createHouse();
 
-            /*
-            if (AccountType == "Home Seller")
-                house.SellerID = (int)Session["AccountID"];
-            else
-                house.RealEstateID = (int)Session["AccountID"];*/
-
             houseUtils.putHouse(house);
-            Response.Redirect("AddingHouseInfotoSellPage.aspx");
+            foreach(Room room in house.Rooms)
+            {
+                System.Diagnostics.Debug.WriteLine(room.RoomSizeL + "x" + room.RoomSizeW + " " + room.RoomDescription);
+            }
+            //Response.Redirect("AddingHouseInfotoSellPage.aspx");
+        }
+
+        protected List<Room> GrabRoomSizes()
+        {
+            List<Room> rs = new List<Room>();
+
+            for (int i = 0; i <= 10; i++)
+            {
+                HtmlInputGenericControl length = (HtmlInputGenericControl)FindControl($"l{i}");
+                HtmlInputGenericControl width = (HtmlInputGenericControl)FindControl($"w{i}");
+                DropDownList ddl = (DropDownList)FindControl($"sddl{i}");
+
+                if (length.Value != "" && width.Value != "")
+                {
+                    Room room = new Room();
+                    room.RoomSizeL = int.Parse(length.Value);
+                    room.RoomSizeW = int.Parse(width.Value);
+                    room.RoomDescription = ddl.SelectedValue;
+                    rs.Add(room);
+                }
+            }
+
+            return rs;
         }
     }
 }

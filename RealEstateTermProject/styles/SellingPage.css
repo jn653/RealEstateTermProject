@@ -159,6 +159,37 @@ sellingInfoBox {
     margin-top: 0;
     padding: 1rem;
     column-gap: 1rem;
+    max-width:25%;
+}
+
+contentBox2 {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    row-gap: .5rem;
+}
+
+.length, .width{
+    width:5rem;
+}
+
+.roomDesc{
+    flex-basis:100%;
+}
+
+sizes{
+    display:flex;
+    flex-direction:row;
+}
+
+sizes select{
+    max-height:2rem;
+}
+
+sizesBox{
+    display:flex;
+    flex-direction:column;
+    flex-basis:100%;
 }
 
     sellingInfoBox input[type=text], sellingInfoBox input[type=number] {
