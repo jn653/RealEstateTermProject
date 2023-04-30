@@ -77,7 +77,7 @@ namespace RealEstateTermProject
 
                     int AgentId = Convert.ToInt32(gvShowRealEstate.Rows[row].Cells[1].Text);
 
-
+                    
 
                     soapUser.AddToRequestedSeller(UserAccountName, objhouse.SellerID, objhouse.Address, objhouse.Amenities, objhouse.State, objhouse.AskingPrice, objhouse.City, objhouse.Garage, objhouse.HomeDescription, objhouse.Rooms, objhouse.HouseImages,
                         objhouse.HouseYear, objhouse.NumberOfBathrooms, objhouse.NumberOfBedrooms, objhouse.PropertyType, objhouse.Utilities, AgentId);
