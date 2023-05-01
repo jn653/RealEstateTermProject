@@ -102,6 +102,34 @@ namespace RealEstateTermProject
         }
 
 
+        public int GetAgentIDByAgentName(string AgentName)
+        {
+
+
+            SqlCommand objCommand50 = new SqlCommand();
+            objCommand50.CommandType = CommandType.StoredProcedure;
+            objCommand50.CommandText = "RetrieveAgentId";
+
+
+            objCommand50.Parameters.AddWithValue("@AgentName", AgentName);
+
+
+            SqlParameter outputParameter30 = new SqlParameter("@AgentId", SqlDbType.Int, 600);
+            outputParameter30.Direction = ParameterDirection.Output;
+            objCommand50.Parameters.Add(outputParameter30);
+
+
+
+
+            DBConnect objDB46 = new DBConnect();
+            objDB46.GetDataSet(objCommand50);
+
+            int AgentID = Convert.ToInt32(objCommand50.Parameters["@AgentId"].Value.ToString());
+
+            return AgentID;
+        }
+
+
         public List<String> GetUsernameAccountybyID(int id)
         {
             List<String> infoArray = new List<String>();
