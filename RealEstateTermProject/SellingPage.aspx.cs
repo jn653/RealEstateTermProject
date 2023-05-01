@@ -152,8 +152,9 @@ namespace RealEstateTermProject
 
             House house = createHouse();
 
-            house.RealEstateID = 
+            house.RealEstateID = SoapUser.GetAgentIDByAgentName(realtors.SelectedValue);
 
+            
             houseUtils.putHouse(house);
 
             houseUtils.updateStatus(houseUtils.getHouseId(house.Address), "Pending");
