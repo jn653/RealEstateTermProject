@@ -17,9 +17,9 @@ namespace RealEstateTermProject
         {
             Session["Username"] = "username";
 
-            gvMyHomes.DataSource = houseUtils.getHouses();
-            gvMyHomes.DataBind();
-            //loadGridview();
+            //gvMyHomes.DataSource = houseUtils.getHouses();
+            //gvMyHomes.DataBind();
+            loadGridview();
         }
 
 
@@ -86,25 +86,25 @@ namespace RealEstateTermProject
 
         }
 
-        protected void linkbtnView_Click2(object sender, EventArgs e)
-        {
+        //protected void linkbtnView_Click2(object sender, EventArgs e)
+        //{
 
-            if (IsPostBack)
-            {
-                int rowIndex = ((GridViewRow)(sender as Control).NamingContainer).RowIndex;
-                DBConnect objDB = new DBConnect();
+        //    if (IsPostBack)
+        //    {
+        //        int rowIndex = ((GridViewRow)(sender as Control).NamingContainer).RowIndex;
+        //        DBConnect objDB = new DBConnect();
 
-                int houseId = Convert.ToInt32(gvMyHomes.Rows[rowIndex].Cells[0].Text);
-
-
-                String strSQL = "SELECT * FROM TP_HouseSurvey WHERE HouseiD = " + houseId;
-                gvHouseFeedback.DataSource = objDB.GetDataSet(strSQL);
-                gvHouseFeedback.DataBind();
-
-            }
+        //        int houseId = Convert.ToInt32(gvMyHomes.Rows[rowIndex].Cells[0].Text);
 
 
-        }
+        //        String strSQL = "SELECT * FROM TP_Comments WHERE ID = " + houseId;
+        //        gvHouseFeedback.DataSource = objDB.GetDataSet(strSQL);
+        //        gvHouseFeedback.DataBind();
+
+        //    }
+
+
+        //}
 
 
         protected void gvMyHomes_RowCommand(object sender, GridViewCommandEventArgs e)
