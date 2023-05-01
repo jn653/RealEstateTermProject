@@ -12,8 +12,8 @@ namespace Utilities
 {
     public class HouseUtils
     {
-        //String connString = "https://cis-iis2.temple.edu/Spring2023/CIS3342_tuk60318/WebAPI/api/Houses"; //For when you run the api server side
-        String connString = "https://localhost:44398/api/Houses"; //For when you run the api client side
+        String connString = "https://cis-iis2.temple.edu/Spring2023/CIS3342_tuk60318/WebAPI/api/Houses"; //For when you run the api server side
+        //String connString = "https://localhost:44398/api/Houses"; //For when you run the api client side
         public HouseUtils() { }
 
         public HtmlGenericControl createSingleListing(int id)
@@ -414,7 +414,7 @@ namespace Utilities
         }*/
 
         public List<HouseImage> getImages(String address)
-        {
+        {/*
             WebRequest request = WebRequest.Create($"{connString}/images/{address}");
             WebResponse response = request.GetResponse();
 
@@ -423,7 +423,8 @@ namespace Utilities
             string data = streamReader.ReadToEnd();
 
             JavaScriptSerializer javaScriptSerializer = new JavaScriptSerializer();
-            List<HouseImage> images = javaScriptSerializer.Deserialize<List<HouseImage>>(data);
+            List<HouseImage> images = javaScriptSerializer.Deserialize<List<HouseImage>>(data);*/
+            List<HouseImage> images = new List<HouseImage>();
 
             return images;
         }
