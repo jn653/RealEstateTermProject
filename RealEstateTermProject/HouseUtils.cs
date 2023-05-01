@@ -353,6 +353,21 @@ namespace Utilities
 
         }
 
+        public void updateStatus(int id, String status)
+        {
+            // Create an object of the Customer class which is avaialable through the web service reference and WSDL
+            // Serialize a Customer object into a JSON string.
+
+            // Send the Customer object to the Web API that will be used to store a new customer record in the database.
+            // Setup an HTTP POST Web Request and get the HTTP Web Response from the server.
+            WebRequest request = WebRequest.Create($"{connString}/UpdateStatus?id={id}&status={status}");
+            WebResponse response = request.GetResponse();
+
+            Stream stream = response.GetResponseStream();
+            StreamReader streamReader = new StreamReader(stream);
+            string data = streamReader.ReadToEnd();
+        }
+
         public List<Comment> getCommentsForHouse(String address)
         {
             WebRequest request = WebRequest.Create($"{connString}/comments/{address}");
