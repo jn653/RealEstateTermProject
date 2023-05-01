@@ -414,7 +414,7 @@ namespace Utilities
         }*/
 
         public List<HouseImage> getImages(String address)
-        {/*
+        {
             WebRequest request = WebRequest.Create($"{connString}/images/{address}");
             WebResponse response = request.GetResponse();
 
@@ -423,8 +423,7 @@ namespace Utilities
             string data = streamReader.ReadToEnd();
 
             JavaScriptSerializer javaScriptSerializer = new JavaScriptSerializer();
-            List<HouseImage> images = javaScriptSerializer.Deserialize<List<HouseImage>>(data);*/
-            List<HouseImage> images = new List<HouseImage>();
+            List<HouseImage> images = javaScriptSerializer.Deserialize<List<HouseImage>>(data);
 
             return images;
         }
