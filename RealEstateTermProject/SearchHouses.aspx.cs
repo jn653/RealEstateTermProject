@@ -274,7 +274,7 @@ namespace RealEstateTermProject
                         break;
                 }
 
-                List<House> houses = houseUtils.getHousesStatePriceNumOfBed(ddlStates.SelectedValue, minPrice, maxPrice, int.Parse(ddlnumofBathrooms.SelectedValue));
+                List<House> houses = houseUtils.getHousesStatePriceNumOfBed(ddlStates.SelectedValue, minPrice, maxPrice, int.Parse(ddlnumofBedrooms.SelectedValue));
 
                 houselist = houses;
 
