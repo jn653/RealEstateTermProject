@@ -39,6 +39,7 @@ namespace RealEstateTermProject
             btnSearchHouse.Visible = false;
             hyperlinkBack.Visible = false;
             ddlStates.Visible = false;
+            ddlnumofBedrooms.Visible = false;
 
             createButtons(houselist);
         }
@@ -55,6 +56,8 @@ namespace RealEstateTermProject
                 ddlPropertyType.Visible = true;
                 AjaxComboCriteria.Visible = false;
                 hyperlinkBack.Visible = true;
+                ddlnumofBedrooms.Visible = false;
+
 
 
                 lblSearchByCriteria.Visible = false;
@@ -90,6 +93,9 @@ namespace RealEstateTermProject
                 ddlPrice.Visible = true;
                 AjaxComboCriteria.Visible = false;
                 hyperlinkBack.Visible = true;
+                ddlnumofBedrooms.Visible = true;
+                ddlnumofBathrooms.Visible = false;
+
 
 
                 lblSearchByCriteria.Visible = false;
@@ -104,6 +110,15 @@ namespace RealEstateTermProject
 
                 ddlStates.DataSource = myData2;
                 ddlStates.DataBind();
+
+                // populate the dropdown list for states witht the states in the database
+                DBConnect dbConnect2 = new DBConnect();
+                DataSet myData3 = dbConnect2.GetDataSet("Select DISTINCT NumberOfBedrooms FROM TP_Houses");
+
+                ddlnumofBedrooms.DataSource = myData3;
+                ddlnumofBedrooms.DataBind();
+
+
 
             }
             else if (AjaxComboCriteria.SelectedValue.Equals("City/Price"))
@@ -148,6 +163,14 @@ namespace RealEstateTermProject
 
                 lblSearchByCriteria.Visible = false;
                 btnsubmitCriteria.Visible = false;
+
+
+                // populate the dropdown list for states witht the states in the database
+                DBConnect dbConnect2 = new DBConnect();
+                DataSet myData3 = dbConnect2.GetDataSet("Select DISTINCT NumberOfBathrooms FROM TP_Houses");
+
+                ddlnumofBathrooms.DataSource = myData3;
+                ddlnumofBathrooms.DataBind();
             }
         }
 
@@ -167,6 +190,7 @@ namespace RealEstateTermProject
                 ddlPropertyType.Visible = true;
                 AjaxComboCriteria.Visible = false;
                 hyperlinkBack.Visible = true;
+                ddlnumofBedrooms.Visible = false;
 
 
                 lblSearchByCriteria.Visible = false;
@@ -189,7 +213,7 @@ namespace RealEstateTermProject
                         break;
                     case 2:
                         minPrice = 200000;
-                        maxPrice = float.MaxValue;
+                        maxPrice = 1000000;
                         break;
                 }
 
@@ -246,7 +270,7 @@ namespace RealEstateTermProject
                         break;
                     case 2:
                         minPrice = 200000;
-                        maxPrice = float.MaxValue;
+                        maxPrice = 1000000;
                         break;
                 }
 
@@ -261,6 +285,13 @@ namespace RealEstateTermProject
                 ddlStates.DataSource = myData2;
                 ddlStates.DataBind();
 
+
+                // populate the dropdown list for states witht the states in the database
+                DBConnect dbConnect2 = new DBConnect();
+                DataSet myData3 = dbConnect2.GetDataSet("Select DISTINCT NumberOfBedrooms FROM TP_Houses");
+
+                ddlnumofBedrooms.DataSource = myData3;
+                ddlnumofBedrooms.DataBind();
             }
             else if (AjaxComboCriteria.SelectedValue.Equals("City/Price"))
             {
@@ -295,7 +326,7 @@ namespace RealEstateTermProject
                         break;
                     case 2:
                         minPrice = 200000;
-                        maxPrice = float.MaxValue;
+                        maxPrice = 1000000;
                         break;
                 }
 
@@ -337,7 +368,7 @@ namespace RealEstateTermProject
                         break;
                     case 2:
                         minPrice = 200000;
-                        maxPrice = float.MaxValue;
+                        maxPrice = 1000000;
                         break;
                 }
 
@@ -347,6 +378,14 @@ namespace RealEstateTermProject
 
                 lblSearchByCriteria.Visible = false;
                 btnsubmitCriteria.Visible = false;
+
+
+                // populate the dropdown list for states witht the states in the database
+                DBConnect dbConnect2 = new DBConnect();
+                DataSet myData3 = dbConnect2.GetDataSet("Select DISTINCT NumberOfBathrooms FROM TP_Houses");
+
+                ddlnumofBathrooms.DataSource = myData3;
+                ddlnumofBathrooms.DataBind();
             }
 
             Response.Redirect("SearchHouses.aspx");
