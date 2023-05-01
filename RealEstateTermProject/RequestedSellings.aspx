@@ -43,7 +43,7 @@
                 </asp:ImageField>
                 <asp:BoundField DataField="HomeDescription" HeaderText="Description" SortExpression="HouseDescription" />
                  <asp:BoundField DataField="HomeSize" HeaderText="HomeSize" SortExpression="HomeSize" />
-                <asp:BoundField DataField="Id" HeaderText="ID" SortExpression="Address" />     
+                <asp:BoundField DataField="RequestedSellerId" HeaderText="Username" SortExpression="Username" />     
                 <asp:ButtonField ButtonType="Button" CommandName="Select" HeaderText="Select" ShowHeader="True" Text="Select" />
             </Columns>
         </asp:GridView>

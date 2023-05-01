@@ -102,7 +102,7 @@ namespace RealEstateTermProject
                 txtUtilities.Text = row.Cells[7].Text;
                 txtHomeSize.Text = row.Cells[13].Text;
 
-                Session["HouseId"] = row.Cells[14].Text;
+                //Session["HouseId"] = row.Cells[14].Text;
             }
         }
 

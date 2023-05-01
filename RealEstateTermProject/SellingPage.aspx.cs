@@ -178,7 +178,7 @@ namespace RealEstateTermProject
             objCommand.Parameters.AddWithValue("@thePropertyType", house.PropertyType);
             objCommand.Parameters.AddWithValue("@theUtilities", house.Utilities);
             objCommand.Parameters.AddWithValue("@agentId", house.RealEstateID);
-            objCommand.Parameters.AddWithValue("@SellerUsername", realtors.SelectedValue);
+            objCommand.Parameters.AddWithValue("@SellerUsername", UserAccountName);
             objCommand.Parameters.AddWithValue("@SellerID", UserID);
 
 
