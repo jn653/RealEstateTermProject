@@ -101,6 +101,42 @@ namespace RealEstateTermProject
             return UserID;
         }
 
+
+        public Array GetUsernameAccountybyID(int id)
+        {
+            string[] infoArray = new string[1];
+
+
+            SqlCommand objCommand50 = new SqlCommand();
+            objCommand50.CommandType = CommandType.StoredProcedure;
+            objCommand50.CommandText = "TP_RetrieveUsernameAccount";
+
+
+            objCommand50.Parameters.AddWithValue("@theID", id);
+
+
+            SqlParameter outputParameter30 = new SqlParameter("@theAccount", SqlDbType.Int, 600);
+            outputParameter30.Direction = ParameterDirection.Output;
+            objCommand50.Parameters.Add(outputParameter30);
+
+            SqlParameter outputParameter31 = new SqlParameter("@theUsername", SqlDbType.Int, 600);
+            outputParameter31.Direction = ParameterDirection.Output;
+            objCommand50.Parameters.Add(outputParameter31);
+
+
+
+
+            DBConnect objDB46 = new DBConnect();
+            objDB46.GetDataSet(objCommand50);
+
+            string accountType = objCommand50.Parameters["@theAccount"].Value.ToString();
+            string Username = objCommand50.Parameters["@theUsername"].Value.ToString();
+
+            infoArray[0] = accountType;
+            infoArray[1] = Username;
+
+            return infoArray;
+        }
         //adding the realestate company info after signup page
         public void AddRealEstateCompany(string username, int userID, string companyName, string phoneNumber, string agentName)
         {
