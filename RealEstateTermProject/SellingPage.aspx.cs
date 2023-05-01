@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Text;
 using System.Web.UI;
@@ -20,6 +21,11 @@ namespace RealEstateTermProject
             //retrieving the username for the stored username in login and sign up page to use in other pages
             string UserAccountName = (string)Session["Username"];
             createImageUploads();
+
+            DBConnect dbConnect2 = new DBConnect();
+            DataSet myData3 = dbConnect2.GetDataSet("Select DISTINCT AgentName FROM TP_RealEstateInfo");
+            realtors.DataSource = myData3;
+            realtors.DataBind();
         }
 
         private void createImageUploads()
@@ -145,6 +151,8 @@ namespace RealEstateTermProject
             }
 
             House house = createHouse();
+
+            house.RealEstateID = 
 
             houseUtils.putHouse(house);
 

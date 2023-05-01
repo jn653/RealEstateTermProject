@@ -150,6 +150,15 @@ namespace RealEstateTermProject
         protected global::System.Web.UI.HtmlControls.HtmlInputText city;
 
         /// <summary>
+        /// realtors control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList realtors;
+
+        /// <summary>
         /// contentBox2 control.
         /// </summary>
         /// <remarks>

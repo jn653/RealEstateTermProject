@@ -63,6 +63,9 @@
                     <input type="number" id="numOfBath" runat="server" required />
                     <label for="city">City</label>
                     <input id="city" runat="server" required />
+                    <label for="realtors">Realtor (Optional)</label>
+                    <asp:DropDownList id="realtors" AppendDataBoundItems="true" DataTextField="AgentName" runat="server">
+                    </asp:DropDownList>
                 </sellinginfobox>
                 <sellinginfobox style="overflow: scroll;">
                     <contentbox2 id="contentBox2" runat="server">
