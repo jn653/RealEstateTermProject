@@ -77,8 +77,8 @@ namespace RealEstateTermProject
             gvRequestors.DataSource = objDB.GetDataSet(strSQL);
             gvRequestors.DataBind();
 
-            
-           
+
+
         }
 
         protected void gvRequestors_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -102,13 +102,13 @@ namespace RealEstateTermProject
                 txtUtilities.Text = row.Cells[7].Text;
                 txtHomeSize.Text = row.Cells[13].Text;
 
-                //Session["HouseId"] = row.Cells[14].Text;
+                
             }
         }
 
         protected void btnSellhouse_Click(object sender, EventArgs e)
         {
-            //retrieving the username for the stored username in login and sign up page to use in other pages
+            ////retrieving the username for the stored username in login and sign up page to use in other pages
             string UserAccountName = (string)Session["Username"];
             int UserID = SoapUser.GetIDByUsername(UserAccountName);
 
