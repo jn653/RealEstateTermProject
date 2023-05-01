@@ -44,10 +44,7 @@ function navHomeSeller() {
             "href": "LandingPageforHomeSeller.aspx",
             "innerHTML": "Home"
         },
-        {
-            "href": "Listings.aspx",
-            "innerHTML": "Listings"
-        },
+       
         {
             "href": "SellingPage.aspx",
             "innerHTML": "Sell"
