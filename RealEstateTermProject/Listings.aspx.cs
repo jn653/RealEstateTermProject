@@ -10,6 +10,7 @@ using System.Web.UI.WebControls;
 using Utilities;
 using System.Web.DynamicData;
 using System.Collections;
+using System.Text;
 
 namespace RealEstateTermProject
 {
@@ -88,7 +89,7 @@ namespace RealEstateTermProject
                 comments.Controls.Add(content);
             }
 
-            foreach(Room room in rooms)
+            foreach (Room room in rooms)
             {
                 HtmlGenericControl desc = new HtmlGenericControl("h2");
                 HtmlGenericControl lw = new HtmlGenericControl("h3");
@@ -100,7 +101,7 @@ namespace RealEstateTermProject
                 homeSizes.Controls.Add(lw);
             }
 
-            foreach(HouseImage image in images)
+            foreach (HouseImage image in images)
             {
                 Image img = new Image();
                 img.ImageUrl = image.Url;
@@ -194,6 +195,26 @@ namespace RealEstateTermProject
         {
             Button button = sender as Button;
             showHomeInfo(button.SkinID);
+        }
+        private String GenerateRandomString()
+        {
+            int length = 15;
+
+            // creating a StringBuilder object()
+            StringBuilder str_build = new StringBuilder();
+            Random random = new Random();
+
+            char letter;
+
+            for (int i = 0; i < length; i++)
+            {
+                double flt = random.NextDouble();
+                int shift = Convert.ToInt32(Math.Floor(25 * flt));
+                letter = Convert.ToChar(shift + 65);
+                str_build.Append(letter);
+            }
+
+            return str_build.ToString();
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
@@ -15,7 +16,7 @@ namespace RealEstateTermProject
         protected void Page_Load(object sender, EventArgs e)
         {
             Page.Form.Attributes.Add("enctype", "multipart/form-data");
-            
+
             //retrieving the username for the stored username in login and sign up page to use in other pages
             string UserAccountName = (string)Session["Username"];
             createImageUploads();
@@ -70,12 +71,14 @@ namespace RealEstateTermProject
 
             for (int i = 0; i < 15; i++)
             {
+                String filename = GenerateRandomString();
+
                 var c = FindControl($"uploadImage{i}");
                 var fl = (FileUpload)FindControl($"fl{i}");
 
                 TextBox tb = (TextBox)FindControl($"tb{i}");
 
-                String imageDir = $@"pics/houses/{address.Value}/{tb.Text}.jpeg";
+                String imageDir = $@"pics/houses/{address.Value}/{filename}.jpeg";
 
                 System.Diagnostics.Debug.Write(fl.ID);
                 System.Diagnostics.Debug.Write(fl.HasFile);
@@ -83,7 +86,7 @@ namespace RealEstateTermProject
 
                 if (c.Visible && fl.HasFile)
                 {
-                    fl.SaveAs($@"{dir}\{tb.Text}.jpeg");
+                    fl.SaveAs($@"{dir}\{filename}.jpeg");
 
                     HouseImage image = new HouseImage();
                     image.Address = address.Value;
@@ -169,9 +172,9 @@ namespace RealEstateTermProject
             //retrieving the account type from the stored session
             string AccountType = (string)Session["accountType"];
 
-            foreach(House h in houseUtils.getHouses())
+            foreach (House h in houseUtils.getHouses())
             {
-                if(h.Address == address.Value)
+                if (h.Address == address.Value)
                 {
                     Response.Write("<script>alert('Unfortunately, that address already exists. Please enter a different address.')</script>");
                     return;
@@ -181,11 +184,10 @@ namespace RealEstateTermProject
             House house = createHouse();
 
             houseUtils.putHouse(house);
-            foreach(Room room in house.Rooms)
+            foreach (Room room in house.Rooms)
             {
                 System.Diagnostics.Debug.WriteLine(room.RoomSizeL + "x" + room.RoomSizeW + " " + room.RoomDescription);
             }
-            //Response.Redirect("AddingHouseInfotoSellPage.aspx");
         }
 
         private List<Room> GrabRoomSizes()
@@ -209,6 +211,27 @@ namespace RealEstateTermProject
             }
 
             return rs;
+        }
+
+        private String GenerateRandomString()
+        {
+            int length = 15;
+
+            // creating a StringBuilder object()
+            StringBuilder str_build = new StringBuilder();
+            Random random = new Random();
+
+            char letter;
+
+            for (int i = 0; i < length; i++)
+            {
+                double flt = random.NextDouble();
+                int shift = Convert.ToInt32(Math.Floor(25 * flt));
+                letter = Convert.ToChar(shift + 65);
+                str_build.Append(letter);
+            }
+
+            return str_build.ToString();
         }
     }
 }
