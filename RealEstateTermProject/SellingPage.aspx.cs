@@ -130,12 +130,25 @@ namespace RealEstateTermProject
 
         protected void findRealtor_Click(object sender, EventArgs e)
         {
+            //retrieving the username for the stored username in login and sign up page to use in other pages
+            string UserAccountName = (string)Session["Username"];
+            //retrieving the account type from the stored session
+            string AccountType = (string)Session["accountType"];
+
+            foreach (House h in houseUtils.getHouses())
+            {
+                if (h.Address == address.Value)
+                {
+                    Response.Write("<script>alert('Unfortunately, that address already exists. Please enter a different address.')</script>");
+                    return;
+                }
+            }
+
             House house = createHouse();
 
-            Session["House"] = house;
+            houseUtils.putHouse(house);
 
-            Response.Redirect("ShowRealEstatesCompany.aspx");
-
+            houseUtils.updateStatus(houseUtils.getHouseId(house.Address), "Pending");
         }
 
         private House createHouse()

@@ -69,6 +69,7 @@ namespace Utilities
 
                 for (int i = 0; i < houses.Count; i++)
                 {
+                    if(getStatus(houses[i].HouseID) == "For Sale")
                     listingBox.Controls.Add(createSingleListing(int.Parse(houses[i].HouseID.ToString())));
                 }
 
@@ -78,6 +79,36 @@ namespace Utilities
             {
                 return null;
             }
+        }
+
+        public int getHouseId(String address)
+        {
+            SqlCommand SQLcmd = new SqlCommand();
+            DBConnect objDB = new DBConnect();
+
+            try
+            {
+                int rowsAffected = 0;
+
+                SQLcmd.CommandType = CommandType.StoredProcedure;
+                SQLcmd.CommandText = "TP_GetHouseIdByAddress";
+
+                SqlParameter inputAddress = new SqlParameter("@address", address);
+
+                inputAddress.SqlDbType = SqlDbType.Int;
+
+                inputAddress.Size = 500;
+
+
+                SQLcmd.Parameters.Add(inputAddress);
+
+                DataSet ds = objDB.GetDataSet(SQLcmd);
+
+                int id = int.Parse(ds.Tables[0].Rows[0]["Id"].ToString());
+
+                return id;
+            }
+            catch (Exception ex) { return -1; }
         }
 
         public String getSpecificHouseInfo(int id, String info)
@@ -366,6 +397,18 @@ namespace Utilities
             Stream stream = response.GetResponseStream();
             StreamReader streamReader = new StreamReader(stream);
             string data = streamReader.ReadToEnd();
+        }
+
+        public String getStatus(int id)
+        {
+            WebRequest request = WebRequest.Create($"{connString}/GetStatus?id={id}");
+            WebResponse response = request.GetResponse();
+
+            Stream stream = response.GetResponseStream();
+            StreamReader streamReader = new StreamReader(stream);
+            string data = streamReader.ReadToEnd();
+
+            return data;
         }
 
         public List<Comment> getCommentsForHouse(String address)

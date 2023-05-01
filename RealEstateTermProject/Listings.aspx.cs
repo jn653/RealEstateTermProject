@@ -24,7 +24,7 @@ namespace RealEstateTermProject
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            houseUtils.updateStatus(42, "nope");
+            houseUtils.getStatus(42);
             createButtons(houseUtils.getHouses());
         }
 
