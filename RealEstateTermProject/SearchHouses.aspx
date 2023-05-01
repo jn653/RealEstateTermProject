@@ -49,10 +49,11 @@
                 <asp:DropDownList ID="ddlPropertyType" AppendDataBoundItems="true" DataTextField="PropertyType" runat="server">
                 </asp:DropDownList>
 
-                <asp:DropDownList ID="ddlnumofBathrooms" runat="server">
-                    <asp:ListItem>1</asp:ListItem>
-                    <asp:ListItem>2</asp:ListItem>
-                    <asp:ListItem>3+</asp:ListItem>
+                <asp:DropDownList ID="ddlnumofBathrooms"  AppendDataBoundItems="true" DataTextField="NumberOfBathrooms" runat="server">
+                    
+                </asp:DropDownList>
+                <asp:DropDownList ID="ddlnumofBedrooms"  AppendDataBoundItems="true" DataTextField="NumberOfBedrooms" runat="server">
+                    
                 </asp:DropDownList>
 
                 <h2 id="lblPrice" runat="server" >Price</h2>
