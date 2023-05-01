@@ -140,6 +140,8 @@ namespace RealEstateTermProject
             //retrieving the username for the stored username in login and sign up page to use in other pages
             string UserAccountName = (string)Session["Username"];
             //retrieving the account type from the stored session
+
+            int UserID = SoapUser.GetIDByUsername(UserAccountName);
             string AccountType = (string)Session["accountType"];
 
             foreach (House h in houseUtils.getHouses())
@@ -175,8 +177,9 @@ namespace RealEstateTermProject
             objCommand.Parameters.AddWithValue("@theNumOfBedrooms", house.NumberOfBedrooms);
             objCommand.Parameters.AddWithValue("@thePropertyType", house.PropertyType);
             objCommand.Parameters.AddWithValue("@theUtilities", house.Utilities);
-            objCommand.Parameters.AddWithValue("@SellerID", house.RealEstateID);
+            objCommand.Parameters.AddWithValue("@agentId", house.RealEstateID);
             objCommand.Parameters.AddWithValue("@SellerUsername", realtors.SelectedValue);
+            objCommand.Parameters.AddWithValue("@SellerID", UserID);
 
 
 
