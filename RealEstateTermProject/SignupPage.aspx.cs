@@ -45,6 +45,8 @@ namespace RealEstateTermProject
                 else
 
                     AccountType = "Home Buyer";
+                Session["accountType"] = AccountType;
+
 
                 //adding user account to database
                 SoapUser.addUserAccount(txtCreateUsername.Text, txtCreatePassword.Text, txtEmail.Text, AccountType.ToString(), lblseucrityquestion1question0.Text,
