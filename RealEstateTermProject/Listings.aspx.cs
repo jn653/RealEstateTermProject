@@ -19,6 +19,7 @@ namespace RealEstateTermProject
         DBConnect utils = new DBConnect();
         HouseUtils houseUtils = new HouseUtils();
         SqlCommand SQLcmd;
+        SoapUserFunc userFunc = new SoapUserFunc();
         House localHouse = new House();
 
         protected void Page_Load(object sender, EventArgs e)
@@ -74,6 +75,10 @@ namespace RealEstateTermProject
             comments.Controls.Clear();
             homeSizes.Controls.Clear();
 
+            List<String> info = userFunc.GetUsernameAccountybyID(house.SellerID);
+
+            sellerUsername.InnerText = info[1];
+            accountType.InnerText = info[0];
 
             List<Comment> lComments = houseUtils.getCommentsForHouse(house.Address);
             List<Room> rooms = house.Rooms;

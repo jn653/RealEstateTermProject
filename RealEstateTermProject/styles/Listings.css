@@ -104,8 +104,17 @@ input[type=submit]:hover {
     opacity: 70%;
 }
 
-input[type=text]{
-    max-height:3rem;
+input[type=number]{
+    max-height: 2.5rem;
+    max-width:35%;
+    margin:auto;
+    margin-top:30%;
+    margin-bottom: 1rem;
+    text-align:center;
+    background: none;
+    border: none;
+    border-radius: 0rem;
+    border-bottom: .01rem solid royalblue;
 }
 
 homeInfo {
@@ -283,6 +292,12 @@ commentBox {
     flex-direction: column;
 }
 
+sellerbox {
+    display: flex;
+    flex-basis:50%;
+    flex-direction: column;
+}
+
 images{
     height:75%;
     overflow:scroll;
@@ -322,6 +337,26 @@ contentBox3 {
     max-width:50%;
     background-color:whitesmoke;
     border-radius:1rem;
+}
+
+contentBox4 {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 4;
+    margin-left:1rem;
+    align-content:center;
+    gap:1rem;
+    margin-bottom: 5rem;
+    padding: 2rem;
+    flex-basis: 25%;
+    max-width: 50%;
+    background-color: whitesmoke;
+    border-radius: 1rem;
+}
+
+#lilbitofpadding {
+    padding: 2rem;
+    background-color:white;
 }
 
 body::-webkit-scrollbar, homeInfoFull::-webkit-scrollbar, commentBox::-webkit-scrollbar, images::-webkit-scrollbar {

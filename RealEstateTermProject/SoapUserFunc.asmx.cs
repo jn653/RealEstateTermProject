@@ -102,9 +102,9 @@ namespace RealEstateTermProject
         }
 
 
-        public Array GetUsernameAccountybyID(int id)
+        public List<String> GetUsernameAccountybyID(int id)
         {
-            string[] infoArray = new string[1];
+            List<String> infoArray = new List<String>();
 
 
             SqlCommand objCommand50 = new SqlCommand();
@@ -115,11 +115,11 @@ namespace RealEstateTermProject
             objCommand50.Parameters.AddWithValue("@theID", id);
 
 
-            SqlParameter outputParameter30 = new SqlParameter("@theAccount", SqlDbType.Int, 600);
+            SqlParameter outputParameter30 = new SqlParameter("@theAccount", SqlDbType.VarChar, 600);
             outputParameter30.Direction = ParameterDirection.Output;
             objCommand50.Parameters.Add(outputParameter30);
 
-            SqlParameter outputParameter31 = new SqlParameter("@theUsername", SqlDbType.Int, 600);
+            SqlParameter outputParameter31 = new SqlParameter("@theUsername", SqlDbType.VarChar, 600);
             outputParameter31.Direction = ParameterDirection.Output;
             objCommand50.Parameters.Add(outputParameter31);
 
@@ -132,8 +132,8 @@ namespace RealEstateTermProject
             string accountType = objCommand50.Parameters["@theAccount"].Value.ToString();
             string Username = objCommand50.Parameters["@theUsername"].Value.ToString();
 
-            infoArray[0] = accountType;
-            infoArray[1] = Username;
+            infoArray.Add(accountType);
+            infoArray.Add(Username);
 
             return infoArray;
         }
@@ -187,15 +187,9 @@ namespace RealEstateTermProject
             objCommand.Parameters.AddWithValue("@theUtilities", utils);
             objCommand.Parameters.AddWithValue("@agentId", AgentId);
 
-
-
-
-
             DBConnect objDB = new DBConnect();
             DataSet myDataSet;
             myDataSet = objDB.GetDataSet(objCommand);
-
-
         }
 
 
