@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.IO;
 using System.Text;
 using System.Web.UI;
@@ -154,7 +155,39 @@ namespace RealEstateTermProject
 
             house.RealEstateID = SoapUser.GetAgentIDByAgentName(realtors.SelectedValue);
 
-            
+            SqlCommand objCommand = new SqlCommand();
+            objCommand.CommandType = CommandType.StoredProcedure;
+            objCommand.CommandText = "TP_AddToRequestedSeller";
+
+
+
+            objCommand.Parameters.AddWithValue("@theAddress", house.Address);
+            objCommand.Parameters.AddWithValue("@theAmentities", house.Amenities);
+            objCommand.Parameters.AddWithValue("@theState", house.State);
+            objCommand.Parameters.AddWithValue("@thePrice", house.AskingPrice);
+            objCommand.Parameters.AddWithValue("@theCity", house.City);
+            objCommand.Parameters.AddWithValue("@theGarage", house.Garage);
+            objCommand.Parameters.AddWithValue("@theHomeDescription", house.HomeDescription);
+            objCommand.Parameters.AddWithValue("@theHomeSize", house.HomeSize);
+            objCommand.Parameters.AddWithValue("@theHouseImages", house.HouseImages);
+            objCommand.Parameters.AddWithValue("@theHouseYear", house.HouseYear);
+            objCommand.Parameters.AddWithValue("@theNumOfBathroom", house.NumberOfBathrooms);
+            objCommand.Parameters.AddWithValue("@theNumOfBedrooms", house.NumberOfBedrooms);
+            objCommand.Parameters.AddWithValue("@thePropertyType", house.PropertyType);
+            objCommand.Parameters.AddWithValue("@theUtilities", house.Utilities);
+            objCommand.Parameters.AddWithValue("@SellerID", house.RealEstateID);
+            objCommand.Parameters.AddWithValue("@SellerUsername", realtors.SelectedValue);
+
+
+
+
+
+            DBConnect objDB = new DBConnect();
+            DataSet myDataSet;
+            myDataSet = objDB.GetDataSet(objCommand);
+
+
+
             houseUtils.putHouse(house);
 
             houseUtils.updateStatus(houseUtils.getHouseId(house.Address), "Pending");
