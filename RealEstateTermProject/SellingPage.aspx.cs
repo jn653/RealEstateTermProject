@@ -15,6 +15,7 @@ namespace RealEstateTermProject
     {
         SoapUserFunc SoapUser = new SoapUserFunc();
         HouseUtils houseUtils = new HouseUtils();
+       
         protected void Page_Load(object sender, EventArgs e)
         {
             Page.Form.Attributes.Add("enctype", "multipart/form-data");
@@ -179,7 +180,7 @@ namespace RealEstateTermProject
             objCommand.Parameters.AddWithValue("@theUtilities", house.Utilities);
             objCommand.Parameters.AddWithValue("@agentId", house.RealEstateID);
             objCommand.Parameters.AddWithValue("@SellerUsername", UserAccountName);
-            objCommand.Parameters.AddWithValue("@SellerID", UserID);
+            objCommand.Parameters.AddWithValue("@SellerID", house.SellerID);
 
 
 
