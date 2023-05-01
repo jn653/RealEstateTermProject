@@ -1,0 +1,31 @@
+﻿body {
+    /*background-color: darkgray;*/
+    background-image: url(pics/indexbackground.jpg);
+}
+
+.startPage {
+    text-align: center;
+    margin: auto;
+    border: solid;
+    background-color: tan;
+    width: 500px;
+    height: max-content;
+}
+
+.firstProject {
+    text-align: center;
+    margin: auto;
+    border: solid;
+    background-color: tan;
+    width: 500px;
+    height: max-content;
+}
+
+.firstProjectBox {
+    text-align: center;
+    margin: auto;
+    border: solid;
+    background-color: tan;
+    width: 500px;
+    height: 100px;
+    font-size: large;

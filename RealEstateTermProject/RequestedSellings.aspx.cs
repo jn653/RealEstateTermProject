@@ -100,5 +100,10 @@ namespace RealEstateTermProject
                 txtHomeSize.Text = row.Cells[13].Text;
             }
         }
+
+        protected void btnSellhouse_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

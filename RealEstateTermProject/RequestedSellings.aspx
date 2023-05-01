@@ -50,7 +50,7 @@
 
 
 
-         <asp:Button ID="btnSellhouse" runat="server" BackColor="RoyalBlue" ForeColor="White" style="z-index: 1; left: 1155px; top: 403px; position: absolute; height: 41px; width: 141px" Text="Sell House" />
+         <asp:Button ID="btnSellhouse" runat="server" BackColor="RoyalBlue" ForeColor="White" style="z-index: 1; left: 1155px; top: 403px; position: absolute; height: 41px; width: 141px" Text="Sell House" OnClick="btnSellhouse_Click" />
 
 
 

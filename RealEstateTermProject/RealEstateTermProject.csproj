@@ -138,6 +138,7 @@
     <Content Include="pics\backgrounds\SellingPageBackground.png" />
     <Content Include="pics\emailforProject-removebg-preview.png" />
     <Content Include="pics\emailforProject.png" />
+    <Content Include="pics\indexbackground.jpg" />
     <Content Include="pics\leftarrowimage-removebg-preview.png" />
     <Content Include="pics\loginPageHouseTermProject.jpg" />
     <Content Include="pics\loginUsernameTermProject.png" />
