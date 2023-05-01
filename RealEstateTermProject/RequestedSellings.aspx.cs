@@ -13,7 +13,6 @@ namespace RealEstateTermProject
     public partial class RequestedSellings : System.Web.UI.Page
     {
         SoapUserFunc SoapUser = new SoapUserFunc();
-        HouseUtils house = new HouseUtils();
         protected void Page_Load(object sender, EventArgs e)
         {
             //retrieving the username for the stored username in login and sign up page to use in other pages
@@ -108,29 +107,31 @@ namespace RealEstateTermProject
 
         protected void btnSellhouse_Click(object sender, EventArgs e)
         {
+            HouseUtils house = new HouseUtils();
+
             ////retrieving the username for the stored username in login and sign up page to use in other pages
             string UserAccountName = (string)Session["Username"];
             int UserID = SoapUser.GetIDByUsername(UserAccountName);
 
-            int houseId = (int)Session["HouseId"];
+            int houseId = house.getHouseId(txtAddress.Text);
             string houseStatus = "For Sale";
             house.updateStatus(houseId, houseStatus);
 
 
-            SqlCommand objCommand = new SqlCommand();
-            objCommand.CommandType = CommandType.StoredProcedure;
-            objCommand.CommandText = "TP_UpdateRealEstateId";
+            //SqlCommand objCommand = new SqlCommand();
+            //objCommand.CommandType = CommandType.StoredProcedure;
+            //objCommand.CommandText = "TP_UpdateRealEstateId";
 
 
 
-            objCommand.Parameters.AddWithValue("@RealId", UserID);
-            objCommand.Parameters.AddWithValue("@HouseId", houseId);
+            //objCommand.Parameters.AddWithValue("@RealId", UserID);
+            //objCommand.Parameters.AddWithValue("@HouseId", houseId);
 
 
 
-            DBConnect objDB = new DBConnect();
-            DataSet myDataSet;
-            myDataSet = objDB.GetDataSet(objCommand);
+            //DBConnect objDB = new DBConnect();
+            //DataSet myDataSet;
+            //myDataSet = objDB.GetDataSet(objCommand);
 
 
         }
