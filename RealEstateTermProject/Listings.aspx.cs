@@ -74,6 +74,7 @@ namespace RealEstateTermProject
             comments.Controls.Clear();
             homeSizes.Controls.Clear();
 
+
             List<Comment> lComments = houseUtils.getCommentsForHouse(house.Address);
             List<Room> rooms = house.Rooms;
 
@@ -103,9 +104,17 @@ namespace RealEstateTermProject
 
             foreach (HouseImage image in images)
             {
+                HtmlGenericControl control = new HtmlGenericControl("div");
+                HtmlGenericControl h2 = new HtmlGenericControl("h2");
                 Image img = new Image();
+
                 img.ImageUrl = image.Url;
-                imageBox.Controls.Add(img);
+                h2.InnerHtml = image.ImageDescription;
+
+                control.Controls.Add(h2);
+                control.Controls.Add(img);
+
+                imageBox.Controls.Add(control);
             }
 
             Session["House"] = house;

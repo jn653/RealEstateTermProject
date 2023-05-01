@@ -79,6 +79,15 @@
                             <imagebox id="imageBox" runat="server">
                             </imagebox>
                         </images>
+                    </contentbox3>
+                    <contentbox3 style="flex-basis:100%;">
+                        <h1>Seller Info</h1>
+                        <commentBox id="sellerInfo" style="flex-direction:row;" runat="server">
+                            <h2>Seller Username</h2>
+                            <h1 id="sellerUsername" runat="server"></h1>
+                            <h2>Account Type</h2>
+                            <h1 id="accountType" runat="server"></h1>
+                        </commentBox>
 
                     </contentbox3>
                     <contentbox style="flex-direction: row;">

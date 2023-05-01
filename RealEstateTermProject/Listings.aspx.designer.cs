@@ -213,6 +213,33 @@ namespace RealEstateTermProject
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl imageBox;
 
         /// <summary>
+        /// sellerInfo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl sellerInfo;
+
+        /// <summary>
+        /// sellerUsername control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl sellerUsername;
+
+        /// <summary>
+        /// accountType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl accountType;
+
+        /// <summary>
         /// offerBox control.
         /// </summary>
         /// <remarks>

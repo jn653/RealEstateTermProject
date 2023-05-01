@@ -104,6 +104,10 @@ input[type=submit]:hover {
     opacity: 70%;
 }
 
+input[type=text]{
+    max-height:3rem;
+}
+
 homeInfo {
     z-index: 101;
     position: fixed;
