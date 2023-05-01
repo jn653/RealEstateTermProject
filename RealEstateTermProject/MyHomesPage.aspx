@@ -26,8 +26,6 @@
                     </ItemTemplate>
                 </asp:TemplateField>
                 
-                <asp:ButtonField ButtonType="Button" CommandName="Select" HeaderText="Update House" ShowHeader="True" Text="Update" />
-                
             </Columns>
         </asp:GridView>
         <asp:GridView ID="gvHouseFeedback" runat="server" style="z-index: 1; left: 810px; top: 385px; position: absolute; height: 180px; width: 289px">
