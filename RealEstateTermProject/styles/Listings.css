@@ -320,7 +320,6 @@ contentBox3 {
     border-radius:1rem;
 }
 
-
 body::-webkit-scrollbar, homeInfoFull::-webkit-scrollbar, commentBox::-webkit-scrollbar, images::-webkit-scrollbar {
     width: .5rem;
 }

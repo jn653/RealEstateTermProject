@@ -12,13 +12,13 @@ namespace Utilities
 {
     public class HouseUtils
     {
-       //String connString = "https://cis-iis2.temple.edu/Spring2023/CIS3342_tuk60318/WebAPI/api/Houses"; //For when you run the api server side
-       String connString = "https://localhost:44398/api/Houses"; //For when you run the api client side
+        //String connString = "https://cis-iis2.temple.edu/Spring2023/CIS3342_tuk60318/WebAPI/api/Houses"; //For when you run the api server side
+        String connString = "https://localhost:44398/api/Houses"; //For when you run the api client side
         public HouseUtils() { }
 
         public HtmlGenericControl createSingleListing(int id)
         {
-            
+
             try
             {
                 House house = getHouse(id);
@@ -38,9 +38,10 @@ namespace Utilities
                 address.InnerHtml = "Address: ";
                 addressInfo.InnerHtml = house.Address;
 
-                List<Image> images = GetImages(house);
+                List<HouseImage> images = getImages(house.Address);
 
-                image.ImageUrl = images[0].ImageUrl;
+                if (images.Count > 0)
+                    image.ImageUrl = images[0].Url;
 
                 price.InnerHtml = "Price: ";
                 priceInfo.InnerHtml = "$" + house.AskingPrice;
@@ -66,14 +67,14 @@ namespace Utilities
                 HtmlGenericControl listingBox = new HtmlGenericControl("listingBox");
                 listingBox.ID = "listingBox";
 
-                for(int i = 0; i < houses.Count; i++) 
+                for (int i = 0; i < houses.Count; i++)
                 {
                     listingBox.Controls.Add(createSingleListing(int.Parse(houses[i].HouseID.ToString())));
                 }
 
                 return listingBox;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return null;
             }
@@ -83,7 +84,7 @@ namespace Utilities
         {
             House house = getHouse(id);
 
-            var property = (typeof (House)).GetProperty(info).GetValue(house, null);
+            var property = (typeof(House)).GetProperty(info).GetValue(house, null);
 
             return property.ToString();
         }
@@ -100,7 +101,7 @@ namespace Utilities
                 SQLcmd.CommandType = CommandType.StoredProcedure;
                 SQLcmd.CommandText = "TP_MakeOffer";
 
-                SqlParameter inputHouseImages = new SqlParameter(@"houseImages", house.HouseImages);
+                SqlParameter inputHouseImages = new SqlParameter(@"houseImages", "undefinded");
                 SqlParameter inputAddress = new SqlParameter("@houseAddress", house.Address);
                 SqlParameter inputUserBuying = new SqlParameter("@userBuying", username);
                 SqlParameter inputSellerId = new SqlParameter("@sellerId", house.SellerID);
@@ -194,11 +195,17 @@ namespace Utilities
             WebResponse response = request.GetResponse();
 
             Stream stream = response.GetResponseStream();
-            StreamReader streamReader= new StreamReader(stream);
+            StreamReader streamReader = new StreamReader(stream);
             string data = streamReader.ReadToEnd();
 
             JavaScriptSerializer javaScriptSerializer = new JavaScriptSerializer();
-            House house = javaScriptSerializer.Deserialize<House> (data);
+            House house = javaScriptSerializer.Deserialize<House>(data);
+
+            house.Images = getImages(house.Address);
+            if (house.Images.Count > 0)
+                house.CoverImageUrl = house.Images[0].Url;
+            else
+                house.CoverImageUrl = "";
 
             return house;
         }
@@ -214,6 +221,15 @@ namespace Utilities
 
             JavaScriptSerializer javaScriptSerializer = new JavaScriptSerializer();
             List<House> houses = javaScriptSerializer.Deserialize<List<House>>(data);
+
+            foreach (House house in houses)
+            {
+                house.Images = getImages(house.Address);
+                if (house.Images.Count > 0)
+                    house.CoverImageUrl = house.Images[0].Url;
+                else
+                    house.CoverImageUrl = "";
+            }
 
             return houses;
         }
@@ -284,28 +300,57 @@ namespace Utilities
             // Serialize a Customer object into a JSON string.
             JavaScriptSerializer js = new JavaScriptSerializer();
             String jsonHouse = js.Serialize(house);
-            
-                // Send the Customer object to the Web API that will be used to store a new customer record in the database.
-                // Setup an HTTP POST Web Request and get the HTTP Web Response from the server.
-                WebRequest request = WebRequest.Create(connString);
-                request.Method = "POST";
-                request.ContentLength = jsonHouse.Length;
-                request.ContentType = "application/json";
 
-                // Write the JSON data to the Web Request
-                StreamWriter writer = new StreamWriter(request.GetRequestStream());
-                writer.Write(jsonHouse);
-                writer.Flush();
-                writer.Close();
+            // Send the Customer object to the Web API that will be used to store a new customer record in the database.
+            // Setup an HTTP POST Web Request and get the HTTP Web Response from the server.
+            WebRequest request = WebRequest.Create(connString);
+            request.Method = "POST";
+            request.ContentLength = jsonHouse.Length;
+            request.ContentType = "application/json";
 
-                // Read the data from the Web Response, which requires working with streams.
-                WebResponse response = request.GetResponse();
-                Stream theDataStream = response.GetResponseStream();
-                StreamReader reader = new StreamReader(theDataStream);
-                String data = reader.ReadToEnd();
-                reader.Close();
-                response.Close();
-            
+            // Write the JSON data to the Web Request
+            StreamWriter writer = new StreamWriter(request.GetRequestStream());
+            writer.Write(jsonHouse);
+            writer.Flush();
+            writer.Close();
+
+            // Read the data from the Web Response, which requires working with streams.
+            WebResponse response = request.GetResponse();
+            Stream theDataStream = response.GetResponseStream();
+            StreamReader reader = new StreamReader(theDataStream);
+            String data = reader.ReadToEnd();
+            reader.Close();
+            response.Close();
+        }
+
+        public void updateHouse(House house)
+        {
+            // Create an object of the Customer class which is avaialable through the web service reference and WSDL
+            // Serialize a Customer object into a JSON string.
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            String jsonHouse = js.Serialize(house);
+
+            // Send the Customer object to the Web API that will be used to store a new customer record in the database.
+            // Setup an HTTP POST Web Request and get the HTTP Web Response from the server.
+            WebRequest request = WebRequest.Create($"{connString}/UpdateHouse");
+            request.Method = "POST";
+            request.ContentLength = jsonHouse.Length;
+            request.ContentType = "application/json";
+
+            // Write the JSON data to the Web Request
+            StreamWriter writer = new StreamWriter(request.GetRequestStream());
+            writer.Write(jsonHouse);
+            writer.Flush();
+            writer.Close();
+
+            // Read the data from the Web Response, which requires working with streams.
+            WebResponse response = request.GetResponse();
+            Stream theDataStream = response.GetResponseStream();
+            StreamReader reader = new StreamReader(theDataStream);
+            String data = reader.ReadToEnd();
+            reader.Close();
+            response.Close();
+
         }
 
         public List<Comment> getCommentsForHouse(String address)
@@ -352,7 +397,7 @@ namespace Utilities
             response.Close();
         }
 
-        public List<Image> GetImages(House house)
+        /*public List<Image> GetImages(House house)
         {
             List<Image> images = new List<Image>();
             String dir = house.HouseImages;
@@ -366,6 +411,44 @@ namespace Utilities
             }
 
             return images;
+        }*/
+
+        public List<HouseImage> getImages(String address)
+        {
+            WebRequest request = WebRequest.Create($"{connString}/images/{address}");
+            WebResponse response = request.GetResponse();
+
+            Stream stream = response.GetResponseStream();
+            StreamReader streamReader = new StreamReader(stream);
+            string data = streamReader.ReadToEnd();
+
+            JavaScriptSerializer javaScriptSerializer = new JavaScriptSerializer();
+            List<HouseImage> images = javaScriptSerializer.Deserialize<List<HouseImage>>(data);
+
+            return images;
+        }
+
+        public void putImage(HouseImage image)
+        {
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            String jsonHouse = js.Serialize(image);
+
+            WebRequest request = WebRequest.Create($"{connString}/PostImage");
+            request.Method = "POST";
+            request.ContentLength = jsonHouse.Length;
+            request.ContentType = "application/json";
+
+            StreamWriter writer = new StreamWriter(request.GetRequestStream());
+            writer.Write(jsonHouse);
+            writer.Flush();
+            writer.Close();
+
+            WebResponse response = request.GetResponse();
+            Stream theDataStream = response.GetResponseStream();
+            StreamReader reader = new StreamReader(theDataStream);
+            String data = reader.ReadToEnd();
+            reader.Close();
+            response.Close();
         }
     }
 }

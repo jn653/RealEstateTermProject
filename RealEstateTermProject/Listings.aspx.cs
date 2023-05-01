@@ -49,10 +49,10 @@ namespace RealEstateTermProject
             int i = int.Parse(id);
 
             House house = houseUtils.getHouse(int.Parse(id));
-            List<Image> images = houseUtils.GetImages(house);
+            List<HouseImage> images = houseUtils.getImages(house.Address);
 
             homeAddress.InnerHtml = house.Address;
-            image.Src = images[0].ImageUrl;
+            image.Src = house.CoverImageUrl;
 
             homeDescription.InnerHtml = house.HomeDescription;
             houseSize.InnerHtml = house.HomeSize.ToString();
@@ -100,9 +100,11 @@ namespace RealEstateTermProject
                 homeSizes.Controls.Add(lw);
             }
 
-            foreach(Image image in images)
+            foreach(HouseImage image in images)
             {
-                imageBox.Controls.Add(image);
+                Image img = new Image();
+                img.ImageUrl = image.Url;
+                imageBox.Controls.Add(img);
             }
 
             Session["House"] = house;

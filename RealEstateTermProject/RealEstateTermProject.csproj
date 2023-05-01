@@ -162,6 +162,7 @@
     <Content Include="styles\SearchHouses.css" />
     <Content Include="styles\SellingPage.css" />
     <Content Include="TwoFactorEmail.aspx" />
+    <Content Include="UpdateHouse.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -320,6 +321,13 @@
     </Compile>
     <Compile Include="TwoFactorEmail.aspx.designer.cs">
       <DependentUpon>TwoFactorEmail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateHouse.aspx.cs">
+      <DependentUpon>UpdateHouse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UpdateHouse.aspx.designer.cs">
+      <DependentUpon>UpdateHouse.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

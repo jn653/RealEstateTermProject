@@ -75,6 +75,8 @@ namespace RealEstateTermProject
 
                 TextBox tb = (TextBox)FindControl($"tb{i}");
 
+                String imageDir = $@"pics/houses/{address.Value}/{tb.Text}.jpeg";
+
                 System.Diagnostics.Debug.Write(fl.ID);
                 System.Diagnostics.Debug.Write(fl.HasFile);
                 System.Diagnostics.Debug.WriteLine(fl.FileName);
@@ -82,10 +84,17 @@ namespace RealEstateTermProject
                 if (c.Visible && fl.HasFile)
                 {
                     fl.SaveAs($@"{dir}\{tb.Text}.jpeg");
+
+                    HouseImage image = new HouseImage();
+                    image.Address = address.Value;
+                    image.Url = imageDir;
+                    image.ImageDescription = tb.Text;
+
+                    houseUtils.putImage(image);
                 }
             }
 
-            return dir;
+            return "deprecated";
         }
 
         protected void AddFileUpload(object sender, EventArgs e)
@@ -126,7 +135,7 @@ namespace RealEstateTermProject
 
         }
 
-        public House createHouse()
+        private House createHouse()
         {
             //retrieving the username for the stored username in login and sign up page to use in other pages
             string UserAccountName = (string)Session["Username"];
@@ -160,6 +169,15 @@ namespace RealEstateTermProject
             //retrieving the account type from the stored session
             string AccountType = (string)Session["accountType"];
 
+            foreach(House h in houseUtils.getHouses())
+            {
+                if(h.Address == address.Value)
+                {
+                    Response.Write("<script>alert('Unfortunately, that address already exists. Please enter a different address.')</script>");
+                    return;
+                }
+            }
+
             House house = createHouse();
 
             houseUtils.putHouse(house);
@@ -170,7 +188,7 @@ namespace RealEstateTermProject
             //Response.Redirect("AddingHouseInfotoSellPage.aspx");
         }
 
-        protected List<Room> GrabRoomSizes()
+        private List<Room> GrabRoomSizes()
         {
             List<Room> rs = new List<Room>();
 

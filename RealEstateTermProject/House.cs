@@ -13,7 +13,9 @@ namespace Utilities
         public String Address { get; set; }
         public String PropertyType { get; set; }
         public int HomeSize { get; set; }
+        public String CoverImageUrl { get; set; }
         public List<Room> Rooms { get; set; }
+        public List<HouseImage> Images { get; set; }
         public int NumberOfBedrooms { get; set; }
         public String Amenities { get; set; }
         public int HouseYear { get; set; }
@@ -35,19 +37,6 @@ namespace Utilities
         {
             return HouseID + " " + Address;
         }
-        /*public House(int id, String name, String university)
-        {
-            this.TeamID = id;
-            this.Name = name;
-            this.University = university;
-        }
-        public House(int id, String name, String university, String mascot)
-        {
-            this.TeamID = id;
-            this.Name = name;
-            this.University = university;
-            this.Mascot = mascot;
-        }*/
     }
 
     public class Room
@@ -63,4 +52,12 @@ namespace Utilities
         public String Username { get; set; }
         public String Content { get; set; }
     }
+
+    public class HouseImage
+    {
+        public string Address { get; set; }
+        public String Url { get; set; }
+        public String ImageDescription { get; set; }
+    }
+
 }

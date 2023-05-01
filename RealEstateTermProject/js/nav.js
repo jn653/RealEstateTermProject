@@ -45,10 +45,6 @@ function nav() {
             "innerHTML": "Home"
         },
         {
-            "href": "LoginPage.aspx",
-            "innerHTML": "Buy"
-        },
-        {
             "href": "Listings.aspx",
             "innerHTML": "Listings"
         },
