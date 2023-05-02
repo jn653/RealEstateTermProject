@@ -7,7 +7,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <script src="js/navHomeSeller.js"></script>
-    <link href="styles/SellingPage.css" rel="stylesheet" />
+    <link href="styles/UpdateHouse.css" rel="stylesheet" />
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
     <script src="Scripts/bootstrap.bundle.min.js"></script>
     <script src="Scripts/bootstrap.min.js"></script>
@@ -31,7 +31,7 @@
                 </asp:ScriptManager>
                 <sellinginfobox>
                     <label for="address">Address</label>
-                    <input id="address" runat="server" required />
+                    <h5 id="address" runat="server"></h5>
                     <label for="propertyType">Property Type</label>
                     <asp:DropDownList ID="propertyType" Style="margin-bottom: 1rem; margin-top: 1rem;" runat="server">
                         <asp:ListItem>Single-Family</asp:ListItem>
@@ -256,18 +256,27 @@
                         </sizes>
                     </contentbox2>
 
-                </sellinginfobox>
-                <sellinginfobox style="overflow: scroll; flex-grow: 4;">
-                    <asp:UpdatePanel ID="upImages" CssClass="updatePanel" runat="server">
+            </sellinginfo>
+            <sellinginfo style="top: 35rem;">
+                <sellinginfobox style="overflow-x: hidden; overflow-y:scroll; max-width:50%; flex-basis: 50%;">
+                    <asp:UpdatePanel ID="UpdatePanel1" CssClass="updatePanel" runat="server">
                         <ContentTemplate>
-                            <contentbox id="contentBox" runat="server">
-                                <asp:Label Text="Images" runat="server"></asp:Label>
+                            <contentbox id="contentBox1" runat="server">
+                                <asp:Label Text="Current Images" runat="server"></asp:Label>
                                 <div class="break"></div>
                             </contentbox>
                         </ContentTemplate>
-
                     </asp:UpdatePanel>
-
+                </sellinginfobox>
+                <sellinginfobox style="overflow-x: hidden; overflow-y:scroll; max-width:50%; flex-basis: 50%;">
+                    <asp:UpdatePanel ID="UpdatePanel2" CssClass="updatePanel" runat="server">
+                        <ContentTemplate>
+                            <contentbox id="contentBox3" runat="server">
+                                <asp:Label Text="Add Images" runat="server"></asp:Label>
+                                <div class="break"></div>
+                            </contentbox>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
                 </sellinginfobox>
             </sellinginfo>
             <asp:Button ID="updateHouse" Text="Update House" OnClick="updateHouse_Click" runat="server" />

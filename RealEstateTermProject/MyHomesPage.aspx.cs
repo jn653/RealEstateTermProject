@@ -15,8 +15,6 @@ namespace RealEstateTermProject
         HouseUtils houseUtils = new HouseUtils();
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["Username"] = "username";
-
             //gvMyHomes.DataSource = houseUtils.getHouses();
             //gvMyHomes.DataBind();
             loadGridview();

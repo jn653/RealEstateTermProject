@@ -18,7 +18,7 @@ namespace RealEstateTermProject
 
             if (!IsPostBack)
             {
-                address.Value = house.Address;
+                address.InnerText = house.Address;
                 propertyType.SelectedValue = house.PropertyType;
                 numOfBed.Value = house.NumberOfBedrooms.ToString();
                 amenities.Value = house.Amenities;
@@ -44,8 +44,83 @@ namespace RealEstateTermProject
 
                     count++;
                 }
+
+                createCurrentImages(house.Images);
+                createAddImages();
+
             }
 
+        }
+        private void createCurrentImages(List<HouseImage> images)
+        {
+            int i = 0;
+            foreach (HouseImage image in images)
+            {
+                Control c = new Control();
+                c.ID = $"cuploadImage{i}";
+
+                Image im = new Image();
+                im.ImageUrl = image.Url;
+                im.ID = $"cim{i}";
+                /*
+                Button btn = new Button();
+                btn.ID = $"btn{i}";
+                btn.Text = "Delete Image";
+                btn.CssClass = "imageButton";
+                btn.SkinID = image.Url;
+                btn.Click += new EventHandler(deleteImage_Click);*/
+                HtmlInputGenericControl btn = new HtmlInputGenericControl("button");
+                btn.ID = image.Url;
+                btn.Attributes["onclick"] = $"{test(btn.ID, btn.ID)}";
+
+                Label b = new Label();
+                b.CssClass = "break";
+
+                c.Controls.Add(im);
+                c.Controls.Add(btn);
+                c.Controls.Add(b);
+
+                FindControl("contentBox1").Controls.Add(c);
+            }
+        }
+
+        private void createAddImages()
+        {
+            for (int i = 0; i < 15; i++)
+            {
+                Control c = new Control();
+                c.ID = $"auploadImage{i}";
+
+                Image im = new Image();
+                im.ID = $"im{i}";
+                im.CssClass = "imageImg";
+
+                FileUpload fl = new FileUpload();
+                fl.ID = $"fl{i}";
+                fl.Attributes.Add("onchange", $"changeButton({i})");
+
+                TextBox tb = new TextBox();
+                tb.ID = $"tb{i}";
+                tb.CssClass = "imageCaption";
+                tb.Attributes.Add("placeholder", "Image Caption");
+
+                Label lbl = new Label();
+                lbl.ID = $"lbl{i}";
+                lbl.Text = "Upload Image";
+                lbl.CssClass = "imageButton";
+                lbl.AssociatedControlID = fl.ID;
+
+                Label b = new Label();
+                b.CssClass = "break";
+
+                c.Controls.Add(im);
+                c.Controls.Add(fl);
+                c.Controls.Add(lbl);
+                c.Controls.Add(tb);
+                c.Controls.Add(b);
+
+                FindControl("contentBox3").Controls.Add(c);
+            }
         }
 
         private House createHouse()
@@ -53,7 +128,7 @@ namespace RealEstateTermProject
             //retrieving the username for the stored username in login and sign up page to use in other pages
             House house = new House();
             house.HouseID = (Session["UpdateHouse"] as House).HouseID;
-            house.Address = address.Value;
+            house.Address = address.InnerText;
             house.PropertyType = propertyType.SelectedValue;
             house.Rooms = GetRooms();
             house.HomeSize = GetRoomSizes(house.Rooms);
@@ -104,6 +179,17 @@ namespace RealEstateTermProject
             }
 
             return size;
+        }
+
+        private object test(String id, String s)
+        {
+            System.Diagnostics.Debug.WriteLine(id);
+            return null;
+        }
+
+        protected void deleteImage_Click(object sender, EventArgs e)
+        {
+
         }
 
         protected void updateHouse_Click(object sender, EventArgs e)
