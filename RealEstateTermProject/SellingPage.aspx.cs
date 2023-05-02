@@ -243,6 +243,9 @@ namespace RealEstateTermProject
             House house = createHouse();
 
             houseUtils.putHouse(house);
+
+            houseUtils.updateStatus(houseUtils.getHouseId(house.Address), "For Sale");
+
             foreach (Room room in house.Rooms)
             {
                 System.Diagnostics.Debug.WriteLine(room.RoomSizeL + "x" + room.RoomSizeW + " " + room.RoomDescription);
