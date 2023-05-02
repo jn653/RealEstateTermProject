@@ -16,8 +16,7 @@ namespace RealEstateTermProject
         HouseUtils houseUtils = new HouseUtils();
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            Session["UpdateHouse"] = houseUtils.getHouse(46);
+            
             House house = (House)Session["UpdateHouse"];
 
             if (!IsPostBack)
