@@ -1,5 +1,5 @@
 ﻿
-#uploadHouse {
+#updateHouse {
     align-self: center;
     padding-top: .2rem;
     color: white;
@@ -10,7 +10,7 @@
     margin-bottom: 1rem;
 }
 
-#findRealtor {
+#cancel {
     align-self: center;
     left: 5rem;
     padding-top: .2rem;
@@ -22,7 +22,7 @@
     margin-bottom: 1rem;
 }
 
-#uploadHouse:hover {
+#updateHouse:hover {
     transition: .2s;
     opacity: 70%;
 }
@@ -31,7 +31,7 @@ h3 {
     color: gray;
 }
 
-#findRealtor:hover {
+#cancel:hover {
     transition: .2s;
     opacity: 70%;
 }

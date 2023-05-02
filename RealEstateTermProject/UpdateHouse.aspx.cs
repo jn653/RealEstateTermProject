@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
@@ -14,10 +16,13 @@ namespace RealEstateTermProject
         HouseUtils houseUtils = new HouseUtils();
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            Session["UpdateHouse"] = houseUtils.getHouse(46);
             House house = (House)Session["UpdateHouse"];
 
             if (!IsPostBack)
             {
+
                 address.InnerText = house.Address;
                 propertyType.SelectedValue = house.PropertyType;
                 numOfBed.Value = house.NumberOfBedrooms.ToString();
@@ -44,13 +49,47 @@ namespace RealEstateTermProject
 
                     count++;
                 }
-
                 createCurrentImages(house.Images);
-                createAddImages();
+            }
+            createAddImages();
+        }
 
+        public String UploadFile()
+        {
+            String dir = $@"{Server.MapPath("~/")}pics\houses\{address.InnerText}";
+
+            System.Diagnostics.Debug.WriteLine(dir);
+
+            if (!Directory.Exists(dir))
+                Directory.CreateDirectory(dir);
+
+            for (int i = 0; i < 15; i++)
+            {
+                String filename = GenerateRandomString();
+
+                var fl = (FileUpload)FindControl($"fl{i}");
+
+                TextBox tb = (TextBox)FindControl($"tb{i}");
+
+                String imageDir = $@"pics/houses/{address.InnerText}/{filename}.jpeg";
+
+
+                if (fl.HasFile)
+                {
+                    fl.SaveAs($@"{dir}\{filename}.jpeg");
+
+                    HouseImage image = new HouseImage();
+                    image.Address = address.InnerText;
+                    image.Url = imageDir;
+                    image.ImageDescription = tb.Text;
+
+                    houseUtils.putImage(image);
+                }
             }
 
+            return "deprecated";
         }
+
         private void createCurrentImages(List<HouseImage> images)
         {
             int i = 0;
@@ -62,25 +101,34 @@ namespace RealEstateTermProject
                 Image im = new Image();
                 im.ImageUrl = image.Url;
                 im.ID = $"cim{i}";
-                /*
-                Button btn = new Button();
+
+                Button button = new Button();
+                button.ID = $"tempbtn{i}";
+                button.Style.Add("display", "none");
+                button.SkinID = image.Url;
+                button.Click += new EventHandler(deleteImage_Click);
+
+                Label btn = new Label();
                 btn.ID = $"btn{i}";
                 btn.Text = "Delete Image";
                 btn.CssClass = "imageButton";
-                btn.SkinID = image.Url;
-                btn.Click += new EventHandler(deleteImage_Click);*/
-                HtmlInputGenericControl btn = new HtmlInputGenericControl("button");
+                btn.AssociatedControlID = $"tempbtn{i}";
+
+                //= $"{houseUtils.deleteImage("pics/houses/image testing 7/BIDLFKLBRMGHFFX.jpeg")}";
+                /*HtmlInputGenericControl btn = new HtmlInputGenericControl("button");
                 btn.ID = image.Url;
-                btn.Attributes["onclick"] = $"{test(btn.ID, btn.ID)}";
+                btn.Attributes["onclick"] = $"{test(btn.ID, btn.ID)}";*/
 
                 Label b = new Label();
                 b.CssClass = "break";
 
                 c.Controls.Add(im);
+                c.Controls.Add(button);
                 c.Controls.Add(btn);
                 c.Controls.Add(b);
 
                 FindControl("contentBox1").Controls.Add(c);
+                i++;
             }
         }
 
@@ -139,7 +187,7 @@ namespace RealEstateTermProject
             house.Utilities = utilities.Value;
             house.HomeDescription = homeDescription.Value;
             house.AskingPrice = decimal.Parse(askingPrice.Value);
-            house.HouseImages = "deprecated";
+            house.HouseImages = UploadFile();
             house.State = state.Value;
             house.NumberOfBathrooms = int.Parse(numOfBath.Value);
             house.City = city.Value;
@@ -181,15 +229,16 @@ namespace RealEstateTermProject
             return size;
         }
 
-        private object test(String id, String s)
+        private void test()
         {
-            System.Diagnostics.Debug.WriteLine(id);
-            return null;
+            Response.Redirect("loginpage.aspx");
         }
 
         protected void deleteImage_Click(object sender, EventArgs e)
         {
-
+            Button button = (Button)sender;
+            houseUtils.deleteImage(button.SkinID);
+            Response.Redirect("UpdateHouse.aspx");
         }
 
         protected void updateHouse_Click(object sender, EventArgs e)
@@ -200,6 +249,27 @@ namespace RealEstateTermProject
         protected void cancel_Click(object sender, EventArgs e)
         {
             Response.Redirect("MyHomesPage.aspx");
+        }
+
+        private String GenerateRandomString()
+        {
+            int length = 15;
+
+            // creating a StringBuilder object()
+            StringBuilder str_build = new StringBuilder();
+            Random random = new Random();
+
+            char letter;
+
+            for (int i = 0; i < length; i++)
+            {
+                double flt = random.NextDouble();
+                int shift = Convert.ToInt32(Math.Floor(25 * flt));
+                letter = Convert.ToChar(shift + 65);
+                str_build.Append(letter);
+            }
+
+            return str_build.ToString();
         }
     }
 }

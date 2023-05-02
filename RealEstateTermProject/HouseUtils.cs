@@ -12,8 +12,8 @@ namespace Utilities
 {
     public class HouseUtils
     {
-        String connString = "https://cis-iis2.temple.edu/Spring2023/CIS3342_tuk60318/WebAPI/api/Houses"; //For when you run the api server side
-        //String connString = "https://localhost:44398/api/Houses"; //For when you run the api client side
+        //String connString = "https://cis-iis2.temple.edu/Spring2023/CIS3342_tuk60318/WebAPI/api/Houses"; //For when you run the api server side
+        String connString = "https://localhost:44398/api/Houses"; //For when you run the api client side
         public HouseUtils() { }
 
         public HtmlGenericControl createSingleListing(int id)
@@ -231,6 +231,35 @@ namespace Utilities
                 SQLcmd.Parameters.Add(inputHouseAddress);
 
                 rowsAffected = objDB.DoUpdate(SQLcmd);
+                if (rowsAffected > 0)
+                    return true;
+                return false;
+            }
+            catch (Exception ex) { return false; }
+        }
+
+        public bool deleteImage(String url)
+        {
+            SqlCommand SQLcmd = new SqlCommand();
+            DBConnect objDB = new DBConnect();
+
+            try
+            {
+                int rowsAffected = 0;
+
+                SQLcmd.CommandType = CommandType.StoredProcedure;
+                SQLcmd.CommandText = "TP_DeleteImage";
+
+                SqlParameter inputUrl = new SqlParameter("@url", url);
+
+                inputUrl.SqlDbType = SqlDbType.VarChar;
+
+                inputUrl.Size = 5000;
+
+                SQLcmd.Parameters.Add(inputUrl);
+
+                rowsAffected = objDB.DoUpdate(SQLcmd);
+
                 if (rowsAffected > 0)
                     return true;
                 return false;
