@@ -86,29 +86,47 @@ namespace Utilities
             SqlCommand SQLcmd = new SqlCommand();
             DBConnect objDB = new DBConnect();
 
-            try
-            {
-                int rowsAffected = 0;
+            //try
+            //{
+            //    int rowsAffected = 0;
 
-                SQLcmd.CommandType = CommandType.StoredProcedure;
-                SQLcmd.CommandText = "TP_GetHouseIdByAddress";
+            //    SQLcmd.CommandType = CommandType.StoredProcedure;
+            //    SQLcmd.CommandText = "TP_GetHouseIdByAddress";
 
-                SqlParameter inputAddress = new SqlParameter("@address", address);
+            //    SqlParameter inputAddress = new SqlParameter("@address", address);
 
-                inputAddress.SqlDbType = SqlDbType.Int;
+            //    inputAddress.SqlDbType = SqlDbType.Int;
 
-                inputAddress.Size = 500;
+            //    inputAddress.Size = 500;
 
 
-                SQLcmd.Parameters.Add(inputAddress);
+            //    SQLcmd.Parameters.Add(inputAddress);
 
-                DataSet ds = objDB.GetDataSet(SQLcmd);
+            //    DataSet ds = objDB.GetDataSet(SQLcmd);
 
-                int id = int.Parse(ds.Tables[0].Rows[0]["Id"].ToString());
+            //    int id = int.Parse(ds.Tables[0].Rows[0]["Id"].ToString());
 
-                return id;
-            }
-            catch (Exception ex) { return -1; }
+            //    return id;
+            //}
+            //catch (Exception ex) { return -1; }
+            SqlCommand objCommand20 = new SqlCommand();
+            objCommand20.CommandType = CommandType.StoredProcedure;
+            objCommand20.CommandText = "TP_GetHouseIdByAddress2";
+
+            objCommand20.Parameters.AddWithValue("@address", address);
+
+            SqlParameter outputParameter = new SqlParameter("@id", SqlDbType.Int, 600);
+            outputParameter.Direction = ParameterDirection.Output;
+            objCommand20.Parameters.Add(outputParameter);
+
+            
+            DataSet myDataSet;
+            myDataSet = objDB.GetDataSet(objCommand20);
+
+
+            int houseId = Convert.ToInt32(objCommand20.Parameters["@id"].Value.ToString());
+
+            return houseId;
         }
 
         public String getSpecificHouseInfo(int id, String info)

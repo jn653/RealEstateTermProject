@@ -114,6 +114,8 @@ namespace RealEstateTermProject
             int UserID = SoapUser.GetIDByUsername(UserAccountName);
 
             int houseId = house.getHouseId(txtAddress.Text);
+
+            
             string houseStatus = "For Sale";
             house.updateStatus(houseId, houseStatus);
 
